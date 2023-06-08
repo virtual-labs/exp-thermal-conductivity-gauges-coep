@@ -1,0 +1,52 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "The principle of Pirani gauge is based on _________ of the medium.",
+      "answers": {
+        "a": "Combustibility",
+        "b": "Humidity",
+        "c": "Thermal conductivity",
+        "d": "None of these"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which gauge measures pressures by sensing changes in the thermal conductivity of a gas?",
+      "answers": {
+        "a": "Pirani gauge",
+        "b": "Slack diaphragm gauge",
+        "c": "Mcleod gauge",
+        "d": "None of them"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "A thermocouple gauge is one type of:",
+      "answers": {
+        "a": "Thermal conductivity gauge",
+        "b": "Mcleod gauge",
+        "c": "Ionization gauge",
+        "d": "None of these"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+	
+	
+	{
+      "question": "The full range from atmospheric pressure to a perfect vacuum is: ",
+      "answers": {
+        "a": "0.40 torr",
+        "b": " 7.14 psi",
+        "c": "0.01 torr",
+        "d": "14.7 psi"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    }
+	
+  ]
+}

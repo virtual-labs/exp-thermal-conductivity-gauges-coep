@@ -1,0 +1,55 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "Diaphragms used in pressure application are:",
+      "answers": {
+        "a": "light ",
+        "b": "slack",
+        "c": "small in size",
+        "d": "bimetallic"
+      },
+     
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+	
+    {
+      "question": "In calibrating a pressure instrument ,we first adjust its –",
+      "answers": {
+        "a": "Span",
+        "b": "Zero",
+        "c": "Linearity",
+        "d": "Output"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "Instruments that measure pressure are generally classified as:",
+      "answers": {
+        "a": "Non-linear",
+        "b": "Linear",
+        "c": "Free of hysteresis",
+        "d": "None of these"
+      },
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "Which instrument is called force balance pressure transducer?",
+      "answers": {
+        "a": "Servo pressure transducer",
+        "b": "Thermocouple gauge",
+        "c": "Thermal conductivity gauge",
+        "d": "Pirani gauge"
+      },
+     
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+  ]
+}
