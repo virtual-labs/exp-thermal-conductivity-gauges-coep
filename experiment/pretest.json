@@ -2,38 +2,51 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "The principle of Pirani gauge is based on _________ of the medium.",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Combustibility",
+        "b": "Humidity",
+        "c": "Thermal conductivity",
+        "d": "None of these"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which gauge measures pressures by sensing changes in the thermal conductivity of a gas?",
+      "answers": {
+        "a": "Pirani gauge",
+        "b": "Slack diaphragm gauge",
+        "c": "Mcleod gauge",
+        "d": "None of them"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "A thermocouple gauge is one type of:",
+      "answers": {
+        "a": "Thermal conductivity gauge",
+        "b": "Mcleod gauge",
+        "c": "Ionization gauge",
+        "d": "None of these"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
-    {
-      "question": "This is a Sample Question 2?",
+	
+	
+	{
+      "question": "The full range from atmospheric pressure to a perfect vacuum is: ",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "0.40 torr",
+        "b": " 7.14 psi",
+        "c": "0.01 torr",
+        "d": "14.7 psi"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "c",
+      "correctAnswer": "d",
       "difficulty": "beginner"
     }
+	
   ]
 }
