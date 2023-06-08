@@ -2,37 +2,53 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "Diaphragms used in pressure application are:",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "light ",
+        "b": "slack",
+        "c": "small in size",
+        "d": "bimetallic"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+     
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+	
+    {
+      "question": "In calibrating a pressure instrument ,we first adjust its –",
+      "answers": {
+        "a": "Span",
+        "b": "Zero",
+        "c": "Linearity",
+        "d": "Output"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
-    {
-      "question": "This is a Sample Question 2?",
+	
+	{
+      "question": "Instruments that measure pressure are generally classified as:",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Non-linear",
+        "b": "Linear",
+        "c": "Free of hysteresis",
+        "d": "None of these"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "Which instrument is called force balance pressure transducer?",
+      "answers": {
+        "a": "Servo pressure transducer",
+        "b": "Thermocouple gauge",
+        "c": "Thermal conductivity gauge",
+        "d": "Pirani gauge"
       },
-      "correctAnswer": "c",
+     
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
