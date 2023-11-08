@@ -2,50 +2,64 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "Diaphragms used in pressure application are:",
+      "question": "What material is used in Pirani gauge?",
       "answers": {
-        "a": "light ",
-        "b": "slack",
-        "c": "small in size",
-        "d": "bimetallic"
+        "a": "gold plated tungsten or platinum",
+        "b": "Copper and Platinum",
+        "c": "Tungsten or Aluminium",
+        "d": "Inconel"
       },
-     
-      "correctAnswer": "c",
+  
+      "correctAnswer": "a",
       "difficulty": "beginner"
     },
-	
     {
-      "question": "In calibrating a pressure instrument ,we first adjust its –",
+      "question": "Pirani Gauge is used for which type of transducer?",
       "answers": {
-        "a": "Span",
-        "b": "Zero",
-        "c": "Linearity",
-        "d": "Output"
+        "a": "Pressure transducer",
+        "b": "Temperature transducer",
+        "c": "Light transducer",
+        "d": "Mechanical transducer"
       },
+     
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
 	
 	{
-      "question": "Instruments that measure pressure are generally classified as:",
+      "question": "A pressure gauge used to measure vacuum indicates a gauge pressure of 5 kPa. If the atmospheric is 100 kPa, the absolute pressure is",
       "answers": {
-        "a": "Non-linear",
-        "b": "Linear",
-        "c": "Free of hysteresis",
-        "d": "None of these"
+        "a": "0.05 kPa",
+        "b": "105 kPa",
+        "c": "95 kPa",
+        "d": "20 kPa"
       },
      
       "correctAnswer": "b",
       "difficulty": "beginner"
-    },
+    },	
+
 	
 	{
-      "question": "Which instrument is called force balance pressure transducer?",
+      "question": "What are the different types of Pirani gauges?",
       "answers": {
-        "a": "Servo pressure transducer",
-        "b": "Thermocouple gauge",
-        "c": "Thermal conductivity gauge",
-        "d": "Pirani gauge"
+        "a": "Pulsed Pirani Guage",
+        "b": "Wire Guage",
+        "c": "Bourdon gauge",
+        "d": "Feeler gauge"
+      },
+     
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+
+	{
+      "question": "Semiconductors used for temperature measurement are called _______.",
+      "answers": {
+        "a": "thermistors",
+        "b": "thermopiles",
+        "c": "resistance temperature detectors",
+        "d": "pyrometers"
       },
      
       "correctAnswer": "a",
