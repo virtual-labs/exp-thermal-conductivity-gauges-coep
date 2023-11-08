@@ -1,44 +1,65 @@
-#### Introduction 
 
-**PIRANI AND THERMOCOUPLE GAUGES**
+### INTRODUCTION :
 
-The backing lines and roughing gauges require something more accurate when reaching a lower pressure than the capsule gauges. The thermocouple or Pirani gauge fits this requirement. These gauges use a current to heat a wire. The heated wire loses heat to the gas molecules that collide with the wire. Thus the higher the pressure the greater the number of molecules colliding with the wire and hence more heat is lost and the temperature of the wire is reduced. 
+The Pirani gauge is a device used to measure pressure, especially in vacuum systems. The Pirani gauge consists of a metal filament (usually platinum) suspended in a tube which is connected to the system whose vacuum is to be measured. The connection is usually made either by a ground glass joint or a flanged metal connector, sealed with an O-ring. The sensor wire is connected to an electrical circuit from which, after calibration, a pressure reading may be taken.
+Below fig. shows overview of Pirani gauge. 
+![1](images/piraniGuage.png)
 
-In the Pirani gauge, the wire is part of a bridge circuit and a change in the wire resistance can be measured. Similarly, if the pressure decreases the temperature of the wire will increase and again the changed resistance can be measured. The resistance is converted into a reading of pressure. 
+### WORKING OF THE PIRANI GAUGE : 
+The heating filament is heated by a constant current. Therefore, Temperature of heating filament will increase. For a given magnitude of current, temperature of heating filament depends upon rate of heat dis- septation to surrounding medium, i.e., Gas by means of conduction and convection. After heating, the heating filament is placed or connected to vacuum or low-pressure surrounding gas medium. Now since, the heating filament is surrounded by vacuum or low-pressure gas, then thermal conductivity (i.e., ability of heating filament to give away heat to sur- rounding medium) of heating filament will also decrease. In such condition, the heating filament will be hotter. Change in temperature of heating filament will lead to change in resistance of wire, which can be measured by using Wheatstone bridge. The current under unbalanced condition is indicated by an ammeter in mA. We obtain an output reading, which is a function of temperature of heating filament and hence, the function of pressure of surrounding gas.
+![2](images/schematic-diagram-for-Pirani-gauge.png)
 
-In the thermocouple gauge, a thermocouple is spot welded directly to the resistance wire and so a direct temperature measurement is taken and converted into a pressure measurement. The gauges are sensitive to the type of gas in the system. The different gases have different masses and hence will take different amounts of heat out of the wire. However, this does mean that if the gauge is calibrated using air and is then used to measure a process gas such as Argon, there will be an error in the pressure measurement. The error is reproducible and so in most cases the pressure is accepted as being a relative, but reproducible, measure of pressure 
+### Pirani Wheatstone bridge : 
 
-![1](images/figure1.PNG)
+Wheatstone Bridge is an instrument designed to measure unknown resistance in electrical circuits. It calculates the unknown resistance by balancing the two legs of the bridge circuit where one leg contains both known resistors and the other leg contains one known (variable) and one unknown resistor. Since it estimates unknown resistance in an electric circuit, it is also known as a resistance bridge. Wheatstone bridge is a very reliable instrument as it measures the resistance very precisely.
+A conducting wire gets heated when electric current flows through it. The rate at which heat is dissipated from this wire depends on the conductivity of the surrounding media. 
+The conductivity of the surrounding media in-turn depends on the density of the surrounding media (that is, lower pressure of the surrounding media, lower will be its density). If the density of the surrounding media is low, its conductivity also will be low causing the wire to become hotter for a given current flow, and vice versa.
+![3](images/Pirani-Gauge.png)
+The Pirani wire filament is typically operated in a balanced Wheatstone bridge circuit where one leg of the bridge is the Pirani filament and the other three elements of the bridge circuit balance and temperature compensate the circuit.
+The filament wire is maintained at a constant temperature and when the gas density changes and thereby thermal conductivity changes the energy required to maintain the wire changes accordingly. Consequently, the voltage supply to the Wheatstone bridge becomes vacuum pressure dependent and the measured bridge voltage can be converted to a pressure value.
+The Pirani gauge measures the thermal conductivity of the gas and therefore the measurement is dependent of the gas properties.
+McWilliams proposed a model that describes the thermal conductivity of Pt
+(Kpt) as a function of P and T: Kpt = aP + bT + κ0 (a, b, and K0 are constants). Here, we used
+the same form and determined the values of a, b, and K0 from our current and previous Kpt
+data and the recommended values at ambient pressure. The revised model based
+on this study is as follows:
 
-**Construction and Working of Pirani Gauge** 
+kPt = 0.953P + 0.0137T + 61.8(W/m/K)
 
-A typical form of Pirani gauge is shown in Figure 15.9a. This is similar to a thermocouple gauge but has a heated element that consists of four coiled tungsten wires connected in parallel. Two identical tubes are normally used, connected in a bridge circuit, as shown in Figure 15.9b, with one containing the gas at unknown pressure and the other evacuated to a very low pressure. Current is passed through the tungsten element, which attains a certain temperature according to the thermal conductivity of the gas. The resistance of the element changes with temperature and causes an imbalance of the measurement bridge. Thus, the Pirani gauge avoids the use of a thermocouple to measure temperature (as in the thermocouple gauge) by effectively using a resistance thermometer as the heated element. Such gauges cover the pressure range 105 to 1 mbar.
+the credibility of the pressure coefficient (a) and the temperature coefficient
+(b) has increased due to the expansion of the experimental P–T ranges.
+To solve for output voltage, Vout, given the Rx resistance, we use Kirchoff's Voltage Law (KVL) and Kirchoff's Current Law (KCL) to arrive at the following equation:
+![4](images/formulaVout.png)
+Where:
+Vout = differential voltage across the Wheatstone bridge, in volts
+Vin = input voltage to the Wheatstone bridge, in volts
+Rx = resistor values, expressed in ohms
 
-![2](images/figure2.PNG)
+### Operation of Pirani gauge :
 
-**Construction and Working**
+1.	A constant current is passed through the filament in the Pirani gauge chamber. Due to this current, the filament gets heated and assumes a resistance which is measured using the bridge.
+2.	Now the pressure to be measured (applied pressure) is connected to the Pirani gauge chamber. Due to the applied pressure the density of the surrounding of the Pirani gauge filament changes. Due to this change in density of the surrounding of the filament its conductivity changes causing the temperature of the filament to change.
+3.	When the temperature of the filament changes, the resistance of the filament also changes.
+4.	Now the change in resistance of the filament is determined using the bridge.
+5.	This change in resistance of the Pirani gauge filament becomes a measure of the applied pressure when calibrated.
+Note: [higher pressure – higher density – higher conductivity – reduced filament temperature – less resistance of filament] and vice versa.
 
-The thermocouple gauge is one of a group of gauges working on the thermal conductivity principle. At low pressure, the kinematic theory of gases predicts a linear relationship between pressure and thermal conductivity. Thus measurement of thermal conductivity gives an indication of pressure. Figure 15.8 shows a sketch of a thermocouple gauge. Operation of the gauge depends on the thermal conduction of heat between a thin hot metal strip in the center and the cold outer surface of a glass tube (that is normally at room temperature). The metal strip is heated by passing a current through it and its temperature is measured by a thermocouple. The temperature measured depends on the thermal conductivity of the gas in the tube and hence on its pressure. A source of error in this instrument is the fact that heat is also transferred by radiation as well as conduction. This error is of a constant magnitude, independent of pressure. Hence, it can be measured, and thus correction can be made for it. However, it is usually more convenient to design for low radiation loss by choosing a heated element with low emissivity. Thermocouple gauges are typically used to measure pressures in the range 104 mbar up to 1 mbar.
+### Applications of Pirani gauge :
+Used to measure low vacuum and ultra-high vacuum pressures.
 
-![3](images/figure3.PNG)
+### Advantages of Pirani gauge :
 
-**Advantages of thermal conduction vacuum gauges**
+1.	Can read very low pressure from 1.33 × 10-6 bar to 1.33 × 10-3 bar (i.e., 0.133 Pa to 13.3 Pa).
+2.	Relation between pressure and resistance is linear for the range of use.
+3.	Portable.
 
-1. The thermal conduction vacuum gauge reflects the full pressure, that is, the true pressure of the tested container.
-2. The thermal conduction vacuum gauge can measure continuously and support remote-reading.
-3. The thermal conduction vacuum gauge has simple structure and it is easy to manufacture.
-4. Even if suddenly encounter the atmosphere, the heat transfer vacuum gauge will not be burned.
+### Limitations of Pirani gauge :
+1.	Pirani gauge must be checked frequently.
+2.	Pirani gauge must be calibrated from different gases.
+3.	Electric power is a must for its operation.
 
-**Disadvantages of thermal conduction vacuum gauges**
 
-1. The calibration curve varies with the type of gas, so the calibration curve for air can not be directly used for other gases.
-2. The thermal conduction vacuum gauge has the thermal inertia for measuring. The temperature change of the hot wire often lags when the pressure changes, and the reading also lags behind for some time.
-3. The thermal conduction vacuum gauge is affected seriously by of the outside temperature, so the gauge should be installed in a place that is not susceptible to radiation or convection heat.
-4. Because of serious aging, it must be calibrated regularly.
 
-**Applications** 
 
-Pressure gauges have a broad range of industrial applications spanning research and development to nautical and manufacturing. More importantly, gauge sensors are used in manufacturing to ensure the proper functioning of equipment to guarantee worker safety.
 
-Pharmaceutical, paper milling, and offshore oil drilling companies are other sectors that heavily rely on vacuum technologies for their day-to-day operations. Petroleum refineries and chemical plants use vacuum pressure gauges to move gas and liquid materials through their systems. Site workers rely on pressure instruments to remove pollutants from working sites.
 
