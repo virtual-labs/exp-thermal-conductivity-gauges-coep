@@ -1,6 +1,8 @@
+var tableMainDiv1;
+
 function tableReading(){
 	
-	var tableMainDiv = '<div class="row ">'
+	 tableMainDiv1 = '<div class="row ">'
 					+'<div class="col-sm-12">'
 			        + '<table class=" table table-bordered " style="margin:10px; text-align: center">'
 					+ ' <thead>'
@@ -17,7 +19,7 @@ function tableReading(){
 					
 					for(i=0,p=1;i<masterJson.demo.length;i++,p++)
 						{
-						tableMainDiv+='    <tr>'
+						tableMainDiv1+='    <tr>'
 							+'		<td>'+p+'</td>'
 							+'      <td>'+masterJson.demo[i].pressure+'</td>'
 							+'      <td>'+masterJson.demo[i].temperature+'</td>'
@@ -28,10 +30,9 @@ function tableReading(){
 							
 						}
 						
-			
 						
 						
 						
-					$("#table-design").html(tableMainDiv);	
+					$("#table-design").html(tableMainDiv1);	
 	iteration++;
 }

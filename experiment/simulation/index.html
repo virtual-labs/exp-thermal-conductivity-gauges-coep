@@ -26,14 +26,17 @@
  src: url('font/digital-7.ttf');
 }
 </style>
-<body >
+<body>
 
 <header>
 		<img class="COEPLogo" src='images/COEPlogo.png' />
 		<img class="VlabLogo" src='images/vlablogo.jpg' />
 		<span id="colgName">COEP TECHNOLOGICAL UNIVERSITY PUNE</span>		
+	</header>	
+
 		
-	</header>
+		
+	
 	<div  class="row container" style="margin-top:20px;">
 	<div  class="col-sm-2">
 <!-- 	 <label for="sel1">Select list (select one):</label> -->
@@ -57,7 +60,7 @@
 	             <div class="panel panel-primary" >
 	      			<div class="panel-heading " id="panelHeading2" ><center id="centerText2"> DIAGRAM</center>
 	      			</div>
-	      			<label  id="counter"></label>
+<!-- 	      			<label  id="counter"></label> -->
 	      			<div class="panel-body" id="canvas-div" >
 	      			
 	      			<img src="images/piraniDiag.png "  class="img-fluid" >
@@ -77,15 +80,41 @@
 	      			</div>
 	     			<div class="panel-body" id="main-div-conf" >
 	     			          
-<!-- 	     			<label>Select Type of load sell </label> -->
+
 	     			</div>
-	     		
+	     		<div class="panel-body" id="graph2" >
+
+	      			</div>
 	     		</div>
 	   	</div>
 	   
 
 			
 	</div>
+	
+	<!-- 	Model Start -->
+	<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+		<h4 class="modal-title" style="font-weight: 600;"></h4>
+          <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
+          
+        </div>
+        <div class="modal-body">
+          <p id="MsgModal"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btnModal" class="btn" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!--   Model end -->
+	
 	
 	<footer>
 Copyrights &copy; COEP - Virtual Lab
@@ -114,5 +143,6 @@ Copyrights &copy; COEP - Virtual Lab
 <script type="text/javascript" src="src/table.js"></script>
 <script type="text/javascript" src="src/digitalMeterCalculate.js"></script>
 <script type="text/javascript" src="src/digitalTable.js"></script>
+<script type="text/javascript" src="src/tableWithGraph.js"></script>
 
 </html>
