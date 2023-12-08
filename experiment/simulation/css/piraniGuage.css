@@ -26,11 +26,11 @@ hr.new3 {
   border-top: 10px dotted red;
 }
 
-#temp,#outputVoltage,#pressVal,#calRx,#temp1,#pressVal1
+#temp,#outputVoltage,#pressVal,#calRx,#temp1,#temp12,#pressVal1,#pressVal12
 {
-			background-color: #2c3c4c;
-			color:#fff;
-			padding:5px 20px 5px 5px;
+			background-color: #c5c5e2;
+			color:black;
+			padding:5px 5px 5px 5px;
 			margin: 5px;
 }
 
@@ -61,11 +61,12 @@ hr.new3 {
 /* 	box-shadow: 0 5px #999; */
 }
 #questionDiv .queno
-{ background-color:#1d2b37; 
-padding:12px; color:#fff; 
-font-size: 20px;
- border-radius: 10px; 
- font-family: Cambria, Georgia, serif;
+{ background-color: #1d2b37;
+    padding: 8px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+    font-family: Cambria, Georgia, serif;
  }
  
  #testSubmit,#nextLevelConfig
@@ -113,10 +114,20 @@ background-color:#072647;
 {
 	padding:0px;
 }  
-.errorMsgf
-{
-	
-}
+
 #alertMsgBox{
 	margin-top:25px;
+}
+
+#temp
+{
+			background-color: #2c3c4c;
+    color: #fff;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.highcharts-point 
+{
+	fill:red;
 }
