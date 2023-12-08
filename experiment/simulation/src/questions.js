@@ -41,33 +41,33 @@
 
 			questions += '<div class="buttonDiv">'
 				+ '<button  class="btn btn-danger" data-toggle="modal" data-target="#myModal" id="testSubmit">Submit Test</button>'
-		+ '<button  class="btn btn-danger" id="nextLevelConfig" hidden>Next Level</button>'
-				
+		        + '<button  class="btn btn-danger" id="nextLevelConfig" hidden>Next Level</button>'
+			    + '</div>'	
 				
 
-				+ ' <!-- Modal -->'
-				+ '<div class="modal fade" id="myModal" role="dialog">'
-				+ ' <div class="modal-dialog modal-md">'
-				+ '    <div class="modal-content">'
-				+ '     <div class="modal-header">'
-				
-				+ '       <h4 class="modal-title">Message box</h4>'
-				+ '       <button type="button" class="close" data-dismiss="modal" style="color:#fff;">&times;</button>'
-				+ '     </div>'
-				+ '     <div class="modal-body">'
-				+ '       <p id="modelMsg">This is a small modal.</p>'
-				+ '     </div>'
-				+ '     <div class="modal-footer">'
-				+ '       <button type="button" class="btn btn-danger" id = "nextPage" data-dismiss="modal" >Okay</button>'
-				+'</style>'
-				+ '     </div>'
-				
-				+ '   </div>'
-				+ ' </div>'
-				+ '</div>'
-				+ '</div>'
+//				+ ' <!-- Modal -->'
+//				+ '<div class="modal fade" id="myModal" role="dialog">'
+//				+ ' <div class="modal-dialog modal-md">'
+//				+ '    <div class="modal-content">'
+//				+ '     <div class="modal-header">'
+//				
+//				+ '       <h4 class="modal-title">Message box</h4>'
+//				+ '       <button type="button" class="close" data-dismiss="modal" style="color:#fff;">&times;</button>'
+//				+ '     </div>'
+//				+ '     <div class="modal-body">'
+//				+ '       <p id="modelMsg">This is a small modal.</p>'
+//				+ '     </div>'
+//				+ '     <div class="modal-footer">'
+//				+ '       <button type="button" class="btn btn-danger" id = "nextPage" data-dismiss="modal" >Okay</button>'
+//				+'</style>'
+//				+ '     </div>'
+//				
+//				+ '   </div>'
+//				+ ' </div>'
+//				+ '</div>'
+//				
 
-				+ ' </div>'	
+//				+ ' </div>'	
 		
 
 			$("#main-div-conf").html(questions);
@@ -93,7 +93,11 @@
 							flag = flag && false;
 //							alert('Please attempt all the questions');
 							$("body").css("padding","0px");
-							$("#modelMsg").html("<b class='boldTextRed'>Please attempt all the questions.</b>");
+							$(".modal-header").html("Error Message");
+							$(".modal-header").css("background","#9c1203b0");
+							$("#btnModal").removeClass("btn-success").addClass("btn-danger");
+							$("#MsgModal").html("Please attempt all the questions");
+//							$("#modelMsg").html("<b class='boldTextRed'>Please attempt all the questions.</b>");
 							break;
 						}
 						arr.push({
@@ -114,8 +118,11 @@
 						dataQues.corrAns = ansCount;
 						 data.corrAns = dataQues;
 						 console.log(data);
-						 
-						 $("#modelMsg").html("<b class='boldTextGreen'>Test Submitted Successfully .<br> Number of Correct Answers  : " + ansCount+"</b>");
+						 $("#btnModal").removeClass("btn-danger").addClass("btn-success");
+	                     $(".modal-header").html("Success Message");
+				         $(".modal-header").css("background","#5cb85c");
+						 $("#MsgModal").html("Test Submitted Successfully .<br> Number of Correct Answers  : " + ansCount);
+//						 $("#modelMsg").html("<b class='boldTextGreen'>Test Submitted Successfully .<br> Number of Correct Answers  : " + ansCount+"</b>");
                          $('#nextLevelConfig').prop('hidden',false);
 						 
 						    $('#testSubmit').prop('hidden',true); 

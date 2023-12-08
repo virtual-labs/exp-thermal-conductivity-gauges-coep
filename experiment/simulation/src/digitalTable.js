@@ -1,9 +1,11 @@
+
+var tableMainDiv;
 function digiTable(){
 	
 	
 							
 						
-	var tableMainDiv = '<div class="row ">'
+	 tableMainDiv = '<div class="row ">'
 					+'<div class="col-sm-12">'
 			        + '<table class=" table table-bordered " style="margin:10px; text-align: center">'
 					+ ' <thead>'
