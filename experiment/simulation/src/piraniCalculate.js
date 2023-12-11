@@ -23,7 +23,7 @@ function calculate(){
 	 var r1 = paper.circle(x+110,y+170,30).attr({'stroke' : '#000' , 'stroke-width' : 3 ,'fill':"#fff"}).toFront();
 	 var rect1 = paper.rect(x+480,y+110,60,40).attr({'stroke' : '#000' , 'stroke-width' : 3 });
 	 var txt = paper.text(x+510,y+90,"Vaccum").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-	 var rx_txt= paper.text(x+290,y+100,"Rx").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
+	 var rx_txt= paper.text(x+284,y+100,"Rx : ").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
 	 var volt_text = paper.text(x-43,y+190,vin+"V").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
 	 var r1txt = paper.text(x+25,y+110,"R2 :"+r+"").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
      var r2txt = paper.text(x+25,y+235,"R3 :"+r+"").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
@@ -105,7 +105,7 @@ function calculate(){
 				   +'<label  id=""  class="" style="font-size:16px;margin:15px 10px 0 -8px" ;>Calculate R<sub>x</sub> (m&ohm;) :  </label>'
 				   +'</div>'
 				   +'<div class="col-sm-4">'
-					+'<input type="text" value="" id="text3"  style=margin:15px 10px;width:80%;height:50%;"   class=" form-control" />'
+					+'<input type="text" value="" id="text3"  style="margin:15px 10px;margin-left:2px;"width:80%;height:50%;   class=" form-control" />'
 				   +'</div>'
 				    +'<div class="col-sm-4">'
 				   +'<br><button type="submit" class="btn btn-danger"  id="submit_Press2" data-toggle="modal" data-target="#myModal" style="width:80%;margin-top: -5px;" >Submit</input>'
@@ -117,7 +117,7 @@ function calculate(){
 				   +'<label  id=""  class="" style="font-size:16px;margin:15px 10px 0 -8px";>Calculate Output voltage (mV):  </label>'
 				   +'</div>'
 				   +'<div class="col-sm-4">'
-					+'<input type="text" value="" id="text4"  style=margin:15px 10px;width:80%;height:50%;"  class=" form-control" />'
+					+'<input type="text" value="" id="text4"  style="margin:15px 10px;margin-left:2px;"width:80%;height:50%;  class=" form-control" />'
 				   +'</div>'
 				    +'<div class="col-sm-4">'
 				   +'<br><button type="submit" class="btn btn-danger"  id="submit_Press3" data-toggle="modal" data-target="#myModal" style="width:80%;margin-top: -5px;" >Submit</input>'
@@ -158,7 +158,7 @@ function calculate(){
 			 
 			 $("#pressVal1").children('option[value="' + pressureValue + '"]').attr('disabled', true);
 //			 $("#pressVal1 option[id="+pressureValue+"]").css("background-color","#dacecf");
-//						   
+					   
 //			 $("#pressVal1 option[id="+pressureValue+"]").attr("disabled",true);
 			 console.log("pressureValue "+pressureValue);
 			
@@ -312,7 +312,7 @@ function calculate(){
                     $("#submit_Press2").prop("disabled",true);
                     $("#text3").prop("disabled",true);
                     $("#outputVoltage").prop("hidden",false);
-                rx_txt1= paper.text(x+335,y+100," : "+rx).attr({'stroke' : '#000' , "font-size":"18px","font-weight": "bold"});     
+                rx_txt1= paper.text(x+335,y+100," "+rx).attr({'stroke' : '#000' , "font-size":"18px","font-weight": "bold"});     
 					
 	
 				} else if (calTemp != rx) {
@@ -348,7 +348,7 @@ function calculate(){
 					 $("#submit_Press2").prop("disabled",true);
                     $("#text3").prop("disabled",true);
                     $("#outputVoltage").prop("hidden",false);
-                rx_txt1= paper.text(x+335,y+100," : "+rx).attr({'stroke' : '#000' , "font-size":"18px","font-weight": "bold"});     
+                rx_txt1= paper.text(x+335,y+100," "+rx).attr({'stroke' : '#000' , "font-size":"18px","font-weight": "bold"});     
 
 					
 	
@@ -396,7 +396,7 @@ function calculate(){
 	                outAnim();  
 	                 if(iteration >= 5){
 							$("#nextMeterReading").prop("hidden",false);
-							$("#nextReading").prop("hidden",false);
+							$("#nextReading").prop("hidden",true);
 							
 						}else{
 							$("#nextMeterReading").prop("hidden",true);
@@ -444,7 +444,7 @@ function calculate(){
 			       outAnim();
 			       if(iteration >= 5){
 							$("#nextMeterReading").prop("hidden",false);
-							$("#nextReading").prop("hidden",false);
+							$("#nextReading").prop("hidden",true);
 							
 						}else{
 							$("#nextMeterReading").prop("hidden",true);

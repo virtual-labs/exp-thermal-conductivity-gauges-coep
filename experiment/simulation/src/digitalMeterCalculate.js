@@ -109,7 +109,7 @@ function digitalMeter(){
 
 	                +'<div class="row" >'
 				   +'<div class="col-sm-6">'
-	                +'<button type="button" style="padding: 10px; "  class="btn btn-danger btnStyle" id="nextReading4"  disabled><b>SUBMIT </b></button>'
+	                +'<button type="button" style="padding: 10px; "  class="btn btn-danger btnStyle" id="nextReading4"  disabled><b>CALCULATE </b></button>'
 	                +'</div>'
 	                +'<div class="col-sm-6">'
 	                +'<button type="button" style="padding: 10px; "  class="btn btn-danger btnStyle" id="nextReading5" disabled><b>NEXT READING </b></button>'
