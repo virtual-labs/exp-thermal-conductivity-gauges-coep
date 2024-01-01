@@ -23,8 +23,8 @@ function graph1(){
 	var graphData1=[];
 	for (var i = 0; i < masterJson.demo.length; i++)
 	 {
-		xdata[i] = parseFloat(masterJson.demo[i].pressure);
-		ydata[i] = parseFloat(masterJson.demo[i].pressureSort);
+		xdata[i] = parseFloat(masterJson.demo[i].pressureSort);
+		ydata[i] = parseFloat(masterJson.demo[i].resistance);
 		
 	}
 	for (var j = 0; j < masterJson.demo.length; j++) {
@@ -48,64 +48,7 @@ function graph1(){
 		
 		Xmin = parseFloat(xdata[0]);
 		Ymin = parseFloat(ydata[0]);
-//		var maxPoint=0;
-//		if(Xmax<Ymax)
-//		{
-//			maxPoint=Ymax;
-//		}
-//		else
-//		{
-//			maxPoint=Xmax;
-//		}
-//		console.log(" Weight V/S Pressure  " + graphData1);
-//		Highcharts.chart('table-design', {
-//			title: {
-//				text: ' Pressure V/S Resistance  '
-//			},
-////			subtitle: {
-////				text: 'Meter Constant is  pulses (per/ltr)'
-////			},
-//			xAxis: {
-//				min: Xmin,
-//				max: Xmax,
-//				title: {
-//					text: 'Pressure'
-//				}
-//			},
-//			yAxis: {
-//				min: Ymin,
-//				max: Ymax,
-//				title: {
-//					text: 'Resistance'
-//				}
-//			},
-//			series: [
-//				{
-////					type: 'line',
-////					name: 'Standard value',
-//					
-//					marker: {
-//						enabled: false
-//					},
-//					states: {
-//						hover: {
-//							lineWidth: 0
-//						}
-//					},
-//					enableMouseTracking: false
-//				},
-//
-//				{
-//					type: 'line',
-//					name: 'Observation value',
-//                   data: [[Xmin, Ymin], [Xmax, Ymax]],
-//					data: graphData1,
-//					marker: {
-//						radius: 4
-//					}
-//				}]
-//
-//		});
+
 
 
 
@@ -165,6 +108,7 @@ Highcharts.chart('table-design', {
 
 			});
 
+
 	}	
 		
 		
@@ -175,7 +119,7 @@ Highcharts.chart('table-design', {
 	var graphData1=[];
 	for (var i = 0; i < masterJson.demo1.length; i++)
 	 {
-		xdata[i] = parseFloat(masterJson.demo1[i].pressure1);
+		xdata[i] = parseFloat(masterJson.demo1[i].pressure1Sort);
 		ydata[i] = parseFloat(masterJson.demo1[i].resistance1);
 		
 	}

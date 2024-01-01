@@ -74,38 +74,7 @@ function digitalMeter(){
 	               +'<center><label class="labelstyle" style="margin-left:10px;"> Relevant Temperature (&#176; K): </label><label id = "relTemp1" class="labelstyle" style="margin-left:10px;">'+tempVal+' </label></center>'
 	               +'</div>'
                       
-     
-//                   + '<div class="row" id="pressVal1" >'
-//				   +'<div class="col-sm-5">'
-//				   +'<label  id=""  class="" style="font-size:16px;margin:15px 10px ;">Enter pressure (torr) :   </label>'
-//				   +'</div>'
-//				   +'<div class="col-sm-3">'
-//					+'<input type="text" value="" id="text5"  style=margin:15px 10px;width:150%;height:50%;"  class=" form-control" />'
-//				   +'</div>'
-//				    +'<div class="col-sm-3">'
-//				   +'<br><button type="submit" class="btn btn-danger"  id="submit_Press4" data-toggle="modal" data-target="#myModal" style="width:100%;height:50%;margin-top: -6px;" >Submit</input>'
-//				   +'</div>'
-//				   +'</div>'
-				  
-				   
-//				   +'<div class="row" id="temp1" hidden>'
-//				   +'<div class="col-sm-5">'
-//				   +'<label  id=""  class="" style="font-size:16px;margin:15px 10px ;">Enter temperature (&#176; K):  </label>'
-//				   +'</div>'
-//				   +'<div class="col-sm-3">'
-//					+'<input type="text" value="" id="text6"  style=margin:15px 10px;width:150%;height:50%;"  class=" form-control" />'
-//				   +'</div>'
-//				    +'<div class="col-sm-3">'
-//				   +'<br><button type="submit" class="btn btn-danger"  id="submit_Press5" data-toggle="modal" data-target="#myModal" style="width:100%;height:50%;margin-top: -6px;" >Submit</input>'
-//				   +'</div>'
-//				   +'</div>'
-//				    +'<div class="row">'
-//				   +'<div class="col-sm-6">'
-//				    
-//	                +'<button type="button" style="padding: 10px; "  class="btn btn-danger btnStyle" id="nextReading3" data-toggle="modal" data-target="#selectCheck" disabled><b>SUBMIT </b></button>'
-//	               
-//	               
-//	                 +'</div>'
+
 
 	                +'<div class="row" >'
 				   +'<div class="col-sm-6">'
@@ -327,15 +296,21 @@ function digitalMeter(){
   var rx3 = 0 , rnum2 = 0;
   var rx2_txt1= paper.text(x+335,y+100," ");
   var ranAdd = 0 ,ranAdd1 = 0 , ranMul = 0;
+  var set;
 function random(){
-	var rmin = 0.001 ; var rmax = 0.003;
-   rnum1 = (Math.random() * (rmax -rmin + 1) + rmin);
+	var rmin = 0.002 ; var rmax = 0.004;
+   rnum1 = (Math.random() * (rmax -rmin) + rmin);
    rnum2 = rnum1.toFixed(4);
    rnum = parseFloat(rnum2);
    digiPressure1 = parseFloat(digiPressure);
    rxVal1 = 0.953*digiPressure1+0.0137*tempVal+61.8;
 			kt1 = 1/rxVal1;
-			ranAdd1 = kt1*1000;
+		   set = Math.floor(Math.random() * 2);
+			if(set==1){
+			ranAdd1 = (kt1*1000)+rnum;
+			}else{
+			ranAdd1 = (kt1*1000)-rnum;	
+			}
 //			ranAdd1 = kt1.toFixed(4);
             ranMul = ranAdd1.toFixed(4);
 //            ranAdd = ranMul+rnum;
