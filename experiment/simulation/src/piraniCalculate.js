@@ -556,13 +556,16 @@ function calculate(){
 							 tempJson.temperature = tempVal;
 							 tempJson.resistance = rx;
 							 tempJson.outputVoltage = vout;
-							 tempJson.pressureSort = rx; 
+							 tempJson.pressureSort = selectVal; 
 							  arrayJson.push(tempJson);
 							   console.log(arrayJson);
 							   masterJson.demo=arrayJson;	
-							   masterJson.demo.sort(function(a, b){
+//							   masterJson.demo.sort(function(a, b){
+//						  return a.pressureSort - b.pressureSort;
+//						  });		
+						  masterJson.demo.sort(function(a, b){
 						  return a.pressureSort - b.pressureSort;
-						  });						   
+						  });					   
 							  tableReading();
 //							   tableReadingAdded();
 							   console.log(masterJson);
