@@ -15,12 +15,12 @@ function tableGraph()
      
 		
 }
-
+var graphData1 = [];
 function graph1(){
 	var xdata=[];
 	var ydata=[];
 	
-	var graphData1=[];
+	
 	for (var i = 0; i < masterJson.demo.length; i++)
 	 {
 		xdata[i] = parseFloat(masterJson.demo[i].pressureSort);
@@ -54,7 +54,7 @@ function graph1(){
 
 Highcharts.chart('table-design', {
 				title: {
-					text: ' Pressure V/S Resistance  '
+					text: ' Pressure V/S Resistance1  '
 				},
 				subtitle: {
 					text: ''
@@ -83,17 +83,17 @@ Highcharts.chart('table-design', {
 					{
 						type: 'scatter',
 //						name: 'Standard value',
-						data: [[Xmin,Ymin], [Xmax, Ymax]],
+						data: graphData1,
 						
 						marker: {
-							enabled: false
+							radius: 4
 						},
-						states: {
+						/*states: {
 							hover: {
 								lineWidth: 0
 							}
 						},
-						enableMouseTracking: false
+						enableMouseTracking: false*/
 					},
 
 					{
@@ -107,6 +107,8 @@ Highcharts.chart('table-design', {
 					}]
 
 			});
+
+
 
 
 	}	
@@ -211,7 +213,7 @@ Highcharts.chart('table-design', {
 		
 		Highcharts.chart('graph2', {
 				title: {
-					text: ' Pressure V/S Resistance  '
+					text: ' Pressure V/S Resistance2  '
 				},
 				subtitle: {
 					text: ''
