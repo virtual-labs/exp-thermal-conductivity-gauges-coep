@@ -38,7 +38,7 @@ function digitalMeter(){
 	   +'<label class="labelstyle"  style="margin-top:10px;margin-left:-5px">Select Pressure (torr) : </label>'
 	   +'</div>'
 	   
-	   +'<div class="col-sm-4">'
+	  +'<div class="col-sm-4">'
 	   +'<select  class="form-control selectConf" id="text5"  style="height:auto;background-color: white;" >'
 	   +'<option value="0">--- Select pressure --- </option>'
 	   +'<option value="0.1" >0.1  </option>'
@@ -51,15 +51,6 @@ function digitalMeter(){
 	   +'<option value="0.03" >0.09  </option>'
 	   +'<option value="0.02" >0.02  </option>'
 	   +'<option value="0.01" >0.01  </option>'
-       +'<option value="0.009" >0.009  </option>'
-       +'<option value="0.008" >0.008  </option>'
-       +'<option value="0.007" >0.007  </option>'
-       +'<option value="0.006" >0.006  </option>'
-       +'<option value="0.005" >0.005  </option>'
-       +'<option value="0.004" >0.004  </option>'
-       +'<option value="0.003" >0.003  </option>'
-       +'<option value="0.002" >0.002  </option>'
-	   +'<option value="0.001" >0.001  </option>'
 	  
 	   +'</select>'
 	  
