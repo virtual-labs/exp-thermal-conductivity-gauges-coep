@@ -131,8 +131,10 @@ Highcharts.chart('table-design', {
 
 	}
 		console.log("xdata "+xdata);
-		console.log("ydata "+ydata);
+		console.log("ydata "+ydata);		
+		
 		console.log("graphData1 "+graphData1);
+		
 		ydata.sort(function(a, b) { return a - b });
 		xdata.sort(function(a, b) { return a - b });
 		console.log("After xdata "+xdata);
@@ -144,6 +146,9 @@ Highcharts.chart('table-design', {
 		
 		Xmin = parseFloat(xdata[0]);
 		Ymin = parseFloat(ydata[0]);
+		
+		console.log("Xmin "+Xmin);
+		console.log("Ymax "+Ymin);
 		
 //		var maxPoint=0;
 //		if(Xmax<Ymax)
@@ -232,26 +237,21 @@ Highcharts.chart('table-design', {
 					}
 				},
 				series: [
-					{
-						type: 'scatter',
+/*					{
+						type: 'line',
 //						name: 'Standard value',
-						data: [[Xmin,Ymin], [Xmax, Ymax]],
+						data: [[Xmax, Ymax], [Xmin,Ymin]],
 						
 						marker: {
-							enabled: false
+							radius: 4
 						},
-						states: {
-							hover: {
-								lineWidth: 0
-							}
-						},
-						enableMouseTracking: false
 					},
-
+*/
 					{
-						type: 'line',
+						type: 'scatter',
 						name: 'Observation value',
 //						color:"green",
+//                        data: [[Xmin,Ymin], [Xmax, Ymax]],
 						data: graphData1,
 						marker: {
 							radius: 4
