@@ -1,3 +1,6 @@
+var yMinDta1,yMaxDta1;
+var yMinDta2,yMaxDta2;
+
 function tableGraph()
 {
 	$("#main-div-conf").html('');	
@@ -10,12 +13,15 @@ function tableGraph()
 //      digiTable();
       $("#main-div-conf").html(tableMainDiv);
       $("#canvas-div").html(tableMainDiv1);
+      $("#calibrateLevel").prop("hidden",false);
      graph1();
       graph2();
      
-		
+		$("#calibrateLevel").click(function(){
+			calibrate();
+		});
 }
-var graphData1 = [];
+var graphData1=[];
 function graph1(){
 	var xdata=[];
 	var ydata=[];
@@ -49,217 +55,284 @@ function graph1(){
 		Xmin = parseFloat(xdata[0]);
 		Ymin = parseFloat(ydata[0]);
 
-
-
+           yMinDta1 =Ymin;
+          yMaxDta1=Ymax;
 
 Highcharts.chart('table-design', {
-				title: {
-					text: ' Pressure V/S Resistance1  '
-				},
-				subtitle: {
-					text: ''
-				},
-				 tooltip: {
-			            formatter: function() {
-			                return 'Pressure : '+ this.x+'</b><br/>Resistance : '+ this.y+'</b><br/>';
-			                   
-			            }
-			        },
-				xAxis: {
-					min:Xmin ,
-					max: Xmax,
-					title: {
-						text: 'Pressure'
-					}
-				},
-				yAxis: {
-					min: Ymin,
-					max: Ymax,
-					title: {
-						text: 'Resistance'
-					}
-				},
-				series: [
-					{
-						type: 'scatter',
-//						name: 'Standard value',
-						data: graphData1,
-						
-						marker: {
-							radius: 4
-						},
-						/*states: {
-							hover: {
-								lineWidth: 0
-							}
-						},
-						enableMouseTracking: false*/
-					},
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Pressure V/S Resistance'
+    },
+    
+    xAxis:
+     {
 
-					{
-						type: 'line',
-						name: 'Observation value',
-//						color:"green",
-						data: graphData1,
-						marker: {
-							radius: 4
-						}
-					}]
-
-			});
+ 				min:Xmin ,
+				max: Xmax,
+      title: {
+            text: 'Pressure'
+        }
+    },
+    yAxis: {min:Ymin ,
+				max: Ymax,
+        title: {
+            text: 'Resistance'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: false
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+	type: 'line',
+   
+        name: 'Standard',
+        data: graphData1
+     
+    }, 
+    
+    {
+    marker: {
+        symbol: 'square'
+    },
+     type: 'scatter',
+        name: 'Actual',
+        data: graphData1
+    }]
+});
 
 
+//Highcharts.chart('table-design', {
+//
+//    title: {
+//        text: 'Pressure V/S Resistance'
+//    },
+//
+//    xAxis: {
+////        tickInterval: Xmin,
+//        type: 'logarithmic',
+//        accessibility: {
+//            rangeDescription: 'Range: '+Xmin+' to '+Xmax
+//        }
+//    },
+//
+//    yAxis: {
+//        type: 'logarithmic',
+////        minorTickInterval: Ymin,
+//        accessibility: {
+//            rangeDescription: 'Range: '+Ymin+' to '+Ymax
+//        }
+//    },
+//
+//    tooltip: {
+//        headerFormat: '<b>{series.name}</b><br />',
+//        pointFormat: 'x = {point.x}, y = {point.y}'
+//    },
+//
+//    series: [{
+//       data: graphData1,
+//        pointStart: 1
+//    }]
+//});
+
+
+
+//Highcharts.chart('table-design', {
+//				title: {
+//					text: ' Pressure V/S Resistance  '
+//				},
+//				subtitle: {
+//					text: ''
+//				},
+//				 tooltip: {
+//			            formatter: function() {
+//			                return 'Pressure : '+ this.x+'</b><br/>Resistance : '+ this.y+'</b><br/>';
+//			                   
+//			            }
+//			        },
+//				xAxis: {
+//					min:Xmin ,
+//					max: Xmax,
+//					title: {
+//						text: 'Pressure'
+//					}
+//				},
+//				yAxis: {
+//					min: Ymin,
+//					max: Ymax,
+//					title: {
+//						text: 'Resistance'
+//					}
+//				},
+//				series: [
+//					{
+//						type: 'line',
+////						name: 'Standard value',
+//						data: [[Xmin,Ymin], [Xmax, Ymax]],
+//						
+//						marker: {
+//							enabled: false
+//						},
+//						states: {
+//							hover: {
+//								lineWidth: 0
+//							}
+//						},
+//						enableMouseTracking: false
+//					},
+//
+//					{
+//						type: 'scatter',
+//						name: 'Observation value',
+////						color:"green",
+//						data: graphData1,
+//						marker: {
+//							radius: 4
+//						}
+//					}]
+//
+//			});
 
 
 	}	
 		
-		
+		var graphData2=[];
+		var xAdjustGraph = [];
 		function graph2(){
+			graphData2=[];
 	var xdata=[];
 	var ydata=[];
 	
-	var graphData1=[];
+	var x1data = [];
+	var y1data = [];
+	
+	
+	
 	for (var i = 0; i < masterJson.demo1.length; i++)
 	 {
-		xdata[i] = parseFloat(masterJson.demo1[i].pressure1Sort);
+		xdata[i] = parseFloat(masterJson.demo1[i].pressure1Sort);		
 		ydata[i] = parseFloat(masterJson.demo1[i].resistance1);
 		
 	}
+	
 	for (var j = 0; j < masterJson.demo1.length; j++) {
 			tempArr = [];
 			tempArr[0] = xdata[j];
 			tempArr[1] = ydata[j];
-			graphData1.push(tempArr);
+			graphData2.push(tempArr);
+	}
+	
+	for (var i = 0; i < masterJson.demo1.length; i++){
+		
+	x1data[i] = parseFloat(masterJson.demo1[i].pressure1Sort);
+	y1data[i] = parseFloat(masterJson.demo1[i].calResis);
+	}
+	
+	for (var j = 0; j < masterJson.demo1.length; j++) {
+			tempArr = [];
+			tempArr[0] = x1data[j];
+			tempArr[1] = y1data[j];
+			xAdjustGraph.push(tempArr);
 
 	}
+	
 		console.log("xdata "+xdata);
-		console.log("ydata "+ydata);		
-		
-		console.log("graphData1 "+graphData1);
+		console.log("ydata "+ydata);
+		console.log("observation graph values"+graphData2);
+		x1data.sort(function(a, b) { return a - b });
+		y1data.sort(function(a, b) { return a - b });
 		
 		ydata.sort(function(a, b) { return a - b });
 		xdata.sort(function(a, b) { return a - b });
+		
 		console.log("After xdata "+xdata);
 		console.log("After ydata "+ydata);
 		Xmax = parseFloat(xdata[xdata.length - 1]);
 		Ymax = parseFloat(ydata[ydata.length - 1]);
+		
+		X1max = parseFloat(x1data[x1data.length - 1]);
+		X1min = parseFloat(x1data[0]);
+		
+		console.log("X1max "+X1max);
+		
 		console.log("Xmax "+Xmax);
 		console.log("Ymax "+Ymax);
 		
 		Xmin = parseFloat(xdata[0]);
 		Ymin = parseFloat(ydata[0]);
 		
-		console.log("Xmin "+Xmin);
-		console.log("Ymax "+Ymin);
 		
-//		var maxPoint=0;
-//		if(Xmax<Ymax)
-//		{
-//			maxPoint=Ymax;
-//		}
-//		else
-//		{
-//			maxPoint=Xmax;
-//		}
-//		console.log(" Weight V/S Pressure  " + graphData1);
-//		Highcharts.chart('graph2', {
-//			title: {
-//				text: ' Pressure V/S Output Voltage  '
-//			},
-////			subtitle: {
-////				text: 'Meter Constant is  pulses (per/ltr)'
-////			},
-//			xAxis: {
-//				min: Xmin,
-//				max: Xmax,
-//				title: {
-//					text: 'Pressure'
-//				}
-//			},
-//			yAxis: {
-//				min: Ymin,
-//				max: Ymax,
-//				title: {
-//					text: 'Output Voltage'
-//				}
-//			},
-//			series: [
-//				{
-//					type: 'line',
-//					name: 'Standard value',
-//					data: [[Xmin, Ymin], [Xmax, Ymax]],
-//					marker: {
-//						enabled: false
-//					},
-//					states: {
-//						hover: {
-//							lineWidth: 0
-//						}
-//					},
-//					enableMouseTracking: false
-//				},
-//
-//				{
-//					type: 'scatter',
-//					name: 'Observation value',
-//
-//					data: graphData1,
-//					marker: {
-//						radius: 4
-//					}
-//				}]
-//
-//		});
-		
-		Highcharts.chart('graph2', {
-				title: {
-					text: ' Pressure V/S Resistance2  '
-				},
-				subtitle: {
-					text: ''
-				},
-				 tooltip: {
-			            formatter: function() {
-			                return 'Pressure : '+ this.x+'</b><br/>Resistance : '+ this.y+'</b><br/>';
-			                   
-			            }
-			        },
-				xAxis: {
-					min:Xmin ,
-					max: Xmax,
-					title: {
-						text: 'Pressure'
-					}
-				},
-				yAxis: {
-					min: Ymin,
-					max: Ymax,
-					title: {
-						text: 'Resistance'
-					}
-				},
-				series: [
-/*					{
-						type: 'line',
-//						name: 'Standard value',
-						data: [[Xmax, Ymax], [Xmin,Ymin]],
-						
-						marker: {
-							radius: 4
-						},
-					},
-*/
-					{
-						type: 'scatter',
-						name: 'Observation value',
-//						color:"green",
-//                        data: [[Xmin,Ymin], [Xmax, Ymax]],
-						data: graphData1,
-						marker: {
-							radius: 4
-						}
-					}]
+		yMinDta2 =Ymin;
+          yMaxDta2=Ymax;
 
-			});
+if(yMinDta1>yMinDta2){
+	Ymin = yMinDta2;
+}else{
+	Ymin = yMinDta1;
+}
+if(yMaxDta1<yMaxDta2){
+	Ymax = yMaxDta2;
+}else{
+	Ymax = yMaxDta1;
+}
+console.log("graphData1 "+graphData1);
+console.log("graphData2 "+graphData2);
+
+
+			Highcharts.chart('graph2', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Pressure V/S Resistance'
+    },
+    
+    xAxis:
+     {
+
+ 				min:X1min ,
+				max: X1max,
+      title: {
+            text: 'Pressure'
+        }
+    },
+    yAxis: {min:Ymin ,
+				max: Ymax,
+        title: {
+            text: 'Resistance'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: false
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+	type: 'line',
+   
+        name: 'Standard',
+        data: graphData1
+     
+    }, 
+    
+    {
+    marker: {
+        symbol: 'square'
+    },
+     type: 'scatter',
+        name: 'Actual',
+        data: graphData2
+    }]
+});
+
 		
 }
