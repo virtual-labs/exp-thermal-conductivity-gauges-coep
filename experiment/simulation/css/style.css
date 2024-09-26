@@ -1,3 +1,30 @@
+.draggable {
+            cursor: pointer;
+        }
+        .selected {
+            stroke: blue !important;
+            stroke-width: 4 !important;
+            
+        }
+        .selected-connection {
+            stroke: red !important;
+            stroke-width: 4 !important;
+        }
+        #delete-btn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .dot {
+            fill: blue;
+            stroke: none;
+        }
+
+
 #div1 {
   width: 600px;
   height: 670px;

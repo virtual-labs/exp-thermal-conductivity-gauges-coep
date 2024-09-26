@@ -1,5 +1,6 @@
 var itr = 1;
 var arrayJson1 = [];
+
 function digitalMeter(){
 	
 	$("#main-div-conf").html('');	
@@ -38,7 +39,7 @@ function digitalMeter(){
 	   +'<label class="labelstyle"  style="margin-top:10px;margin-left:-5px">Select Pressure (torr) : </label>'
 	   +'</div>'
 	   
-	  +'<div class="col-sm-4">'
+	   +'<div class="col-sm-4">'
 	   +'<select  class="form-control selectConf" id="text5"  style="height:auto;background-color: white;" >'
 	   +'<option value="0">--- Select pressure --- </option>'
 	   +'<option value="0.1" >0.1  </option>'
@@ -51,6 +52,7 @@ function digitalMeter(){
 	   +'<option value="0.03" >0.09  </option>'
 	   +'<option value="0.02" >0.02  </option>'
 	   +'<option value="0.01" >0.01  </option>'
+      
 	  
 	   +'</select>'
 	  
@@ -288,6 +290,7 @@ function digitalMeter(){
   var rx2_txt1= paper.text(x+335,y+100," ");
   var ranAdd = 0 ,ranAdd1 = 0 , ranMul = 0;
   var set;
+  var rx12 = 0;
 function random(){
 	var rmin = 0.002 ; var rmax = 0.004;
    rnum1 = (Math.random() * (rmax -rmin) + rmin);
@@ -309,6 +312,13 @@ function random(){
             rx22 = ranAdd.toFixed(4);
             rx2 = parseFloat(rx22);
        rx2_txt1= paper.text(x+335,y+100," : "+rx2).attr({'stroke' : '#000' , "font-size":"18px","font-weight": "bold"});     
+       
+       
+       var rxVal = 0.953*digiPressure1+0.0137*tempVal+61.8;
+	   var	kt1 = 1/rxVal1;
+		var	rxConvert = kt1*1000;
+	     var	rx11 = rxConvert.toFixed(4);
+			rx12 = parseFloat(rx11);
        
 }
 var voutSecond = 0;
@@ -336,6 +346,7 @@ function addFun1(){
 	                         tempJson={};
 							 tempJson.pressure1 = digiPressure;							 
 							 tempJson.temperature1 = tempVal;
+							 tempJson.calResis = rx12;
 							 tempJson.resistance1 = rx2;
 							 tempJson.outputVoltage1 = voutSecond;
 							 tempJson.pressure1Sort = digiPressure;

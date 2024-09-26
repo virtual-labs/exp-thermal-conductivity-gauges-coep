@@ -1,10 +1,16 @@
 var masterJson = {};
 var arrayJson = [];
 var iteration = 1;
+var incorrectRes = 0;
+var incorrectOutputCnt = 0;
+
 function calculate(){
 	$("#main-div-conf").html('');	
-     $("#canvas-div").html('');	   
-	
+     $("#canvas-div").html('');	
+     
+     resetDivSize();
+	  $("#delete-btn").prop("hidden",true);
+	    $("#validateCon").prop("hidden",true); 
      flg = 0;
      var vin = 5;
 //		var rx = 0.0159;
@@ -62,7 +68,7 @@ function calculate(){
 	  
 	   +'</div>'
 	   +'<div class="col-sm-4">'
-	   +'<button type="submit" class="btn btn-danger"  id="submit_Press"  style="width:80%; margin-top:5px;" >Submit</input>'
+	   +'<button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#myModal"  id="submit_Press"  style="width:80%; margin-top:5px;" >Submit</input>'
 	   +'</div>'
 	    
 	   +'</div>'
@@ -151,8 +157,16 @@ function calculate(){
 		$("#submit_Press").click(function() {
 			id = 1;
 			id1 = 1;
-			 selectVal1 = $("#pressVal1").val();
-			 selectVal = parseFloat(selectVal1);
+			 selectVal = $("#pressVal1").val();
+			 
+			 if(selectVal==0){
+				 $(".modal-header").html("Error Message");
+			$(".modal-header").css("background","#9c1203b0");
+			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
+			$("#MsgModal").html("Select Appropriate Value");
+			}else{
+			 
+			 selectVal = parseFloat(selectVal);
 			 
 			 pressureValue =$("#pressVal1").children(":selected").attr("value");
 			 
@@ -173,7 +187,7 @@ function calculate(){
               tzt = paper.text(x+510,y+127,selectVal).attr({'stroke' : '#000' , "font-size":"18px","font-weight": "bold"});
 			  rect1.attr({"fill":"#deb1c0"});
 		      
-			
+			}
               
 		});
 		
@@ -319,7 +333,8 @@ function calculate(){
 				$(".modal-header").html("Error Message");
 			$(".modal-header").css("background","#9c1203b0");
 			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
-			$("#MsgModal").html("Entered value is Incorrect.<br>Try again");		
+			$("#MsgModal").html("Entered value is Incorrect.<br>Try again");
+			incorrectRes++;		
 //				alert("Entered value is incorrect.Try it again.");
 //				 $("#modelMsg").html("<b class='boldTextRed'>Entered value is incorrect.Try again . </b>");
 //				 $("body").css("padding","0px 0px 0px 0px");
@@ -333,6 +348,7 @@ function calculate(){
 			$(".modal-header").css("background","#23435c");
 			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
 			$("#MsgModal").html("<b>Formula : Rx = 1/k, where<br> k = 0.953 &times; P+ 0.0137 &times; T+ 61.8  </b>");
+			incorrectRes++;
 //				alert("formula : Rx = 0.953 * P+ 0.0137 * T+ 61.8");
 				
 //				 $("#modelMsg").html("<b class='boldTextBlue'>formula : Area = "+unescape('%u220F')+" r"+unescape('%B2')+"</b> ");
@@ -358,6 +374,7 @@ function calculate(){
 	        $(".modal-header").html("Success Message");
             $(".modal-header").css("background","#5cb85c");
 			$("#MsgModal").html("Correct Answer is " + rx);
+			incorrectRes++;
 //					alert("correct answer is " + rx );
 					
 //					 $("#modelMsg").html("<b class='boldTextRed'>Correct answer is " + axialCal+"</b>");
@@ -402,9 +419,13 @@ function calculate(){
 							$("#nextMeterReading").prop("hidden",true);
 							$("#nextReading").prop("hidden",false);
 						}
+						
+						 
+						
 				} else if (outV != vout) {
 					
 			outAnim();
+			incorrectOutputCnt++;
 			$(".modal-header").html("Error Message");
 			$(".modal-header").css("background","#9c1203b0");
 			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
@@ -422,6 +443,7 @@ function calculate(){
 				
 //				alert("formula :Vout = Vin(Rx/(R3+Rx)-R2/(R1+R2))");
 			outAnim();
+			incorrectOutputCnt++;
 			 $(".modal-header").html("Error Message");
 			$(".modal-header").css("background","#23435c");
 			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
@@ -450,6 +472,10 @@ function calculate(){
 							$("#nextMeterReading").prop("hidden",true);
 							$("#nextReading").prop("hidden",false);
 						}
+						
+						 
+						
+						
 				} else {
 					checkAns = 0;
 //					alert("correct answer is " + vout );
@@ -458,6 +484,7 @@ function calculate(){
 	        $(".modal-header").html("Success Message");
             $(".modal-header").css("background","#5cb85c");
 			$("#MsgModal").html("Correct Answer is " + vout);
+			incorrectOutputCnt++;
 			
 //					 $("#modelMsg").html("<b class='boldTextRed'>Correct answer is " + axialCal+"</b>");
 //					 $("body").css("padding","0px 0px 0px 0px");
@@ -526,6 +553,9 @@ function calculate(){
 			$("#main-div-conf").html('');	
             $("#canvas-div").html('');
             $("#table-design").html('');
+            
+           
+            
             addFun();
 			digitalMeter();
 //            tableGraph();
@@ -569,5 +599,14 @@ function calculate(){
 							  tableReading();
 //							   tableReadingAdded();
 							   console.log(masterJson);
+							   
+							   if(iteration==5){
+				         var tempCountJson ={};
+						tempCountJson.calResistance = incorrectRes; 
+						tempCountJson.calOutput = incorrectOutputCnt; 
+						counterMasterJson.standardCalculations = tempCountJson;
+						 console.log(counterMasterJson);
+			              }
+							   
 	}		   
 }

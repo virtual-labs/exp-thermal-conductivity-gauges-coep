@@ -13,10 +13,13 @@
     <link rel="stylesheet" href=" https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!--     <link href="https://fonts.cdnfonts.com/css/digital-numbers" rel="stylesheet"> -->
+
    <link rel="stylesheet" href="css/header.css">
+<!--     <link rel="stylesheet" href="css/main.css"> -->
 	<link rel="stylesheet" href="css/mainPage.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/piraniGuage.css">
+	<link rel="stylesheet" href="css/analysis.css">
 
 </head>
 
@@ -34,28 +37,46 @@
 		<span id="colgName">COEP TECHNOLOGICAL UNIVERSITY PUNE</span>		
 	</header>	
 
+
+  <div  class="row container" style="margin-top:20px;">
+	<div  class="col-sm-1">
+
+	 </div>
+	<div  class="col-sm-3">
+	
+	 </div>
+	
+     <div  class="col-sm-4"> 
+      
+      </div>
+   
+   <div  class="col-sm-2"> 
+      <button type="button" id="delete-btn" class="btn" data-dismiss="modal" style="margin-top:-1px;" hidden>Delete Selected</button>
+     </div>
+     
+     <div  class="col-sm-2"> 
+      <button type="button" id="validateCon" class="btn-info" data-dismiss="modal" data-toggle="modal" data-target="#myModal" style="margin-top:-1px;" hidden>Validate Connection</button>
+     </div>
+
+      </div>
 		
 		
 	
 	<div  class="row container" style="margin-top:20px;">
-	<div  class="col-sm-2">
-<!-- 	 <label for="sel1">Select list (select one):</label> -->
-	 </div>
-<!-- 	<div  class="col-sm-3"> -->
-<!-- 	 <label for="sel1">Select type of load cell</label> -->
-<!-- 	 </div> -->
 	
-<!--      <div  class="col-sm-7">  -->
-<!--       <select class="form-control" id="typeCell" name="sellist1"> -->
-<!--         <option value="0">--- Select type of load cell --- </option> -->
-<!-- 	   <option value="15">Column type load cell</option> -->
-<!-- 	  <option value="25">Cantilever beam type load cell</option> -->
-<!-- 	   <option value="40">Ring type load cell</option> -->
-<!--       </select> -->
-<!--       </div> -->
-    
+<div class="col-lg-6">
+</div>
+<div class="col-lg-3">
+</div>
+<div class="col-lg-3">
+ <button type="button" id="calibrateLevel" class="btn btn-danger" data-dismiss="modal" style = "margin-left:200px;" hidden>Next Level</button>
+</div>
+
+
       </div>
 <div  class="row container-fluid" id="main-div" >
+
+
 <div class="col-lg-6" id="canvas">
 	             <div class="panel panel-primary" >
 	      			<div class="panel-heading " id="panelHeading2" ><center id="centerText2"> DIAGRAM</center>
@@ -63,9 +84,9 @@
 <!-- 	      			<label  id="counter"></label> -->
 	      			<div class="panel-body" id="canvas-div" >
 	      			
-	      			<img src="images/piraniDiag.png "  class="img-fluid" >
+	      			<img src="images/piraniDiag1.jpg "  class="img-fluid" >
 	      			
-	      			<img src="images/digital-pirani-gauge.png "  class="img-fluid" >
+<!-- 	      			<img src="images/digital-pirani-gauge.png "  class="img-fluid" > -->
 	      			
 	      			</div>
 					<div class="panel-body" id="table-design" >
@@ -75,6 +96,7 @@
 	   			</div>
 	       </div>
 	<div class="col-lg-6" id="canvas2" >
+	        
 				<div class="panel panel-primary">
 	      			<div class="panel-heading " id="panelHeading1"><center id="centerText1">BASIC KNOWLEDGE </center>
 	      			</div>
@@ -138,11 +160,35 @@ Copyrights &copy; COEP - Virtual Lab
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script type="text/javascript" src="src/questionJson.js"></script>
 <script type="text/javascript" src="src/questions.js"></script>
-<!-- <script type="text/javascript" src="src/piraniConfig.js"></script> -->
+<script type="text/javascript" src="src/piraniConfig.js"></script>
+
+<script type="text/javascript" src="src/wheatStoneBuild.js"></script>
+
+
 <script type="text/javascript" src="src/piraniCalculate.js"></script>
 <script type="text/javascript" src="src/table.js"></script>
 <script type="text/javascript" src="src/digitalMeterCalculate.js"></script>
 <script type="text/javascript" src="src/digitalTable.js"></script>
 <script type="text/javascript" src="src/tableWithGraph.js"></script>
+<script type="text/javascript" src="src/calibiration.js"></script>
+<script type="text/javascript" src="src/piraniResult.js"></script>
+
+
+<script>
+function resetDivSize() {  
+    const div = document.getElementById('canvas-div');  
+    
+    // Resetting width and height to auto  
+    div.style.width = 'auto';  
+    div.style.height = 'auto'; 
+    
+ const div1 = document.getElementById('main-div-conf');  
+    
+    // Resetting width and height to auto  
+    div1.style.width = 'auto';  
+    div1.style.height = 'auto';  
+    
+}  
+</script>
 
 </html>
