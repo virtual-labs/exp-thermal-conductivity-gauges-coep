@@ -1,9 +1,10 @@
 
 			var flag = false;
 			var myRadio = null;
-			data = {};
-			dataQues = {};
-
+			
+			 counterMasterJson = {};
+           var ansCount = 0;
+			
 			var questions = '';
 			questions += ''
 				+ '<div id = "questionDiv">'
@@ -115,9 +116,13 @@
 								ansCount++;
 							}
 						}
-						dataQues.corrAns = ansCount;
-						 data.corrAns = dataQues;
-						 console.log(data);
+						var wrongAns = 6-ansCount;
+                         var tempCountJson ={};
+						tempCountJson.correctAnswer = ansCount; 
+						tempCountJson.wrongAnswer = wrongAns; 
+						counterMasterJson.questionary = tempCountJson;
+						 console.log(counterMasterJson);
+						
 						 $("#btnModal").removeClass("btn-danger").addClass("btn-success");
 	                     $(".modal-header").html("Success Message");
 				         $(".modal-header").css("background","#5cb85c");
@@ -138,7 +143,8 @@
 				$("#canvas-div").html("");
 				$("#main-div-conf").html(""); 
 //				  config1();
-     calculate();
+//     calculate();
+     wheatStoneCon();
 //       digitalMeter();
 	} 
 	});	

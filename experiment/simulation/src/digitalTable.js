@@ -13,7 +13,8 @@ function digiTable(){
 					+ '  <th><center>Sr.No</center></th>'
 					+ '  <th><center>Pressure (torr)</center></th>'
 					+ '   <th><center>Temperature (&#176;K) </center></th>'
-					+ '  <th><center>Resistance Rx (m&ohm;)</center> </th>'
+					+ '  <th><center>Standard Resistance Rx (m&ohm;)</center> </th>'
+					+ '  <th><center>Observed Resistance Rx (m&ohm;)</center> </th>'
                     + '  <th><center>Output Vout (mV)</center> </th>'
 					+ '   </tr>'
 					+ '  </thead>'
@@ -26,16 +27,14 @@ function digiTable(){
 							+'		<td>'+p+'</td>'
 							+'      <td>'+masterJson.demo1[i].pressure1+'</td>'
 							+'      <td>'+masterJson.demo1[i].temperature1+'</td>'
+							+'      <td>'+masterJson.demo1[i].calResis+'</td>'
 							+'      <td>'+masterJson.demo1[i].resistance1+'</td>'
 			     			+'      <td>'+masterJson.demo1[i].outputVoltage1+'</td>'
 				
 							+'    </tr>'
 							
 						}
-						
-			
-						
-						
+				
 						
 					$("#table-design").html(tableMainDiv);	
                     itr++;
