@@ -38,42 +38,67 @@
 	</header>	
 
 
-  <div  class="row container" style="margin-top:20px;">
-	<div  class="col-sm-1">
+<!--   <div  class="row container" style="margin-top:20px;"> -->
+<!-- 	<div  class="col-sm-1"> -->
 
-	 </div>
-	<div  class="col-sm-3">
+<!-- 	 </div> -->
+<!-- 	<div  class="col-sm-3"> -->
 	
-	 </div>
+<!-- 	 </div> -->
 	
-     <div  class="col-sm-4"> 
+<!--      <div  class="col-sm-4">  -->
       
-      </div>
+<!--       </div> -->
    
-   <div  class="col-sm-2"> 
-      <button type="button" id="delete-btn" class="btn" data-dismiss="modal" style="margin-top:-1px;" hidden>Delete Selected</button>
-     </div>
+<!--    <div  class="col-sm-2">  -->
+<!--       <button type="button" id="delete-btn" class="btn" data-dismiss="modal" style="margin-top:-1px;margin-bottom:15px;" hidden>Delete Selected</button> -->
+<!--      </div> -->
      
-     <div  class="col-sm-2"> 
-      <button type="button" id="validateCon" class="btn-info" data-dismiss="modal" data-toggle="modal" data-target="#myModal" style="margin-top:-1px;" hidden>Validate Connection</button>
-     </div>
+<!--      <div  class="col-sm-2">  -->
+<!--       <button type="button" id="validateCon" class="btn-info" data-dismiss="modal" data-toggle="modal" data-target="#myModal" style="margin-top:-1px;margin-bottom:15px;" hidden>Validate Connection</button> -->
+<!--      </div> -->
 
-      </div>
+<!--       </div> -->
 		
 		
 	
 	<div  class="row container" style="margin-top:20px;">
-	
-<div class="col-lg-6">
-</div>
-<div class="col-lg-3">
-</div>
-<div class="col-lg-3">
- <button type="button" id="calibrateLevel" class="btn btn-danger" data-dismiss="modal" style = "margin-left:200px;" hidden>Next Level</button>
-</div>
+<div  class="col-sm-3"> 
+      <button type="button" id="delete-btn" class="btn" data-dismiss="modal" style="margin-top:-1px;margin-bottom:15px;" hidden>Delete Selected</button>
+     </div>
+     
+     <div  class="col-sm-3"> 
+      <button type="button" id="validateCon" class="btn-info" data-dismiss="modal" data-toggle="modal" data-target="#myModal" style="margin-top:-1px;margin-bottom:15px;" hidden>Validate Connection</button>
+     </div>	
 
-
+<div class="col-lg-3">
+ <button type="button" id="calibrateLevel" class="btn btn-danger" data-dismiss="modal" style = "margin-left:200px;margin-bottom:15px;" hidden>Next Level</button>
+</div>
+<div  class="col-sm-2"> 
+     <button type="button" class="btn btn-primary" data-toggle="modal" style="margin-bottom:15px;margin-left:250px;" data-target="#exampleModal">
+  Procedure
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Procedure</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body1" style="    overflow-y: scroll;height:600px;margin-left:10px; ">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+<!--         <button type="button" class="btn btn-primary">OK</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+ </div>
+ </div>
 <div  class="row container-fluid" id="main-div" >
 
 
@@ -190,5 +215,56 @@ function resetDivSize() {
     
 }  
 </script>
+<script>
+ var htm = '';
+ htm += '<h1>Procedure</h1>'
 
+ +'<h3>Basic Knowledge -</h3>'
+ +'<ol>'
+ +'<li>Answer all the questions and click on "Submit Test" button.</li>'
+ +' <li>Click on Next level.</li>'
+ +' </ol>'
+
+ +'<h3>Construction of Wheatstone bridge:-</h3>'
+ +'<ol>'
+ +' <li>Click on a component from the left panel to select it. The selected component will appear on the right, where you can drag and drop the component to adjust its position.</li>'
+ +' <li>You can select any image or connection and click the delete button to modify it, if needed.</li>'
+ +' <li>Use drag-and-drop to connect the ports and construct the Wheatstone bridge.</li>'
+ +' <li>After making the connections, click the "Validate Connection" button to verify them. If the connections are incorrect three times, a popup message will appear, and on the fourth attempt, a hint will be provided. If the connections are correct, you will be redirected to the next page.</li>'
+ +'</ol>'
+
+ +'<h3>Standard Calculation:-</h3>'
+ +'<ol>'
+ +'<li>Select Pressure Range between 0.001 to 0.1 torr.</li>'
+   +'<li>After submitting pressure, another panel will appear where you have to enter temperature. Here temperature range is between 50 to 60 degrees K.</li>'
+   +'<li>After submitting the temperature, Calculate the value of Rx. Once the value of Rx is submitted successfully, another panel will appear where you have to calculate output voltage Vout (mV).</li>'
+   +'<li>After clicking on submit, Click on Next Reading and repeat the procedure. This part shows standard Calculated values.</li>'
+   +'<li>After 5 iterations, click on the Next Level button.</li>'
+   +'</ol>'
+
+ +'<h3>Actual Calculation:-</h3>'
+ +'<ol>'
+ +'<li>Enter Pressure Range between 0.001 to 0.1 torr.</li>'
+   +'<li>After submitting pressure, another panel will appear where you have to enter temperature. Here temperature range is between 50 to 60 degrees K. Here the actual values of Rx will be displayed.</li>'
+   +'<li>Click on Submit. Here the actual values of Output voltage can be observed.</li>'
+   +'<li>Click on Next Reading. Observe the same for other values.</li>'
+   +'</ol>'
+
+ +'<h3>Observation:-</h3>'
+ +'<ol>'
+ +'<li>Observe the difference between the standard value and actual value and click on "Next Level" button on the top.</li>'
+   +'</ol>'
+
+ +'<h3>Calibration:-</h3>'
+ +'<ol>'
+ +'<li>Calculate zero error (zero error = actual reading - observed reading).</li>'
+   +'<li>Calculate span error (span error = actual reading - observed reading).</li>'
+   +'<li>Observe the graph and then adjust zero point on the graph by clicking on "plus" and "minus" buttons.</li>'
+   +'<li>Once zero error is calibrated, then calibrate span error with the same process.</li>'
+   +' <li>When span error is calibrated, it disturbs zero. Again zero is adjusted.</li>'
+   +'</ol>'
+
+ $(".modal-body1").html(htm);
+
+</script>
 </html>
