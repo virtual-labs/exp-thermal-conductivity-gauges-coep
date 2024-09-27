@@ -56,7 +56,7 @@ Used to measure low vacuum and ultra-high vacuum pressures.
 ### Limitations of Pirani gauge :
 1.	Pirani gauge must be checked frequently.
 2.	Pirani gauge must be calibrated from different gases.
-3.	Electric power is a must for its operation.
+3.	Electric power is a must for its operation. 
 
 
 
