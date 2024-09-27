@@ -1,4 +1,3 @@
-
 ### INTRODUCTION :
 
 The Pirani gauge is a device used to measure pressure, especially in vacuum systems. The Pirani gauge consists of a metal filament (usually platinum) suspended in a tube which is connected to the system whose vacuum is to be measured. The connection is usually made either by a ground glass joint or a flanged metal connector, sealed with an O-ring. The sensor wire is connected to an electrical circuit from which, after calibration, a pressure reading may be taken.
@@ -27,7 +26,6 @@ on this study is as follows:
 Rx = 1/k; where,
 k = 0.953P + 0.0137T + 61.8(W/m/K)
 
- 
 To solve for output voltage, Vout, given the Rx resistance, we use Kirchoff's Voltage Law (KVL) and Kirchoff's Current Law (KCL) to arrive at the following equation:
 ![4](images/formulaVout.png)
 Where:
