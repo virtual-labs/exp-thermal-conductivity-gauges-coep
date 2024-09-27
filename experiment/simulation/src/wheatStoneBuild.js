@@ -1,4 +1,5 @@
-var invalidConn = 0;
+var invalidConnCnt = 0;
+
 function wheatStoneCon(){
 
 //function wheatStoneCon(){
@@ -13,18 +14,41 @@ $("#validateCon").prop("hidden",false);
 $("#centerText2").html('SELECT THE COMPONENTS');
 $("#centerText1").html('CONNECT THE PORTS OF WHEATSTONE BRIDGE');
 
+ 
+    
+
+    // Call the function on window resize
+//    window.addEventListener('resize', resizeDivs);
 
 const myDiv = document.getElementById('canvas-div'); // Or use querySelector if needed
+
+// Step 3: Change the size of the div
+myDiv.style.width = '100%';   // Set the width to 90% of the parent
+myDiv.style.height = '50vh'; // Set the height to 30% of the viewport height
+//myDiv.style.color = "lightgrey";
+//myDiv.style.margin = "20px auto"; // Center horizontally with auto margins
+myDiv.style.position = "relative";
+
+const myDiv1 = document.getElementById('main-div-conf'); // Or use querySelector if needed
+
+// Step 3: Change the size of the div
+myDiv1.style.width = '100%';   // Set the width to 90% of the parent
+myDiv1.style.height = '80vh'; // Set the height to 60% of the viewport height
+
+
+/**const myDiv = document.getElementById('canvas-div'); // Or use querySelector if needed
     
     // Step 3: Change the size of the div
     myDiv.style.width = '900px';  // Set the width
     myDiv.style.height = '300px'; // Set the height
-    
+//    myDiv.style.color="lightgrey";
+      myDiv.style.margin= "20px";
+           myDiv.style.position = "relative";
 const myDiv1 = document.getElementById('main-div-conf'); // Or use querySelector if needed
     
     // Step 3: Change the size of the div
     myDiv1.style.width = '900px';  // Set the width
-    myDiv1.style.height = '600px'; // Set the height    
+    myDiv1.style.height = '600px'; // Set the height **/   
     
 
 // Add a global mouseup event listener to remove the shadow line
@@ -75,7 +99,7 @@ const images = [
             { id: "dot7", xOffset: 77, yOffset: 20 },
             { id: "dot8", xOffset: 2, yOffset: 20 }
         ],
-        width: 80, height: 40, x: 560, y: 115
+        width: 80, height: 40, x: 160, y: 200
     }
 ];
 
@@ -177,8 +201,8 @@ function checkAllConnections() {
     const allDots = new Set(Object.keys(validConnections));  
     if (![...allDots].every(id => connectedDots.has(id))) {  
         allValid = false;  
-        console.log("Some ports are not connected properly.");  
-        invalidConn++;
+        console.log("Some dots are not connected properly."); 
+//        invalidConnCnt++; 
     }  
      
     // Show alerts based on the validations  
@@ -189,30 +213,31 @@ function checkAllConnections() {
 	        $(".modal-header").html("Success Message");
             $(".modal-header").css("background","#5cb85c");
 			$("#MsgModal").html("All connections are valid and all ports are connected!");
-             calculate();
-             console.log("invalidConn "+invalidConn);
-					 var tempCountJson ={};
-						tempCountJson.inValidConnection = invalidConn; 						 
-						counterMasterJson.buildWheatStone = tempCountJson;
-						 console.log(counterMasterJson);
+			var tempCountJson ={};
+						tempCountJson.invalidCnt = invalidConnCnt; 						
+						counterMasterJson.constLib = tempCountJson;
+			
+//        alert("All connections are valid and all dots are connected!");  
+        calculate();
     } else {
 	    if(actFlg==1){
 	       if (idd <= 3) {
 				
 				if (allValid) {
-					console.log("invalidConn "+invalidConn);
-					 var tempCountJson ={};
-						tempCountJson.inValidConnection = invalidConn; 						 
-						counterMasterJson.buildWheatStone = tempCountJson;
-						 console.log(counterMasterJson);
+					
 			$("#btnModal").removeClass("btn-danger").addClass("btn-success");
 	        $(".modal-header").html("Success Message");
             $(".modal-header").css("background","#5cb85c");
 			$("#MsgModal").html("All connections are valid and all ports are connected!");
+			
+			            var tempCountJson ={};
+						tempCountJson.invalidCnt = invalidConnCnt; 						
+						counterMasterJson.constLib = tempCountJson;
+			
+			
+			
 //        alert("All connections are valid and all dots are connected!");  
-       calculate();
-       
-                       
+        calculate();
 					
 	                       
 				} else if (!allValid) {
@@ -221,8 +246,8 @@ function checkAllConnections() {
 			$(".modal-header").css("background","#9c1203b0");
 			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
 			$("#MsgModal").html("Some connections are invalid or some ports are not connected properly.");	
-					
-                   invalidConn++;
+					invalidConnCnt++;
+
 				}
 	
 	
@@ -234,10 +259,10 @@ function checkAllConnections() {
 			
 			modelImg = '<img src="images/wheatStoneOP.png" class="img-responsive" alt="Cinque Terre">'
             $("#MsgModal").html(modelImg);
-			invalidConn++;
+			invalidConnCnt++;
 			}else {
 					
-                invalidConn++;
+                   invalidConnCnt++;
 	
 				} 
 			idd++;				
@@ -245,11 +270,11 @@ function checkAllConnections() {
 //        alert("Some connections are invalid or some dots are not connected properly.");  
     }
     else{
-	invalidConn++;
 	       $(".modal-header").html("Failed Connection ");
 			$(".modal-header").css("background","#9c1203b0");
 			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
 			$("#MsgModal").html("Select the components and connect them");
+			invalidConnCnt++;
     }
     }  
 }  

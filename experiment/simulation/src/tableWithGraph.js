@@ -65,18 +65,16 @@ Highcharts.chart('table-design', {
     title: {
         text: 'Pressure V/S Resistance'
     },
-    
-    xAxis:
-     {
-
- 				min:Xmin ,
-				max: Xmax,
-      title: {
+    xAxis: {
+        min: Xmin,
+        max: Xmax,
+        title: {
             text: 'Pressure'
         }
     },
-    yAxis: {min:Ymin ,
-				max: Ymax,
+    yAxis: {
+        min: Ymin,
+        max: Ymax,
         title: {
             text: 'Resistance'
         }
@@ -90,20 +88,19 @@ Highcharts.chart('table-design', {
         }
     },
     series: [{
-	type: 'line',
-   
+        type: 'line',
         name: 'Standard',
-        data: graphData1
-     
+        data: graphData1,
+        showInLegend: false // Hide the legend for Standard
     }, 
-    
     {
-    marker: {
-        symbol: 'square'
-    },
-     type: 'scatter',
+        marker: {
+            symbol: 'square'
+        },
+        type: 'scatter',
         name: 'Actual',
-        data: graphData1
+        data: graphData1,
+        showInLegend: false // Hide the legend for Actual
     }]
 });
 
