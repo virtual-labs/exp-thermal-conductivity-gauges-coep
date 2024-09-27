@@ -13,7 +13,9 @@ The heating filament is heated by a constant current. Therefore, Temperature of 
 Wheatstone Bridge is an instrument designed to measure unknown resistance in electrical circuits. It calculates the unknown resistance by balancing the two legs of the bridge circuit where one leg contains both known resistors and the other leg contains one known (variable) and one unknown resistor. Since it estimates unknown resistance in an electric circuit, it is also known as a resistance bridge. Wheatstone bridge is a very reliable instrument as it measures the resistance very precisely.
 A conducting wire gets heated when electric current flows through it. The rate at which heat is dissipated from this wire depends on the conductivity of the surrounding media. 
 The conductivity of the surrounding media in-turn depends on the density of the surrounding media (that is, lower pressure of the surrounding media, lower will be its density). If the density of the surrounding media is low, its conductivity also will be low causing the wire to become hotter for a given current flow, and vice versa.
+
 ![3](images/Pirani-Gauge.png)
+
 The Pirani wire filament is typically operated in a balanced Wheatstone bridge circuit where one leg of the bridge is the Pirani filament and the other three elements of the bridge circuit balance and temperature compensate the circuit.
 The filament wire is maintained at a constant temperature and when the gas density changes and thereby thermal conductivity changes the energy required to maintain the wire changes accordingly. Consequently, the voltage supply to the Wheatstone bridge becomes vacuum pressure dependent and the measured bridge voltage can be converted to a pressure value.
 The Pirani gauge measures the thermal conductivity of the gas and therefore the measurement is dependent of the gas properties.
@@ -27,7 +29,10 @@ Rx = 1/k; where,
 k = 0.953P + 0.0137T + 61.8(W/m/K)
 
 To solve for output voltage, Vout, given the Rx resistance, we use Kirchoff's Voltage Law (KVL) and Kirchoff's Current Law (KCL) to arrive at the following equation:
+
 ![4](images/formulaVout.png)
+
+
 Where:
 Vout = differential voltage across the Wheatstone bridge, in volts
 Vin = input voltage to the Wheatstone bridge, in volts
