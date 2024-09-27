@@ -1,5 +1,5 @@
 function result(){
-	
+	$("#btnForModal").prop("hidden",true);
 	$("#main-div-conf").html("");
     			     $("#canvas-div").html("");
 				     
@@ -79,7 +79,7 @@ quesPercent = parseFloat(quesPercent);
 
 console.log(quesPercent);
 
-    var wheatStone = ((1/(counterMasterJson.buildWheatStone.inValidConnection+1))*100).toFixed(1);
+    var wheatStone = ((1/(counterMasterJson.constLib.invalidCnt+1))*100).toFixed(1);
 	wheatStone = parseFloat(wheatStone);
 	console.log(wheatStone);
 	
@@ -245,7 +245,7 @@ var htm = ''
 		+'<center><span class="valueBox">Wrong Attempts</span></center>'
 		+' <div class="panel-body counterPanelRed">'
 
-		+'<center><span class="valueBox"><b>'+counterMasterJson.buildWheatStone.inValidConnection+'</b></span></center>'
+		+'<center><span class="valueBox"><b>'+counterMasterJson.constLib.invalidCnt+'</b></span></center>'
 		+'</div>'
 		+'</div>'
 //		+'<span class="heading1">4 </span>'

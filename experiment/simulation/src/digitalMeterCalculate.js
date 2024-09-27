@@ -19,7 +19,7 @@ function digitalMeter(){
 		var vout2 = 0;
         var tempVal=0;
         var paper = new Raphael(document.getElementById('main-div-conf'),800,500);
-       var x = 100;
+       var x = 55;
        var y = 100;
 	 wheatStone_img = paper.image("images/wheatstone.png",(x-50), (y+30),900, 600);
 //	 var r1 = paper.circle(x+110,y+170,30).attr({'stroke' : '#000' , 'stroke-width' : 3 ,'fill':"#fff"}).toFront();
@@ -27,7 +27,7 @@ function digitalMeter(){
      var r1 = paper.rect(x+75,y+150,60,40,5).attr({'stroke' : '#706e6f' , 'stroke-width' : 6 ,'fill':"#000"}).toFront();
 
 	 var rect1 = paper.rect(x+480,y+110,60,40).attr({'stroke' : '#000' , 'stroke-width' : 3 });
-	 var txt = paper.text(x+510,y+90,"Vaccum").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
+	 var txt = paper.text(x+510,y+90,"Vacuum").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
 	 var rx_txt1= paper.text(x+290,y+100,"Rx").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
 	 var volt_text = paper.text(x-43,y+190,vin+"V").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
 	 var r1txt = paper.text(x+25,y+110,"R2 :"+r+"").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});

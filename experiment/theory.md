@@ -24,11 +24,10 @@ the same form and determined the values of a, b, and K0 from our current and pre
 data and the recommended values at ambient pressure. The revised model based
 on this study is as follows:
 
-Rx = 1/kPt; where,
-kPt = 0.953P + 0.0137T + 61.8(W/m/K)
+Rx = 1/k; where,
+k = 0.953P + 0.0137T + 61.8(W/m/K)
 
-the credibility of the pressure coefficient (a) and the temperature coefficient
-(b) has increased due to the expansion of the experimental P–T ranges.
+ 
 To solve for output voltage, Vout, given the Rx resistance, we use Kirchoff's Voltage Law (KVL) and Kirchoff's Current Law (KCL) to arrive at the following equation:
 ![4](images/formulaVout.png)
 Where:
