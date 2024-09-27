@@ -2,10 +2,12 @@
 
 The Pirani gauge is a device used to measure pressure, especially in vacuum systems. The Pirani gauge consists of a metal filament (usually platinum) suspended in a tube which is connected to the system whose vacuum is to be measured. The connection is usually made either by a ground glass joint or a flanged metal connector, sealed with an O-ring. The sensor wire is connected to an electrical circuit from which, after calibration, a pressure reading may be taken.
 Below fig. shows overview of Pirani gauge. 
+
 ![1](images/piraniGuage.png)
 
 ### WORKING OF THE PIRANI GAUGE : 
 The heating filament is heated by a constant current. Therefore, Temperature of heating filament will increase. For a given magnitude of current, temperature of heating filament depends upon rate of heat dis- septation to surrounding medium, i.e., Gas by means of conduction and convection. After heating, the heating filament is placed or connected to vacuum or low-pressure surrounding gas medium. Now since, the heating filament is surrounded by vacuum or low-pressure gas, then thermal conductivity (i.e., ability of heating filament to give away heat to sur- rounding medium) of heating filament will also decrease. In such condition, the heating filament will be hotter. Change in temperature of heating filament will lead to change in resistance of wire, which can be measured by using Wheatstone bridge. The current under unbalanced condition is indicated by an ammeter in mA. We obtain an output reading, which is a function of temperature of heating filament and hence, the function of pressure of surrounding gas.
+
 ![2](images/schematic-diagram-for-Pirani-gauge.png)
 
 ### Pirani Wheatstone bridge : 
