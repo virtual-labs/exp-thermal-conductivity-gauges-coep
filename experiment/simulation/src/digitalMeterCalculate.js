@@ -24,7 +24,7 @@ function digitalMeter(){
 	 wheatStone_img = paper.image("images/wheatstone.png",(x-50), (y+30),900, 600);
 //	 var r1 = paper.circle(x+110,y+170,30).attr({'stroke' : '#000' , 'stroke-width' : 3 ,'fill':"#fff"}).toFront();
 
-     var r1 = paper.rect(x+75,y+150,60,40,5).attr({'stroke' : '#706e6f' , 'stroke-width' : 6 ,'fill':"#000"}).toFront();
+     var r1 = paper.rect(x+70,y+150,65,43,5).attr({'stroke' : '#706e6f' , 'stroke-width' : 6 ,'fill':"#000"}).toFront();
 
 	 var rect1 = paper.rect(x+480,y+110,60,40).attr({'stroke' : '#000' , 'stroke-width' : 3 });
 	 var txt = paper.text(x+510,y+90,"Vacuum").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});

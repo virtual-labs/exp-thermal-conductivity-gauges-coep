@@ -773,7 +773,7 @@ function generateSmoothConnection(startDot, endDot, avoidAreas = []) {
                 // Adjust if intersects with avoid areas
                 path = `M${cx1},${cy1} H${firstMoveX} L${firstMoveX},${cy1 + 10} L${cx2},${cy2}`;
             }
-        } else if (distance >= 195 && distance < 320) {
+        } else if (distance >= 195 && distance < 280) {
             // For medium distances
             path = `M${cx1},${cy1} H${firstMoveX} L${firstMoveX},${cy2} L${cx2},${cy2}`;
         } else {
