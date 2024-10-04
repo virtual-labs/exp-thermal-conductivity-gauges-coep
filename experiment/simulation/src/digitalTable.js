@@ -15,7 +15,7 @@ function digiTable(){
 					+ '   <th><center>Temperature (&#176;K) </center></th>'
 					+ '  <th><center>Standard Resistance Rx (m&ohm;)</center> </th>'
 					+ '  <th><center>Observed Resistance Rx (m&ohm;)</center> </th>'
-                    + '  <th><center>Output Vout (mV)</center> </th>'
+                    + '  <th><center>Output V<sub>out</sub> (mV)</center> </th>'
 					+ '   </tr>'
 					+ '  </thead>'
 					+ '   <tbody>'

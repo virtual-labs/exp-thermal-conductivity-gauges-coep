@@ -11,7 +11,7 @@ function tableReading(){
 					+ '  <th><center>Pressure (torr)</center></th>'
 					+ '   <th><center>Temperature (&#176;K) </center></th>'
 					+ '  <th><center>Resistance Rx (m&ohm;)</center> </th>'
-                    + '  <th><center>Output Vout (mV)</center> </th>'
+                    + '  <th><center>Output V<sub>out</sub> (mV)</center> </th>'
 					+ '   </tr>'
 					+ '  </thead>'
 					+ '   <tbody>'

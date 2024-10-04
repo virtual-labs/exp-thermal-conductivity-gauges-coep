@@ -14,7 +14,8 @@ function calculate(){
      flg = 0;
      var vin = 5;
 //		var rx = 0.0159;
-		var r = 15;
+//		var r = 15;
+          var r = 140;
 		var a1 = 0, b1 = 0;
 		var a = 0, b = 0;
 		var vout1 = 0 , vout = 0;
@@ -29,11 +30,12 @@ function calculate(){
 	 var r1 = paper.circle(x+110,y+170,30).attr({'stroke' : '#000' , 'stroke-width' : 3 ,'fill':"#fff"}).toFront();
 	 var rect1 = paper.rect(x+480,y+110,60,40).attr({'stroke' : '#000' , 'stroke-width' : 3 });
 	 var txt = paper.text(x+510,y+90,"Vacuum").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-	 var rx_txt= paper.text(x+284,y+100,"Rx : ").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-	 var volt_text = paper.text(x-43,y+190,vin+"V").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-	 var r1txt = paper.text(x+25,y+110,"R2 :"+r+"").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-     var r2txt = paper.text(x+25,y+235,"R3 :"+r+"").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-     var r3txt = paper.text(x+190,y+235,"R1 :"+r+"").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
+	 var rx_txt= paper.text(x+282,y+100,"Rx : ").attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});
+	 var volt_text = paper.text(x-45,y+190,vin+"V").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
+	var r1txt = paper.text(x + 25, y + 110, "R2 :" + r +  " \u03A9").attr({'stroke' : '#000' , "font-size":"14px", "font-weight": "bold"});
+
+     var r2txt = paper.text(x+26,y+235,"R3 :"+r+ " \u03A9").attr({'stroke' : '#000' , "font-size":"14px","font-weight": "bold"});
+     var r3txt = paper.text(x+192,y+235,"R1 :"+r+ " \u03A9").attr({'stroke' : '#000' , "font-size":"14px","font-weight": "bold"});
      var tempVal=0;
 	               
 	 var pressVal =  '<div class="row" id="pressVal" >'
@@ -311,7 +313,12 @@ function calculate(){
 			kt = 1/rxVal;
 			rxConvert = kt*1000;
 			rx1 = rxConvert.toFixed(4);
-			rx = parseFloat(rx1);
+			rx1 = parseFloat(rx1)
+			var rx2 = parseFloat(rx1)+parseFloat(140);
+			
+			rx = parseFloat(rx2);
+			
+			
 			
 			if(calTemp==""){
 			$(".modal-header").html("Error Message");
@@ -321,15 +328,15 @@ function calculate(){
 			}else{
 			if (id <= 3) {
 				calTemp = parseFloat($("#text3").val());
-				if (calTemp == rx) {
+				if (calTemp == rx1) {
 					checkAns = 0;
                     $("#submit_Press2").prop("disabled",true);
                     $("#text3").prop("disabled",true);
                     $("#outputVoltage").prop("hidden",false);
-                rx_txt1= paper.text(x+335,y+100," "+rx).attr({'stroke' : '#000' , "font-size":"18px","font-weight": "bold"});     
+                rx_txt1= paper.text(x+335,y+100," "+rx).attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});     
 					
 	
-				} else if (calTemp != rx) {
+				} else if (calTemp != rx1) {
 				$(".modal-header").html("Error Message");
 			$(".modal-header").css("background","#9c1203b0");
 			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
@@ -358,13 +365,13 @@ function calculate(){
 			} else {
 //				ax1 = $("#text2").val().trim();
 	
-				if (calTemp == rx) {
+				if (calTemp == rx1) {
 					checkAns = 0;
 //					correct_cnt++;
 					 $("#submit_Press2").prop("disabled",true);
                     $("#text3").prop("disabled",true);
                     $("#outputVoltage").prop("hidden",false);
-                rx_txt1= paper.text(x+335,y+100," "+rx).attr({'stroke' : '#000' , "font-size":"18px","font-weight": "bold"});     
+                rx_txt1= paper.text(x+335,y+100," "+rx).attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});     
 
 					
 	
@@ -373,7 +380,7 @@ function calculate(){
 					$("#btnModal").removeClass("btn-danger").addClass("btn-success");
 	        $(".modal-header").html("Success Message");
             $(".modal-header").css("background","#5cb85c");
-			$("#MsgModal").html("Correct Answer is " + rx);
+			$("#MsgModal").html("Correct Answer is " + rx1);
 			incorrectRes++;
 //					alert("correct answer is " + rx );
 					
@@ -563,22 +570,49 @@ function calculate(){
 		
 		
 		var vout3 = 0;
+		
+		
 		function calout(){
-			a1 = r+rx;
-			a = (rx/a1).toFixed(4);
+			a1 = parseFloat(rx)+parseFloat(140);
+			
+//			a1 = parseFloat(a1);
+			a = (rx/a1);
+			a = parseFloat(a);
 			console.log("value of first term "+a);
 			b1 = r+r;
-			b = r/b1.toFixed(4);
+			b = r/b1;
 			console.log("value of second term "+b);
-			vout1 = (a-b).toFixed(4);
+			vout1 = (a-b);
 			console.log("value of substraction "+vout1);
-			vout2 = (vin * vout1).toFixed(4);
-			vout3 = vout2*1000;
+			vout2 = (vin * vout1);
+			vout3 = (vout2*1000).toFixed(2);
 			vout =  parseFloat(vout3);
+			
 			console.log("value of output "+vout);
 			
 			
 		}
+		
+		
+//		function calout(){
+//			a1 = parseFloat(rx)+parseFloat(140);
+//			a1 = a1.toFixed(4);
+////			a1 = parseFloat(a1);
+//			a = (rx/a1).toFixed(4);
+//			a = parseFloat(a);
+//			console.log("value of first term "+a);
+//			b1 = r+r;
+//			b = r/b1.toFixed(4);
+//			console.log("value of second term "+b);
+//			vout1 = (a-b).toFixed(4);
+//			console.log("value of substraction "+vout1);
+//			vout2 = (vin * vout1).toFixed(4);
+//			vout3 = (vout2*1000).toFixed(4);
+//			vout =  parseFloat(vout2);
+//			console.log("value of output "+vout);
+//			
+//			
+//		}
 	 
 	    function addFun(){
 		                     tempJson={};

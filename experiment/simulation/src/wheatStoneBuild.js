@@ -84,22 +84,28 @@ const images = [
         width: 200, height: 200, x: 50, y: 50
     },
     {
-        src: "images/wheatStoneOutline111.png",
+        src: "images/wheatStoneOutline1.png",
         dots: [
             { id: "dot3", xOffset: 100, yOffset: 12 },
-            { id: "dot4", xOffset: 100, yOffset: 194 },
-            { id: "dot5", xOffset: 5, yOffset: 103 },
+            { id: "dot5", xOffset: 100, yOffset: 194 },
+            { id: "dot4", xOffset: 5, yOffset: 103 },
             { id: "dot6", xOffset: 195, yOffset: 103 }
         ],
         width: 220, height: 220, x: 280, y: 40
     },
     {
-        src: "images/outVolt.png",
+	 src: "images/outVolt.png",
         dots: [
-            { id: "dot7", xOffset: 77, yOffset: 20 },
-            { id: "dot8", xOffset: 2, yOffset: 20 }
+            { id: "dot8", xOffset: 77, yOffset: 20 },
+            { id: "dot7", xOffset: 2, yOffset: 20 }
         ],
-        width: 80, height: 40, x: 160, y: 200
+        width: 80, height: 40, x: 100, y: 240
+//        src: "images/outputVolt.png",
+//        dots: [
+//            { id: "dot8", xOffset: 77, yOffset: 20 },
+//            { id: "dot7", xOffset: 2, yOffset: 20 }
+//        ],
+//        width: 80, height: 40, x: 560, y: 115
     }
 ];
 
@@ -172,114 +178,339 @@ document.getElementById('delete-btn').addEventListener('click', () => {
 var actFlg = 0;
 var idd = 1;
 
-function checkAllConnections() {  
-    let allValid = true; // Assume all connections are valid initially  
-    let connectedDots = new Set(); // To store the IDs of connected dots  
 
-    // Iterate over each connection  
+function checkAllConnections() {  
+    let allValid = true;  // Assume all connections are valid initially  
+    let requiredConditionsMet = {  
+        dot1ToDot4: false,  
+        dot2ToDot6: false,  
+        dot1ToDot3: false,  
+        dot2ToDot5: false,  
+        dot3ToDot7: false,  // For the first combination  
+        dot5ToDot8: false,  // For the first combination  
+        dot4ToDot7: false,  // For the second combination  
+        dot6ToDot8: false,   // For the second combination  
+        dot1ToDot6: false,
+        dot2ToDot4: false,
+        dot1ToDot5: false,
+        dot2ToDot3: false
+    };  
+
+    // Check each connection  
     connections.forEach(({ start, end }) => {  
         const startId = start.data("id");  
         const endId = end.data("id");  
 
-        // Check if this connection is valid  
+        // Check if the connection is valid  
         const isValidConnection = validConnections[startId] && validConnections[startId].includes(endId);  
 
         if (!isValidConnection) {  
-            allValid = false; // If any connection is invalid, set the flag to false  
-            console.log(`Invalid connection between ${startId} and ${endId}`);  
-            actFlg = 1;
+            allValid = false;  // If any connection is invalid, set the flag to false  
+//            console.log(`Invalid connection between ${startId} and ${endId}`);  
         } else {  
-            console.log(`Valid connection between ${startId} and ${endId}`);  
-            // Add the connected dots to the set  
-            connectedDots.add(startId);  
-            connectedDots.add(endId);  
-            actFlg = 1;
+//            console.log(`Valid connection between ${startId} and ${endId}`);  
+
+            // Track required specific connections  
+            if ((startId === 'dot1' && endId === 'dot4') || (startId === 'dot4' && endId === 'dot1')) {  
+                requiredConditionsMet.dot1ToDot4 = true;  // dot1 is connected to dot4  
+            }  
+            if ((startId === 'dot2' && endId === 'dot6') || (startId === 'dot6' && endId === 'dot2')) {  
+                requiredConditionsMet.dot2ToDot6 = true;  // dot2 is connected to dot6  
+            }  
+            if ((startId === 'dot1' && endId === 'dot3') || (startId === 'dot3' && endId === 'dot1')) {  
+                requiredConditionsMet.dot1ToDot3 = true;  // dot1 is connected to dot3  
+            }  
+            if ((startId === 'dot2' && endId === 'dot5') || (startId === 'dot5' && endId === 'dot2')) {  
+                requiredConditionsMet.dot2ToDot5 = true;  // dot2 is connected to dot5  
+            } 
+            
+            if ((startId === 'dot1' && endId === 'dot6') || (startId === 'dot6' && endId === 'dot1')) {  
+                requiredConditionsMet.dot1ToDot6 = true;  // dot2 is connected to dot5  
+            }
+            if ((startId === 'dot2' && endId === 'dot4') || (startId === 'dot4' && endId === 'dot2')) {  
+                requiredConditionsMet.dot2ToDot4 = true;  // dot2 is connected to dot5  
+            }
+            if ((startId === 'dot1' && endId === 'dot5') || (startId === 'dot5' && endId === 'dot1')) {  
+                requiredConditionsMet.dot1ToDot5 = true;  // dot2 is connected to dot5  
+            }  
+            if ((startId === 'dot2' && endId === 'dot3') || (startId === 'dot3' && endId === 'dot2')) {  
+                requiredConditionsMet.dot2ToDot3 = true;  // dot2 is connected to dot5  
+            }        
+
+            // Additional connections for the first and second combinations  
+            if ((startId === 'dot3' && endId === 'dot7') || (startId === 'dot7' && endId === 'dot3')) {  
+                requiredConditionsMet.dot3ToDot7 = true;  // dot3 is connected to dot7  
+            }  
+            if ((startId === 'dot5' && endId === 'dot8') || (startId === 'dot8' && endId === 'dot5')) {  
+                requiredConditionsMet.dot5ToDot8 = true;  // dot5 is connected to dot8  
+            }  
+            if ((startId === 'dot4' && endId === 'dot7') || (startId === 'dot7' && endId === 'dot4')) {  
+            requiredConditionsMet.dot4ToDot7 = true;  
+  
+        } 
+//        else {  
+//            console.log("No valid connection between dot4 and dot7 found.");  
+//        }  
+            if ((startId === 'dot6' && endId === 'dot8') || (startId === 'dot8' && endId === 'dot6')) {  
+                requiredConditionsMet.dot6ToDot8 = true;  // dot6 is connected to dot8  
+            }  
         }  
     });  
-      
-    // Check if all dots are connected (assuming you have a collection of all required dot IDs)  
-    const allDots = new Set(Object.keys(validConnections));  
-    if (![...allDots].every(id => connectedDots.has(id))) {  
-        allValid = false;  
-        console.log("Some dots are not connected properly."); 
-//        invalidConnCnt++; 
-    }  
-     
-    // Show alerts based on the validations  
-    if (allValid) { 
-	    $("#delete-btn").prop("hidden",true);
-	    $("#validateCon").prop("hidden",true); 
+
+    // Check if the first combination is valid  
+    const isFirstCombinationValid = requiredConditionsMet.dot1ToDot4 && requiredConditionsMet.dot2ToDot6;  
+    // Check if the second combination is valid  
+    const isSecondCombinationValid = requiredConditionsMet.dot1ToDot3 && requiredConditionsMet.dot2ToDot5;
+    const isThirdCombinationValid = requiredConditionsMet.dot1ToDot6 && requiredConditionsMet.dot2ToDot4;
+    const isForthCombinationValid = requiredConditionsMet.dot1ToDot5 && requiredConditionsMet.dot2ToDot3;   
+
+    // Debugging information  
+//    console.log("isFirstCombinationValid: ", isFirstCombinationValid);  
+//    console.log("isSecondCombinationValid: ", isSecondCombinationValid);  
+//    console.log("requiredConditionsMet: ", requiredConditionsMet);  
+
+    // Handling the first combination 
+    if(idd<=3){ 
+    if (isFirstCombinationValid) {  
+        // Also check for dot1 to dot3 and dot2 to dot5 alongside other requirements  
+        if (!requiredConditionsMet.dot3ToDot7 || !requiredConditionsMet.dot5ToDot8) {  
+            allValid = false;  
+            $(".modal-header").html("Error Message");
+			$(".modal-header").css("background","#9c1203b0");
+			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
+			$("#MsgModal").html("The digital meter's input and output connections are incorrect.");
+//            ("First combination is valid, but the required additional connections (dot3 to dot7 and dot5 to dot8) are missing.");  
+//            return; // Exit the function here
+              invalidConnCnt++;
+        } else { 
 	        $("#btnModal").removeClass("btn-danger").addClass("btn-success");
 	        $(".modal-header").html("Success Message");
             $(".modal-header").css("background","#5cb85c");
-			$("#MsgModal").html("All connections are valid and all ports are connected!");
-			var tempCountJson ={};
-						tempCountJson.invalidCnt = invalidConnCnt; 						
-						counterMasterJson.constLib = tempCountJson;
-			
-//        alert("All connections are valid and all dots are connected!");  
-        calculate();
-    } else {
-	    if(actFlg==1){
-	       if (idd <= 3) {
-				
-				if (allValid) {
-					
-			$("#btnModal").removeClass("btn-danger").addClass("btn-success");
-	        $(".modal-header").html("Success Message");
-            $(".modal-header").css("background","#5cb85c");
-			$("#MsgModal").html("All connections are valid and all ports are connected!");
-			
+			$("#MsgModal").html("All connections are valid and all ports are connected!"); 
 			            var tempCountJson ={};
 						tempCountJson.invalidCnt = invalidConnCnt; 						
 						counterMasterJson.constLib = tempCountJson;
-			
-			
-			
-//        alert("All connections are valid and all dots are connected!");  
-        calculate();
-					
-	                       
-				} else if (!allValid) {
-					
-			$(".modal-header").html("Failed Connection ");
+           calculate();
+//            return; // Exit the function here since the first combination is valid  
+        }  
+    }  else
+
+    // Handling the second combination  
+    if (isSecondCombinationValid) {  
+        if (!requiredConditionsMet.dot4ToDot7 || !requiredConditionsMet.dot6ToDot8) { 
+	 allValid = false;  
+            $(".modal-header").html("Error Message");
 			$(".modal-header").css("background","#9c1203b0");
 			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
-			$("#MsgModal").html("Some connections are invalid or some ports are not connected properly.");	
-					invalidConnCnt++;
+			$("#MsgModal").html("The digital meter's input and output connections are incorrect.");
+	       invalidConnCnt++;
+//            return; // Exit the function here  
+        } else {  
+            $("#btnModal").removeClass("btn-danger").addClass("btn-success");
+	        $(".modal-header").html("Success Message");
+            $(".modal-header").css("background","#5cb85c");
+			$("#MsgModal").html("All connections are valid and all ports are connected!");
+			 var tempCountJson ={};
+						tempCountJson.invalidCnt = invalidConnCnt; 						
+						counterMasterJson.constLib = tempCountJson;  
+//            return; // Exit the function since the second combination is valid 
+           calculate();
+        }  
+    } else
+    
+    if (isThirdCombinationValid) {  
+        if (!requiredConditionsMet.dot3ToDot7 || !requiredConditionsMet.dot5ToDot8) { 
+	 allValid = false;  
+            $(".modal-header").html("Error Message");
+			$(".modal-header").css("background","#9c1203b0");
+			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
+			$("#MsgModal").html("The digital meter's input and output connections are incorrect.");            
+	       invalidConnCnt++;
+//            return; // Exit the function here  
+        } else {  
+           $("#btnModal").removeClass("btn-danger").addClass("btn-success");
+	        $(".modal-header").html("Success Message");
+            $(".modal-header").css("background","#5cb85c");
+			$("#MsgModal").html("All connections are valid and all ports are connected!");
+			 var tempCountJson ={};
+						tempCountJson.invalidCnt = invalidConnCnt; 						
+						counterMasterJson.constLib = tempCountJson;
+			calculate();
+//            return; // Exit the function since the second combination is valid  
+        }  
+    } else
+       if (isForthCombinationValid) {  
+        if (!requiredConditionsMet.dot4ToDot7 || !requiredConditionsMet.dot6ToDot8) { 
+	 allValid = false;  
+            $(".modal-header").html("Error Message");
+			$(".modal-header").css("background","#9c1203b0");
+			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
+			$("#MsgModal").html("The digital meter's input and output connections are incorrect.");            
+	       invalidConnCnt++;
+//            return; // Exit the function here  
+        } else {  
+           $("#btnModal").removeClass("btn-danger").addClass("btn-success");
+	        $(".modal-header").html("Success Message");
+            $(".modal-header").css("background","#5cb85c");
+			$("#MsgModal").html("All connections are valid and all ports are connected!"); 
+			 var tempCountJson ={};
+						tempCountJson.invalidCnt = invalidConnCnt; 						
+						counterMasterJson.constLib = tempCountJson;
+			calculate();
+//            return; // Exit the function since the second combination is valid  
+        }  
+    } else{
+	     	$(".modal-header").html("Error Message");
+			$(".modal-header").css("background","#9c1203b0");
+			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
+			$("#MsgModal").html("Some connections are invalid or the required conditions are missing.");
+			invalidConnCnt++;
+//	        alert("Neither the first nor second combination is valid.");  
 
-				}
-	
-	
-			} else if (idd == 4) {
-				
-				$(".modal-header").html("Appropriate Connection");
+}
+}else{
+	    
+	     if (isFirstCombinationValid) {  
+        // Also check for dot1 to dot3 and dot2 to dot5 alongside other requirements  
+        if (!requiredConditionsMet.dot3ToDot7 || !requiredConditionsMet.dot5ToDot8) {  
+            allValid = false;  
+           invalidConnCnt++;
+	        $(".modal-header").html("Appropriate Connection");
 			$(".modal-header").css("background","#23435c");
 			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
-			
+			modelImg = '<img src="images/wheatStoneCond1.png" class="img-responsive" alt="Cinque Terre">'
+            $("#MsgModal").html(modelImg);
+//            ("First combination is valid, but the required additional connections (dot3 to dot7 and dot5 to dot8) are missing.");  
+//            return; // Exit the function here  
+        } else { 
+	        $("#btnModal").removeClass("btn-danger").addClass("btn-success");
+	        $(".modal-header").html("Success Message");
+            $(".modal-header").css("background","#5cb85c");
+			$("#MsgModal").html("All connections are valid and all ports are connected!"); 
+            typeCell = $("#typeCell").val();
+             var tempCountJson ={};
+						tempCountJson.invalidCnt = invalidConnCnt; 						
+						counterMasterJson.constLib = tempCountJson;
+				 calculate();
+//            return; // Exit the function here since the first combination is valid  
+        }  
+    }  else
+
+    // Handling the second combination  
+    if (isSecondCombinationValid) {  
+        if (!requiredConditionsMet.dot4ToDot7 || !requiredConditionsMet.dot6ToDot8) { 
+	 allValid = false;  
+           invalidConnCnt++;
+	        $(".modal-header").html("Appropriate Connection");
+			$(".modal-header").css("background","#23435c");
+			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
 			modelImg = '<img src="images/wheatStoneOP.png" class="img-responsive" alt="Cinque Terre">'
             $("#MsgModal").html(modelImg);
-			invalidConnCnt++;
-			}else {
-					
-                   invalidConnCnt++;
+	       
+//            return; // Exit the function here  
+        } else {  
+            $("#btnModal").removeClass("btn-danger").addClass("btn-success");
+	        $(".modal-header").html("Success Message");
+            $(".modal-header").css("background","#5cb85c");
+			$("#MsgModal").html("All connections are valid and all ports are connected!");  
+//            return; // Exit the function since the second combination is valid  
+                        var tempCountJson ={};
+						tempCountJson.invalidCnt = invalidConnCnt; 						
+						counterMasterJson.constLib = tempCountJson;
+             calculate();
+        }  
+    } else
+    
+    if (isThirdCombinationValid) {  
+        if (!requiredConditionsMet.dot3ToDot7 || !requiredConditionsMet.dot5ToDot8) { 
+	 allValid = false;  
+           invalidConnCnt++;
+	        $(".modal-header").html("Appropriate Connection");
+			$(".modal-header").css("background","#23435c");
+			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
+			modelImg = '<img src="images/wheatStoneCond3.png" class="img-responsive" alt="Cinque Terre">'
+            $("#MsgModal").html(modelImg);            
+	       
+//            return; // Exit the function here  
+        } else {  
+           $("#btnModal").removeClass("btn-danger").addClass("btn-success");
+	        $(".modal-header").html("Success Message");
+            $(".modal-header").css("background","#5cb85c");
+			$("#MsgModal").html("All connections are valid and all ports are connected!");  
+//            return; // Exit the function since the second combination is valid 
+ var tempCountJson ={};
+						tempCountJson.invalidCnt = invalidConnCnt; 						
+						counterMasterJson.constLib = tempCountJson; 
+            calculate();
+        }  
+    } else
+       if (isForthCombinationValid) {  
+        if (!requiredConditionsMet.dot4ToDot7 || !requiredConditionsMet.dot6ToDot8) { 
+	 allValid = false;  
+            
+	        $(".modal-header").html("Appropriate Connection");
+			$(".modal-header").css("background","#23435c");
+			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
+			modelImg = '<img src="images/wheatStoneCond4.png" class="img-responsive" alt="Cinque Terre">'
+            $("#MsgModal").html(modelImg);          
+	       invalidConnCnt++;
+//            return; // Exit the function here  
+        } else {  
+           $("#btnModal").removeClass("btn-danger").addClass("btn-success");
+	        $(".modal-header").html("Success Message");
+            $(".modal-header").css("background","#5cb85c");
+			$("#MsgModal").html("All connections are valid and all ports are connected!"); 
+			 var tempCountJson ={};
+						tempCountJson.invalidCnt = invalidConnCnt; 						
+						counterMasterJson.constLib = tempCountJson;
+			calculate();
+//            return; // Exit the function since the second combination is valid  
+        }  
+    } else{
+	     	
+	        $(".modal-header").html("Appropriate Connection");
+			$(".modal-header").css("background","#23435c");
+			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
+			modelImg = '<img src="images/wheatStoneOP.png" class="img-responsive" alt="Cinque Terre">'
+            $("#MsgModal").html(modelImg);
+            invalidConnCnt++;
+//	        alert("Neither the first nor second combination is valid.");  
+
+        }
 	
-				} 
-			idd++;				
 	
-//        alert("Some connections are invalid or some dots are not connected properly.");  
-    }
-    else{
-	       $(".modal-header").html("Failed Connection ");
+	
+//	
+//	        $(".modal-header").html("Appropriate Connection");
+//			$(".modal-header").css("background","#23435c");
+//			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
+//			modelImg = '<img src="images/wheatStoneOP.png" class="img-responsive" alt="Cinque Terre">'
+//            $("#MsgModal").html(modelImg);
+} 
+       
+       
+    // If neither combination is valid  
+//    if (!isFirstCombinationValid && !isSecondCombinationValid && isThirdCombinationValid && isForthCombinationValid) {  
+//        allValid = false;  
+//        alert("Neither the first nor second combination is valid.");  
+//    }  
+
+    // Final alert if any connections were invalid  
+    if(idd<=3){
+    if (!allValid) {  
+	$(".modal-header").html("Error Message");
 			$(".modal-header").css("background","#9c1203b0");
 			$("#btnModal").removeClass("btn-success").addClass("btn-danger");
-			$("#MsgModal").html("Select the components and connect them");
+			$("#MsgModal").html("Some connections are invalid or the required conditions are missing.");
 			invalidConnCnt++;
-    }
+//        alert("Some connections are invalid or the required conditions are missing.");  
     }  
-}  
+    }
+    idd++;
+    console.log("idd : "+idd);
+}
 
-// Add a button to trigger the final validation  
+
 document.getElementById('validateCon').addEventListener('click', checkAllConnections);
 
 
@@ -410,41 +641,6 @@ function createConnection(startDot, endDot) {
 } 
 
 
-
-
-//function createConnection(startDot, endDot) {
-//    const pathString = generateSmoothConnection(startDot, endDot);
-//    const connectionAttrs = { stroke: "black", "stroke-width": 2.5 };
-//
-//    const connection = canvas.path(pathString).attr(connectionAttrs);
-//    connections.push({ connection, start: startDot, end: endDot });
-//
-//    connection.node.addEventListener('click', (e) => {
-//        e.stopPropagation();
-//        if (selectedConnection) {
-//            selectedConnection.connection.attr({ stroke: "black" }); // Deselect previous connection
-//        }
-//        selectedConnection = { connection, start: startDot, end: endDot };
-//        connection.attr({ "stroke": "red" ,"stroke-width": 3}); // Highlight selected connection
-//        selectedShape = null;
-//    });
-//}
-
-//canvas.canvas.addEventListener('click', () => {
-//        if (selectedShape) {
-////             selectedShape.border.hide(); // Hide the border when clicking outside the shape
-//            selectedShape = null; // Deselect the shape
-//        }
-//        if (selectedConnection) {
-//            selectedConnection.connection.node.classList.remove('selected-connection'); // Remove selected class from connection
-//            selectedConnection = null; // Deselect the connection
-//        }
-//    });
-
-
-// Utility functions (remain unchanged)
-
-
 function onStartCanvas() {
     this.ox = this.attr("x");
     this.oy = this.attr("y");
@@ -530,70 +726,110 @@ function updateConnections() {
     });
 }
 
+function generateSmoothConnection(startDot, endDot, avoidAreas = []) {
+    const cx1 = parseFloat(startDot.attr("cx"));
+    const cy1 = parseFloat(startDot.attr("cy"));
+    const cx2 = parseFloat(endDot.attr("cx"));
+    const cy2 = parseFloat(endDot.attr("cy"));
 
+    const dotId = startDot.attr("id") || "";  // Safely get the ID of the startDot
+    const isPlusDot = dotId === "dot1";       // Check if the dot is "dot1"
+    const isMinusDot = dotId === "dot2";      // Check if the dot is "dot2"
 
-function generateSmoothConnection(startDot, endDot) {
-        const cx1 = startDot.attr("cx");
-        const cy1 = startDot.attr("cy");
-        const cx2 = endDot.attr("cx");
-        const cy2 = endDot.attr("cy");
+    const distance = Math.sqrt(Math.pow(cx2 - cx1, 2) + Math.pow(cy2 - cy1, 2));
+    const horizontalOffset = 40;  // Fixed horizontal movement at the start
 
-        // Calculate the distance between the two dots
-        const distance = Math.sqrt(Math.pow(cx2 - cx1, 2) + Math.pow(cy2 - cy1, 2));
+    let path;
 
-        // Set a threshold distance
-        const distanceThreshold = 195; // Adjust this value as needed
+    // Function to check intersection with avoid areas
+    function intersectsAvoidArea(x1, y1, x2, y2, avoidAreas) {
+        for (let area of avoidAreas) {
+            const xMin = area.x, xMax = area.x + area.width;
+            const yMin = area.y, yMax = area.y + area.height;
+            // Check for intersection
+            if (
+                (x1 >= xMin && x1 <= xMax && y1 >= yMin && y1 <= yMax) ||
+                (x2 >= xMin && x2 <= xMax && y2 >= yMin && y2 <= yMax)
+            ) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-        let path;
+    // Always start with a horizontal move of 'horizontalOffset' pixels
+    const firstMoveX = cx1 < cx2 ? cx1 + horizontalOffset : cx1 - horizontalOffset;
 
-        if (distance < distanceThreshold) {
-            // If distance is small, use a straight line (shortest path)
-            path = `M${cx1},${cy1} L${cx2},${cy2}`;
-        } else {
-            // If distance is large, use the original zigzag pattern
-            const shape1 = startDot.data("parent").getBBox();
-            const shape2 = endDot.data("parent").getBBox();
-
-            if (Math.abs(cx1 - cx2) > Math.abs(cy1 - cy2)) {
-                if (cx1 < cx2) {
-                    path = `M${cx1},${cy1} 
-                            L${shape1.x2 + 20},${cy1} 
-                            L${shape1.x2 + 20},${cy2} 
-                            L${cx2},${cy2}`;
-                } else {
-                    path = `M${cx1},${cy1} 
-                            L${shape1.x - 20},${cy1} 
-                            L${shape1.x - 20},${cy2} 
-                            L${cx2},${cy2}`;
-                }
+    if (distance < 140) {
+        // Short distance, draw a straight line
+        path = `M${cx1},${cy1} L${cx2},${cy2}`;
+    } else {
+        // Path generation logic based on distance
+        if (distance < 195) { // Short to medium distance
+            if (!intersectsAvoidArea(cx1, cy1, cx2, cy2, avoidAreas)) {
+                // Horizontal start followed by direct connection
+                path = `M${cx1},${cy1} H${firstMoveX} L${cx2},${cy2}`;
             } else {
-                if (cy1 < cy2) {
-                    path = `M${cx1},${cy1} 
-                            L${cx1},${shape1.y2 + 20} 
-                            L${cx2},${shape1.y2 + 20} 
-                            L${cx2},${cy2}`;
-                } else {
-                    path = `M${cx1},${cy1} 
-                            L${cx1},${shape1.y - 20} 
-                            L${cx2},${shape1.y - 20} 
-                            L${cx2},${cy2}`;
-                }
+                // Adjust if intersects with avoid areas
+                path = `M${cx1},${cy1} H${firstMoveX} L${firstMoveX},${cy1 + 10} L${cx2},${cy2}`;
+            }
+        } else if (distance >= 195 && distance < 320) {
+            // For medium distances
+            path = `M${cx1},${cy1} H${firstMoveX} L${firstMoveX},${cy2} L${cx2},${cy2}`;
+        } else {
+            // Long distance pathing
+            if (isPlusDot) {
+                // dot1 (plus) travels upwards after the horizontal movement, mimicking the rectifier path
+                const upwardMove = cy1 - 60;  // Moves upwards by 60 units
+                const diagonalMoveX = cx1 + 50;  // Diagonal movement
+                const diagonalMoveY = cy1 - 50;  // Moves upwards diagonally
+
+                // Path will move horizontally, then upwards diagonally, following the bridge rectifier pattern
+                path = `M${cx1},${cy1} H${firstMoveX} L${diagonalMoveX},${diagonalMoveY} L${cx2},${cy2}`;
+            } else if (isMinusDot) {
+                // dot2 (minus) travels downwards after the horizontal movement
+                path = `M${cx1},${cy1} H${firstMoveX} L${firstMoveX},${cy1 + 40} L${cx2},${cy1 + 40} L${cx2},${cy2}`;
+            } else {
+                // Default for other dots
+                path = `M${cx1},${cy1} H${firstMoveX} L${firstMoveX},${cy1 + 100} L${cx2},${cy1 + 100} L${cx2},${cy2}`;
             }
         }
 
-        return path;
+        // Create a curve at the intersection based on avoid areas
+        if (intersectsAvoidArea(cx1, cy1, cx2, cy2, avoidAreas)) {
+            const midX = (cx1 + cx2) / 2;
+            const midY = (cy1 + cy2) / 2;
+            const curveHeight = 20; // Adjust the height of the curve
+
+            // Modify the path to include a curve using quadratic Bézier
+            path = `M${cx1},${cy1} H${firstMoveX} Q${midX},${cy1 - curveHeight} ${cx2},${cy2}`;
+        }
     }
+
+    return path;
+}
+
+
+
+
 
 
 const validConnections = {
-        dot1: ["dot3"],
-        dot3: ["dot1"],
-        dot2: ["dot4"],
-        dot4: ["dot2"],
-        dot5: ["dot8"],
-        dot8: ["dot5"],
-        dot6: ["dot7"],
-        dot7: ["dot6"]
+        dot1: ['dot3', 'dot4', 'dot5', 'dot6'],
+        dot2: ['dot3', 'dot4', 'dot5', 'dot6'],
+        dot3: ['dot1','dot2','dot7'],
+        dot4: ['dot1','dot2','dot7'],
+        dot5: ['dot1','dot2','dot8'],
+        dot6: ['dot1','dot2','dot8'],
+        dot7: ['dot3','dot4','dot5','dot6'],
+        dot8: ['dot3','dot4','dot5','dot6']
+      
+//        dot2: ["dot4"],
+//        dot4: ["dot2"],
+//        dot5: ["dot8"],
+//        dot8: ["dot5"],
+//        dot6: ["dot7"],
+//        dot7: ["dot6"]
     };
 
 // }   
