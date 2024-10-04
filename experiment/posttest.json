@@ -43,8 +43,8 @@
 	{
       "question": "What are the different types of Pirani gauges?",
       "answers": {
-        "a": "Pulsed Pirani Guage",
-        "b": "Wire Guage",
+        "a": "Pulsed Pirani Gauge",
+        "b": "Wire Gauge",
         "c": "Bourdon gauge",
         "d": "Feeler gauge"
       },
