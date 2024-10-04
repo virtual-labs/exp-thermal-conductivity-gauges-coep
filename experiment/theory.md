@@ -10,25 +10,42 @@ The heating filament is heated by a constant current. Therefore, Temperature of 
 
 ![2](images/schematic-diagram-for-Pirani-gauge.png)
 
+
+
+### Operation of Pirani gauge :
+
+1.	A constant current is passed through the filament in the Pirani gauge chamber. Due to this current, the filament gets heated and assumes a resistance which is measured using the bridge.
+2.	Now the pressure to be measured (applied pressure) is connected to the Pirani gauge chamber. Due to the applied pressure the density of the surrounding of the Pirani gauge filament changes. Due to this change in density of the surrounding of the filament its conductivity changes causing the temperature of the filament to change.
+3.	When the temperature of the filament changes, the resistance of the filament also changes.
+4.	Now the change in resistance of the filament is determined using the bridge.
+5.	This change in resistance of the Pirani gauge filament becomes a measure of the applied pressure when calibrated.
+Note: [higher pressure – higher density – higher conductivity – reduced filament temperature – less resistance of filament] and vice versa.
+
+
 ### Pirani Wheatstone bridge : 
 
 Wheatstone Bridge is an instrument designed to measure unknown resistance in electrical circuits. It calculates the unknown resistance by balancing the two legs of the bridge circuit where one leg contains both known resistors and the other leg contains one known (variable) and one unknown resistor. Since it estimates unknown resistance in an electric circuit, it is also known as a resistance bridge. Wheatstone bridge is a very reliable instrument as it measures the resistance very precisely.
 A conducting wire gets heated when electric current flows through it. The rate at which heat is dissipated from this wire depends on the conductivity of the surrounding media. 
-The conductivity of the surrounding media in-turn depends on the density of the surrounding media (that is, lower pressure of the surrounding media, lower will be its density). If the density of the surrounding media is low, its conductivity also will be low causing the wire to become hotter for a given current flow, and vice versa.
+The conductivity of the surrounding media in-turn depends on the density of the surrounding media that is, lower pressure of the surrounding media, lower will be its density. If the density of the surrounding media is low, its conductivity also will be low which causes the wire to become hotter for a given current flow, and vice versa.
 
 ![3](images/Pirani-Gauge.png)
 
-The Pirani wire filament is typically operated in a balanced Wheatstone bridge circuit where one leg of the bridge is the Pirani filament and the other three elements of the bridge circuit balance and temperature compensate the circuit.
-The filament wire is maintained at a constant temperature and when the gas density changes and thereby thermal conductivity changes the energy required to maintain the wire changes accordingly. Consequently, the voltage supply to the Wheatstone bridge becomes vacuum pressure dependent and the measured bridge voltage can be converted to a pressure value.
-The Pirani gauge measures the thermal conductivity of the gas and therefore the measurement is dependent of the gas properties.
-McWilliams proposed a model that describes the thermal conductivity of Pt
-(Kpt) as a function of P and T: Kpt = aP + bT + κ0 (a, b, and K0 are constants). Here, we used
-the same form and determined the values of a, b, and K0 from our current and previous Kpt
-data and the recommended values at ambient pressure. The revised model based
-on this study is as follows:
 
-Rx = 1/k; where,
-k = 0.953P + 0.0137T + 61.8(W/m/K)
+### Thermal conductivity of Pt : 
+
+The temperature dependence of the thermal conductivity of Pt shows a greater rate of increase with temperature.  Since the thermal conductivity of Pt at ambient conditions is about 70 W/m/K, the effect of temperature and pressure increases the thermal conductivity by about a factor of three. McWilliams proposed a model that describes the thermal conductivity of Pt (kPt) as a function of P and T: 
+
+kPt = aP + bT + k0 (a, b, and k0 are constants). 
+
+Values of a, b, and k0 are determined from current and previous κPt data and the recommended values at ambient pressure. The revised model based on this study is as follows:
+kPt = 0.953P + 0.0137T + 61.8(W/m/K). 
+
+Based on the result of the first-principles calculation, the thermal conductivity is approximately first-order correlated with the pressure, but near temperature dependence and becomes weaker or changes to a negative tendency. 
+
+![3](images/piraniTheoryGraph.png)
+
+A constant current is provided to the Pirani gauges that are connected in series. From the change in  &Delta; R/R0 with varying  pressure, at each current level, it is evident that the responses from 1 Torr to 100 Torr show greater sensitivity than those from 100 Torr to 760 Torr and from 0.1 Torr to 1 Torr. As the current varies from 2.83 mA to 4.90 mA, the  &Delta; <sup>R</sup>&frasl;<sub>R<sub>0</sub></sub> and the  &Delta; T are increased. The fractional change in resistance is approximately proportional to the square of the current. The maximum values of &Delta; T are 23.4 K for 2.8 mA, 49.9 K for 4.0 mA, and 68.2 K for 4.9 mA. Of these, the current of 4.9 mA provides the highest sensitivity in  &Delta; R/R0, as can be seen in the plots. However, in order to reduce the likelihood for thermal aging of the resistor, drift in resistance and non-linearity in fractional change in resistance, an operating current of 4 mA is selected. It is applied to the nominal R0 of 140 &Omega;. 
+
 
 To solve for output voltage, Vout, given the Rx resistance, we use Kirchoff's Voltage Law (KVL) and Kirchoff's Current Law (KCL) to arrive at the following equation:
 
@@ -40,14 +57,6 @@ Vout = differential voltage across the Wheatstone bridge, in volts
 Vin = input voltage to the Wheatstone bridge, in volts
 Rx = resistor values, expressed in ohms
 
-### Operation of Pirani gauge :
-
-1.	A constant current is passed through the filament in the Pirani gauge chamber. Due to this current, the filament gets heated and assumes a resistance which is measured using the bridge.
-2.	Now the pressure to be measured (applied pressure) is connected to the Pirani gauge chamber. Due to the applied pressure the density of the surrounding of the Pirani gauge filament changes. Due to this change in density of the surrounding of the filament its conductivity changes causing the temperature of the filament to change.
-3.	When the temperature of the filament changes, the resistance of the filament also changes.
-4.	Now the change in resistance of the filament is determined using the bridge.
-5.	This change in resistance of the Pirani gauge filament becomes a measure of the applied pressure when calibrated.
-Note: [higher pressure – higher density – higher conductivity – reduced filament temperature – less resistance of filament] and vice versa.
 
 ### Applications of Pirani gauge :
 Used to measure low vacuum and ultra-high vacuum pressures.
@@ -61,7 +70,7 @@ Used to measure low vacuum and ultra-high vacuum pressures.
 ### Limitations of Pirani gauge :
 1.	Pirani gauge must be checked frequently.
 2.	Pirani gauge must be calibrated from different gases.
-3.	Electric power is a must for its operation. 
+3.	Electric power is a must for its operation.
 
 
 

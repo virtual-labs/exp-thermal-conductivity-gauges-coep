@@ -12,7 +12,7 @@ function digitalMeter(){
       
        var vin = 5;
 		var rx = 0.0159;
-		var r = 15;
+		var r = 140;
 		var a1 = 0, b1 = 0;
 		var a = 0, b = 0;
 		var vout1 = 0 , vout = 0;
@@ -28,11 +28,12 @@ function digitalMeter(){
 
 	 var rect1 = paper.rect(x+480,y+110,60,40).attr({'stroke' : '#000' , 'stroke-width' : 3 });
 	 var txt = paper.text(x+510,y+90,"Vacuum").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-	 var rx_txt1= paper.text(x+290,y+100,"Rx").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
+	 var rx_txt1= paper.text(x+290,y+100,"Rx").attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});
 	 var volt_text = paper.text(x-43,y+190,vin+"V").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-	 var r1txt = paper.text(x+25,y+110,"R2 :"+r+"").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-     var r2txt = paper.text(x+25,y+235,"R3 :"+r+"").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-     var r3txt = paper.text(x+190,y+235,"R1 :"+r+"").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
+	var r1txt = paper.text(x + 25, y + 110, "R2 :" + r +  " \u03A9").attr({'stroke' : '#000' , "font-size":"14px", "font-weight": "bold"});
+
+     var r2txt = paper.text(x+26,y+235,"R3 :"+r+ " \u03A9").attr({'stroke' : '#000' , "font-size":"14px","font-weight": "bold"});
+     var r3txt = paper.text(x+192,y+235,"R1 :"+r+ " \u03A9").attr({'stroke' : '#000' , "font-size":"14px","font-weight": "bold"});
     
      var pressVal1 = '<div class="row" id="pressVal12" >'
 	   +'<div class="col-sm-4">'
@@ -298,12 +299,15 @@ function random(){
    rnum = parseFloat(rnum2);
    digiPressure1 = parseFloat(digiPressure);
    rxVal1 = 0.953*digiPressure1+0.0137*tempVal+61.8;
-			kt1 = 1/rxVal1;
+            kt1 = (1/rxVal1)*1000;
+            
+           var kt12 = kt1.toFixed(4);
+			kt1 = parseFloat(kt12)+parseFloat(140);
 		   set = Math.floor(Math.random() * 2);
 			if(set==1){
-			ranAdd1 = (kt1*1000)+rnum;
+			ranAdd1 = parseFloat(kt1)+parseFloat(rnum);
 			}else{
-			ranAdd1 = (kt1*1000)-rnum;	
+			ranAdd1 = parseFloat(kt1)-parseFloat(rnum);	
 			}
 //			ranAdd1 = kt1.toFixed(4);
             ranMul = ranAdd1.toFixed(4);
@@ -311,30 +315,30 @@ function random(){
             ranAdd = parseFloat(ranMul);
             rx22 = ranAdd.toFixed(4);
             rx2 = parseFloat(rx22);
-       rx2_txt1= paper.text(x+335,y+100," : "+rx2).attr({'stroke' : '#000' , "font-size":"18px","font-weight": "bold"});     
+       rx2_txt1= paper.text(x+335,y+100," : "+rx2).attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});     
        
        
        var rxVal = 0.953*digiPressure1+0.0137*tempVal+61.8;
-	   var	kt1 = 1/rxVal1;
-		var	rxConvert = kt1*1000;
+	   var	kt11 = 1/rxVal;
+		var	rxConvert = kt11*1000;
 	     var	rx11 = rxConvert.toFixed(4);
-			rx12 = parseFloat(rx11);
+			rx12 = parseFloat(rx11)+parseFloat(140);
        
 }
 var voutSecond = 0;
 
 function calout1(){
 	       random();
-			a1 = r+rx2;
-			a = (rx2/a1).toFixed(4);
+			a1 = r+ranAdd;
+			a = (ranAdd/a1);
 			console.log("value of first term "+a);
 			b1 = r+r;
-			b = r/b1.toFixed(4);
+			b = r/b1;
 			console.log("value of second term "+b);
 			vout1 = a-b;
 			console.log("value of substraction "+vout1);
-			vout2 = (vin * vout1).toFixed(4);
-			vout3 = vout2*1000;
+			vout2 = (vin * vout1);
+			vout3 = (vout2*1000).toFixed(2);
 			voutSecond =  parseFloat(vout3);
 			console.log("value of output "+voutSecond);
 		txt1Second = paper.text(x+101,y+170,voutSecond).attr({"font-size":24,"font-family":"digital-clock-font","fill":"#dceb44","font-weight":"bold"});
