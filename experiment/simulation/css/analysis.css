@@ -11,10 +11,10 @@ table{
     font-size: 16px;
 }
 .NotAttained{
-	background-color: #e23939;
+	background-color: #ec4848c4;
     padding: 5px;
-    color: #fff;
-    border-redius: 10px;
+    color: #000;
+    border-radius: 10px;
     
 }
  .tableData{
@@ -22,10 +22,10 @@ table{
     font-weight: 200;
  }  
 .attained{
-background-color: green;
+	background-color: #bff0a8;
     padding: 5px;
-    color: #fff;
-    border-redius: 10px;
+    color: #000;
+    border-radius: 10px;
   	
 }
 .table-bordered {
@@ -33,14 +33,14 @@ background-color: green;
 }
 .panel-danger{
 	    box-shadow: 0px px 6px 6px #8c9bb9;
-   background-color: #072323;
+   background-color: #a5a6a64f;
     border-radius: 17px;
     
 }
 #panelbody{
-	    background-color: #243535;
-	    color: #fff;
-/* 	     border-radius: 26px; */
+	    background-color: #2e3f4d;
+	     border-radius: 10px;
+		color: #fff;
 }
 /* #mainDiv { */
 /*     height: 1000px; */
@@ -101,19 +101,19 @@ margin-bottom: 30px;
 .counterPanelGreen{
 	margin-bottom: 20px;
     margin-top: 26px;
-    background-color: #34ae50;
+    background-color: #34ae50a6;
 }
 .counterPanelRed{
 	margin-bottom: 20px;
     margin-top: 26px;
-    background-color: #ec4848;
+    background-color: #ec4848bd;
 }
 .valueBox
 {
 text-align: center;
     width: 100%;
     background: #fff;
-   padding: 14px;
+   padding: 8px;
     margin: 5% 0;
 /*     -webkit-box-shadow: 0 6px 6px 6px #d7d8da; */
     -moz-box-shadow: 0 6px 6px 6px #d7d8da;

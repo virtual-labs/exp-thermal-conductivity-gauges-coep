@@ -1,4 +1,5 @@
 function result(){
+	
 	$("#btnForModal").prop("hidden",true);
 	$("#main-div-conf").html("");
     			     $("#canvas-div").html("");
@@ -38,28 +39,59 @@ function result(){
 //}
 	
 	var ansZero = 0;
+	var ansZero1 = 0;
+	var ansSpan1 = 0;
 	
 	if(counterMasterJson.calibration.zeroAnswer>0){
 		ansZero = counterMasterJson.calibration.zeroAnswer*10000;
-		ansZero = parseInt(ansZero);
 	}else{
+		
 		ansZero = -(counterMasterJson.calibration.zeroAnswer*10000);
-		ansZero = parseInt(ansZero);
 	}
-	
+	 console.log(ansZero);
+	 
 	var ansSpan = 0;
+	
 	if(counterMasterJson.calibration.spanAnswer>0){
-		ansSpan = (counterMasterJson.calibration.spanAnswer*10000);
-		ansSpan = parseInt(ansSpan);
+		ansSpan = counterMasterJson.calibration.spanAnswer*10000;
 	}else{
 		ansSpan = -(counterMasterJson.calibration.spanAnswer*10000);
-		ansSpan = parseInt(ansSpan);
 	}
 	
+	
+		ansZero1 = counterMasterJson.calibration.zeroAnswer*10000;
+	
+		ansSpan1 = counterMasterJson.calibration.spanAnswer*10000;
 	
 	
 	console.log(ansZero);
 	console.log(ansSpan);
+	var totSpanNew = 0;
+	
+	if(ansZero1<0 && ansSpan1<0 || ansZero1>0 && ansSpan1>0){
+		 if(ansSpan>ansZero){
+		totSpanNew = parseInt(ansSpan)-parseInt(ansZero)-3;
+		}else{
+		totSpanNew = parseInt(ansZero)-parseInt(ansSpan)-3;	
+		}
+	}
+	
+	if(ansZero1>0 && ansSpan1<0 || ansZero1<0 && ansSpan1>0){
+		 if(ansSpan>ansZero){
+		totSpanNew = parseInt(ansSpan)+parseInt(ansZero)+3;
+		}else{
+		totSpanNew = parseInt(ansZero)+parseInt(ansSpan)+3;	
+		}
+	}
+	
+	if(ansZero1==ansSpan1){
+		totSpanNew = 2;	
+	}
+	
+	if(totSpanNew<=0){
+		totSpanNew=2;
+	}
+	
 	
 	var zeroCalib1 = ansZero/((parseInt(counterMasterJson.calibration.zeroCalibrationForMinusWrong)+parseInt(counterMasterJson.calibration.zeroCalibrationForWrongPlus))+ansZero);
 	var zeroCalibPer =   (zeroCalib1*100).toFixed(1);
@@ -77,14 +109,14 @@ var correctVal = (counterMasterJson.questionary.correctAnswer/6).toFixed(2);
 var quesPercent = (correctVal*100).toFixed(1);
 quesPercent = parseFloat(quesPercent);
 
-console.log(quesPercent);
+console.log("quesPercent : "+quesPercent);
 
     var wheatStone = ((1/(counterMasterJson.constLib.invalidCnt+1))*100).toFixed(1);
 	wheatStone = parseFloat(wheatStone);
 	console.log(wheatStone);
 	
 	var piCal1 = parseInt(counterMasterJson.standardCalculations.calResistance)+parseInt(counterMasterJson.standardCalculations.calOutput);
-	var piCal = ((2/(piCal1+2))*100).toFixed(1);
+	var piCal = ((10/(piCal1+10))*100).toFixed(1);
 	piCal = parseFloat(piCal);
 	console.log(piCal);
 	
@@ -104,22 +136,25 @@ console.log(quesPercent);
 	var spanPercentCal = parseFloat(spanCalibPer)+parseFloat(spanCal);
 	spanPercentCal = spanPercentCal.toFixed(1);
 	spanPercentCal = parseFloat(spanPercentCal);
-	console.log(spanPercentCal);
+	console.log("spanPercentCal :b "+spanPercentCal);
+	
+	if(spanPercentCal>100){
+		spanPercentCal=100;
+	}else{
+		spanPercentCal = spanPercentCal;
+	}
+	
+	console.log("spanPercentCal :a "+spanPercentCal);
+	
+	
 	
 	
 	var totZero = parseInt(counterMasterJson.calibration.zeroCalibrationForMinusWrong)+parseInt(counterMasterJson.calibration.zeroCalibrationForWrongPlus);
 	var totSpan = parseInt(counterMasterJson.calibration.spanCalibrationForMinusWrong)+parseInt(counterMasterJson.calibration.spanCalibrationForWrongPlus);
 	
+	var calPercent = ((totZero+totSpan)/2).toFixed(2);
+	calPercent = parseFloat(calPercent);
 	
-	var comSpan = 0;
-	
-	if(totSpan>ansZero){
-		comSpan = totSpan-ansZero;
-		comSpan = parseInt(comSpan);
-	}else{
-		comSpan = ansZero-totSpan;
-		comSpan = parseInt(comSpan);
-	}
 	
 var htm = ''
 	+ '<div class="container-fluid">'
@@ -132,7 +167,7 @@ var htm = ''
 
 	+ '<div class="col-md-12">'
 	+ ' <div class="panel remarkBground" >'
-	+ ' <div class="panel-body remark" ><center style="    font-size: 20px;">Congratulations!!! <br> <b>Pirani Meter guage experiment is completed successfully!!</b>'
+	+ ' <div class="panel-body remark" ><center>Congratulations!!! <br> <b>Pirani Meter gauge experiment is completed successfully!!</b>'
 	+ '<br> <b>Satisfactory performance</b></center></div>'
 	+ '</div>'
 	+ '</div>'
@@ -145,25 +180,37 @@ var htm = ''
 		 +'<br><table class="table table-bordered ">'
 		   +'  <thead class="thead-dark">'
 		   +'    <tr class="">'
-		   +'      <th><center class="">COMPETENCY(PIRANI METER GUAGE)</center></th>'
+		   +'      <th><center class="">COMPETENCY(PIRANI METER GAUGE)</center></th>'
 		   +'     <th><center class="">STATUS</center></th>'
 		   +'    </tr>'
 		   +' </thead>'
 		   +'  <tbody>'
 		   +'   <tr>'
 		   +'     <td class=""><center>Basic knowledge</center></td>'
-		   +'     <td class=""><center class="attained"> Attained</center></td>'
-		  
-		   +'  </tr>'
+		   if(quesPercent>=60){ 
+		   
+		   htm +='     <td class=""><center class="attained"> Attained</center></td>'
+		   }else{
+			htm +='     <td class=""><center class="NotAttained"> Not Attained</center></td>'
+		}
+		  htm +='  </tr>'
 		   +'  <tr>'
 		   +'     <td class=""><center>Construct wheat stone bridge circuit</center></td>'
-		   +'     <td class=""><center class="attained"> Attained</center></td>'
-		   +' </tr>'
+		   if(wheatStone>=60){
+		   htm +='     <td class=""><center class="attained"> Attained</center></td>'
+		   }else{
+		   htm +='     <td class=""><center class="NotAttained"> Not Attained</center></td>'
+		}
+		  htm +=' </tr>'
 		   +'   <tr>'
 		  +'     <td class=""><center>Standard Calculations</center></td>'
-		   +'     <td class=""><center class="attained">Attained</center></td>'
-		  
-		   +'  </tr>'
+		  if(piCal>=60){
+		   htm += '     <td class=""><center class="attained">Attained</center></td>'
+		  }else{
+		   htm	+= '     <td class=""><center class="NotAttained">Not Attained</center></td>'
+		}
+		   htm +='  </tr>'
+		   
 		   +'  <tr>'
 		+'<td class=""><center>Actual Calculations</center></td>'
 		   +'<td class=""><center class="attained">Attained</center></td>'
@@ -177,9 +224,12 @@ var htm = ''
 		    
 		   +'<tr>'
 		  +' <td class=""><center>Calibration</center></td>'
-		   +'<td class=""><center class="attained"> Attained</center></td>'
-		  
-		   +'  </tr>'
+		   if(calPercent>=60){
+		  htm +='<td class=""><center class="attained"> Attained</center></td>'
+		  }else{
+		  htm += '<td class=""><center class="NotAttained"> Not Attained</center></td>'
+		}
+		   htm +='  </tr>'
 			
 		   +' </tbody>'
 		  +' </table>'
@@ -197,7 +247,7 @@ var htm = ''
 		+'</div>'
 		
 		+'<div class="col-md-6">'
-		+' <div class="panel panel-danger " style="    margin-bottom: 28px;margin-top:15px;">'
+		+' <div class="panel panel-danger " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Total Questions</span></center>'
 		+' <div class="panel-body counterPanelRed">'
 		+'<center><span class="valueBox">6</span></center>'
@@ -206,7 +256,7 @@ var htm = ''
 		+' </div>'
 		
 		+'<div class="col-md-6">'
-		+' <div class="panel panel-danger " style="    margin-bottom: 28px;margin-top:15px;">'
+		+' <div class="panel panel-danger " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Correct Answers</span></center>'
 		+' <div class="panel-body counterPanelGreen">'
 		+'<center><span class="valueBox">'+counterMasterJson.questionary.correctAnswer+'</span></center>'
@@ -235,13 +285,13 @@ var htm = ''
 		+'<div class="col-md-4">'
 		+' <div class="panel panel-danger headingPanel" >'
 		+' <div class="panel-body" id="panelbody">'
-		+'<center><span class="heading1"><b>Wheatstone Construction</b></span></center>'
+		+'<center><span class="heading1"><b>WHEATSTONE CONSTRUCTION</b></span></center>'
 		+'</div>'
 		+'</div>'
 		
 		
 		+'<div class="col-md-6">'
-		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;">'
+		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Wrong Attempts</span></center>'
 		+' <div class="panel-body counterPanelRed">'
 
@@ -252,7 +302,7 @@ var htm = ''
 		+'</div>'
 		
 		+'<div class="col-md-6">'
-		+' <div class="panel panel-danger " style="    margin-bottom: 28px;">'
+		+' <div class="panel panel-danger " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Correct Attempt</span></center>'
 		+' <div class="panel-body counterPanelGreen">'
 
@@ -269,11 +319,11 @@ var htm = ''
 //
 		+'<div class="col-sm-4">'
 		+' <div class="panel panel-danger headingPanel">'
-		+' <div class="panel-body" id="panelbody"><center><span class="heading1"><b>Standard Calculations</b></span></center></div>'
+		+' <div class="panel-body" id="panelbody"><center><span class="heading1"><b>STANDARD CALCULATIONS</b></span></center></div>'
 		+'</div>'
 		
 		+'<div class="col-sm-6">'
-		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;">'
+		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Wrong Attempts</span></center>'
 		+' <div class="panel-body counterPanelRed">'
 
@@ -284,11 +334,11 @@ var htm = ''
 		+'</div>'
 		
 		+'<div class="col-sm-6">'
-		+' <div class="panel panel-danger " style="    margin-bottom: 28px;">'
+		+' <div class="panel panel-danger " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Correct Attempts</span></center>'
 		+' <div class="panel-body counterPanelGreen">'
 
-		+'<center><span class="valueBox"><b>2</b></span></center>'
+		+'<center><span class="valueBox"><b>10</b></span></center>'
 		+'</div>'
 		+'</div>'
 
@@ -298,11 +348,11 @@ var htm = ''
 		+' </div>'
 		+'<div class="col-sm-4">'
 		+' <div class="panel panel-danger headingPanel" >'
-		+' <div class="panel-body" id="panelbody"><center><span class="heading1"><b>Zero Calculate</b></span></center></div>'
+		+' <div class="panel-body" id="panelbody"><center><span class="heading1"><b>ZERO CALCULATE</b></span></center></div>'
 		+'</div>'
 		
 		+'<div class="col-sm-6">'
-		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;">'
+		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Wrong Attempts</span></center>'
 		+' <div class="panel-body counterPanelRed">'
 
@@ -312,7 +362,7 @@ var htm = ''
 		+'</div>'
 		
 		+'<div class="col-sm-6">'
-		+' <div class="panel panel-danger " style="    margin-bottom: 28px;">'
+		+' <div class="panel panel-danger " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Correct Attempts </span></center>'
 		+' <div class="panel-body counterPanelGreen">'
 
@@ -333,13 +383,13 @@ var htm = ''
 		+'<div class="col-md-4">'
 		+' <div class="panel panel-danger headingPanel" >'
 		+' <div class="panel-body" id="panelbody">'
-		+'<center><span class="heading1"><b>Span Calculate</b></span></center>'
+		+'<center><span class="heading1"><b>SPAN CALCULATE</b></span></center>'
 		+'</div>'
 		+'</div>'
 		
 		
 		+'<div class="col-md-6">'
-		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;">'
+		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Wrong Attempts</span></center>'
 		+' <div class="panel-body counterPanelRed">'
 
@@ -350,7 +400,7 @@ var htm = ''
 		+'</div>'
 		
 		+'<div class="col-md-6">'
-		+' <div class="panel panel-danger " style="    margin-bottom: 28px;">'
+		+' <div class="panel panel-danger " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Correct Attempt</span></center>'
 		+' <div class="panel-body counterPanelGreen">'
 
@@ -367,12 +417,12 @@ var htm = ''
 //
 		+'<div class="col-sm-4">'
 		+' <div class="panel panel-danger headingPanel">'
-		+' <div class="panel-body" id="panelbody"><center><span class="heading1"><b>Zero Calibrate</b></span></center></div>'
+		+' <div class="panel-body" id="panelbody"><center><span class="heading1"><b>ZERO CALIBRATE</b></span></center></div>'
 		+'</div>'
 		
 		+'<div class="col-sm-6">'
-		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;">'
-		+'<center><span class="valueBox">Wrong Attempts</span></center>'
+		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;margin-top:4px;">'
+		+'<center><span class="valueBox">Total Attempts</span></center>'
 		+' <div class="panel-body counterPanelRed">'
 
 		+'<center><span class="valueBox"><b>'+totZero+'</b></span></center>'
@@ -382,11 +432,11 @@ var htm = ''
 		+'</div>'
 		
 		+'<div class="col-sm-6">'
-		+' <div class="panel panel-danger " style="    margin-bottom: 28px;">'
+		+' <div class="panel panel-danger " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Correct Attempts</span></center>'
 		+' <div class="panel-body counterPanelGreen">'
 
-		+'<center><span class="valueBox"><b>'+ansZero+'</b></span></center>'
+		+'<center><span class="valueBox"><b>'+(parseInt(ansZero)+parseInt(1))+'</b></span></center>'
 		+'</div>'
 		+'</div>'
 
@@ -396,25 +446,25 @@ var htm = ''
 		+' </div>'
 		+'<div class="col-sm-4">'
 		+' <div class="panel panel-danger headingPanel" >'
-		+' <div class="panel-body" id="panelbody"><center><span class="heading1"><b>Span Calibrate</b></span></center></div>'
+		+' <div class="panel-body" id="panelbody"><center><span class="heading1"><b>SPAN CALIBRATE</b></span></center></div>'
 		+'</div>'
 		
 		+'<div class="col-sm-6">'
-		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;">'
-		+'<center><span class="valueBox">Wrong Attempts</span></center>'
+		+' <div class="panel panel-danger  " style="    margin-bottom: 28px;margin-top:4px;">'
+		+'<center><span class="valueBox">Total Attempts</span></center>'
 		+' <div class="panel-body counterPanelRed">'
 
-		+'<center><span class="valueBox"><b>'+comSpan+'</b></span></center>'
+		+'<center><span class="valueBox"><b>'+(parseInt(totSpan)+parseInt(2))+'</b></span></center>'
 		+'</div>'
 		+'</div>'
 		+'</div>'
 		
 		+'<div class="col-sm-6">'
-		+' <div class="panel panel-danger " style="    margin-bottom: 28px;">'
+		+' <div class="panel panel-danger " style="    margin-bottom: 28px;margin-top:4px;">'
 		+'<center><span class="valueBox">Correct Attempts </span></center>'
 		+' <div class="panel-body counterPanelGreen">'
 
-		+'<center><span class="valueBox"><b>'+ansSpan+'</b></span></center>'
+		+'<center><span class="valueBox"><b>'+parseInt(totSpanNew)+'</b></span></center>'
 		+'</div>'
 		+'</div>'
 
@@ -429,50 +479,6 @@ $("#main-div").html(htm);
 
 console.log(spanCalibPer);
 	console.log(zeroCalibPer);
-
-//let initialData = [
-//    { name: 'Questionaries', y: quesPercent, color: '#FF5733' }, // Orange-Red
-//    { name: 'Construction of WheatStone Bridge', y: wheatStone, color: '#33FF57' }, // Green
-//    { name: 'Standard Calculations', y: piCal, color: '#3357FF' }, // Blue
-//    { name: 'Zero Calculation', y: zeroPercentCal, color: '#FF33B8' }, // Pink
-//    { name: 'Span Calculation', y: spanPercentCal, color: '#FFBD33' }  // Yellow
-//];
-
-// Create the pie chart
-//let chart = Highcharts.chart('graph-div', {
-//    chart: {
-//        type: 'pie'
-//    },
-//    title: {
-//        text: 'Observations'
-//    },
-//    series: [{
-//        name: 'Observed',
-//        colorByPoint: false, // Set this to false because we're providing custom colors
-//        data: [
-//    { name: 'Questionaries', y: quesPercent, color: '#FF5733' }, // Orange-Red
-//    { name: 'Construction of WheatStone Bridge', y: wheatStone, color: '#33FF57' }, // Green
-//    { name: 'Standard Calculations', y: piCal, color: '#3357FF' }, // Blue
-//    { name: 'Zero Calculation', y: zeroPercentCal, color: '#FF33B8' }, // Pink
-//    { name: 'Span Calculation', y: spanPercentCal, color: '#FFBD33' }  // Yellow
-//]
-//    }],
-//    plotOptions: {
-//        pie: {
-//            dataLabels: {
-//                enabled: true,
-//                useHTML: true,  // Use HTML to ensure CSS doesn't override styles
-//                format: '{point.name}: {point.percentage:.1f} %',
-//                style: {
-//                    color: '#000000',  // Force black text for the labels
-//                    fontSize: '12px'
-//                }
-//            }
-//        }
-//    }
-//});
-
-
 
 let initialData = [
     { name: 'Questionaries', y: quesPercent },
