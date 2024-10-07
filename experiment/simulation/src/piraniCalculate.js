@@ -53,7 +53,7 @@ function calculate(){
 	   +'<option value="0.06" >0.06  </option>'
 	   +'<option value="0.05" >0.05  </option>'
 	   +'<option value="0.04" >0.04  </option>'
-	   +'<option value="0.03" >0.09  </option>'
+	   +'<option value="0.03" >0.03  </option>'
 	   +'<option value="0.02" >0.02  </option>'
 	   +'<option value="0.01" >0.01  </option>'
        +'<option value="0.009" >0.009  </option>'

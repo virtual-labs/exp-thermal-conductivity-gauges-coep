@@ -345,15 +345,19 @@ function calout1(){
 			
 		}
 		
-		var rxRan = 0
+		var rxRan = 0;
+		var rxRan111 = 0;
 function addFun1(){
 	           var rxRan1 = rx2.toFixed(4);
 	               rxRan = parseFloat(rxRan1);
+	            
+	            var rxRan11 = rx12.toFixed(4)
+	               rxRan111 = parseFloat(rxRan11);
 	               
 	                         tempJson={};
 							 tempJson.pressure1 = digiPressure;							 
 							 tempJson.temperature1 = tempVal;
-							 tempJson.calResis = rx12;
+							 tempJson.calResis = rxRan111;
 							 tempJson.resistance1 = rxRan;
 							 tempJson.outputVoltage1 = voutSecond;
 							 tempJson.pressure1Sort = digiPressure;
