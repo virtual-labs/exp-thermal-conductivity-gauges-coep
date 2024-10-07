@@ -24,7 +24,7 @@ const myDiv = document.getElementById('canvas-div'); // Or use querySelector if 
 
 // Step 3: Change the size of the div
 myDiv.style.width = '100%';   // Set the width to 90% of the parent
-myDiv.style.height = '50vh'; // Set the height to 30% of the viewport height
+myDiv.style.height = '75vh'; // Set the height to 30% of the viewport height
 //myDiv.style.color = "lightgrey";
 //myDiv.style.margin = "20px auto"; // Center horizontally with auto margins
 myDiv.style.position = "relative";

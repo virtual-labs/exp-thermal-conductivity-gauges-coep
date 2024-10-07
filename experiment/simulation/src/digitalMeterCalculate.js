@@ -28,7 +28,7 @@ function digitalMeter(){
 
 	 var rect1 = paper.rect(x+480,y+110,60,40).attr({'stroke' : '#000' , 'stroke-width' : 3 });
 	 var txt = paper.text(x+510,y+90,"Vacuum").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-	 var rx_txt1= paper.text(x+290,y+100,"Rx").attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});
+	 var rx_txt1= paper.text(x+283,y+100,"R4+Rx").attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});
 	 var volt_text = paper.text(x-43,y+190,vin+"V").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
 	var r1txt = paper.text(x + 25, y + 110, "R2 :" + r +  " \u03A9").attr({'stroke' : '#000' , "font-size":"14px", "font-weight": "bold"});
 
@@ -65,7 +65,7 @@ function digitalMeter(){
 	   +'</div>'
      
       + '<div class="row" id="temp12" hidden>'
-	               +'<center><label class="labelstyle" style="margin-left:10px;"> Relevant Temperature (&#176; K): </label><label id = "relTemp1" class="labelstyle" style="margin-left:10px;">'+tempVal+' </label></center>'
+	               +'<center><label class="labelstyle" style="margin-left:10px;"> Relevant Temperature (&#176; K): </label><label id = "relTemp1" class="labelstyle" style="margin-left:10px;">'+tempVal+' </label><label class="labelstyle" style="margin-left:10px;"> and  R<sub>1</sub>=R<sub>2</sub>=R<sub>3</sub>=R<sub>3</sub>=140 &Omega;</label></center>'
 	               +'</div>'
                       
 
@@ -315,7 +315,7 @@ function random(){
             ranAdd = parseFloat(ranMul);
             rx22 = ranAdd.toFixed(4);
             rx2 = parseFloat(rx22);
-       rx2_txt1= paper.text(x+335,y+100," : "+rx2).attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});     
+       rx2_txt1= paper.text(x+345,y+100," : "+rx2).attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});     
        
        
        var rxVal = 0.953*digiPressure1+0.0137*tempVal+61.8;
