@@ -2,10 +2,10 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "The working principle of Pirani gauge is: ",
+      "question": "The working principle of pirani gauge is: ",
       "answers": {
         "a": "change in thermal conductivity",
-        "b": "change in ionisation potential",
+        "b": "change in ionization potential",
         "c": "deformation of elastic body",
         "d": "change in self - inductance"
       },
