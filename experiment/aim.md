@@ -1,5 +1,5 @@
 ### Aim 
-Vacuum Measurement using Thermal Conductivity gauges
+Vacuum Measurement using Thermal Conductivity Gauges
 
 ### Objectives
 - Understand the principle of operation of pirani gauge.

@@ -1,1 +1,1 @@
-## Vacuum Measurement - Thermal Conductivity gauges
+## Vacuum Measurement - Thermal Conductivity Gauges
