@@ -59,11 +59,15 @@ function graph1(){
           yMaxDta1=Ymax;
 
 Highcharts.chart('table-design', {
+	
+	exporting: { enabled: false },
+				credits: { enabled: false},
+	
     chart: {
         type: 'line'
     },
     title: {
-        text: 'Pressure V/S Resistance'
+        text: 'Pressure v/s Resistance'
     },
     xAxis: {
         min: Xmin,
@@ -79,6 +83,16 @@ Highcharts.chart('table-design', {
             text: 'Resistance'
         }
     },
+    
+    tooltip: {
+					headerFormat: '<span >Pressure: {point.key}</span><table>',
+					pointFormat: '<tr><td style="color:{series.color};padding:0">Resistance: </td>' +
+						'<td style="padding:0"><b>{point.y:.4f} </b></td></tr>',
+					footerFormat: '</table>',
+					shared: true,
+					useHTML: true
+				},
+    
     plotOptions: {
         line: {
             dataLabels: {
@@ -283,11 +297,22 @@ console.log("graphData2 "+graphData2);
 
 
 			Highcharts.chart('graph2', {
+				
+				legend: {
+//				    symbolPadding: 0,
+//				    symbolWidth: 0,
+//				    symbolHeight: 0,
+//				    squareSymbol: false,
+//				    enabled: false 
+				  },
+				exporting: { enabled: false },
+				credits: { enabled: false},
+				
     chart: {
         type: 'line'
     },
     title: {
-        text: 'Pressure V/S Resistance'
+        text: 'Pressure v/s Resistance'
     },
     
     xAxis:
@@ -299,12 +324,23 @@ console.log("graphData2 "+graphData2);
             text: 'Pressure'
         }
     },
+    subtitle: {
+					text: ''
+				},
     yAxis: {min:Ymin ,
 				max: Ymax,
         title: {
             text: 'Resistance'
         }
     },
+    tooltip: {
+					headerFormat: '<span >Pressure: {point.key}</span><table>',
+					pointFormat: '<tr><td style="color:{series.color};padding:0">Resistance: </td>' +
+						'<td style="padding:0"><b>{point.y:.4f} </b></td></tr>',
+					footerFormat: '</table>',
+					shared: true,
+					useHTML: true
+				},
     plotOptions: {
         line: {
             dataLabels: {
