@@ -2,7 +2,7 @@
 
 ### Basic Knowledge - 
 - Answer all the questions and click on "Submit Test" button.
-- Click on Next level.
+- Click on "Next level".
 
 ### Construction of Wheatstone bridge:-
 - Click on a component from the left panel to select it. The selected component will appear on the right, where you can drag and drop the component to adjust its position.
@@ -12,17 +12,17 @@
 
 ### Standard Calculation:-
 
-- Select Pressure Range between 0.001 to 0.1 torr.  
-- After submitting pressure another pannel will appear where you have to enter temperature. Here temperature range is between 50 to 60 degree K.  
-- After submitting the temperature, Calculate value of Rx. Once the value of Rx is submitted successfully, another pannel will appear where you have to calculate output voltage Vout (mV). 
-- After click on submit, Click on Next Reading and repeat the procedure. This part shows standard Calculated values.
-- After 5 iterations click on Next Level button.
+- Select pressure range between 0.001 to 0.1 torr.  
+- After submitting pressure another panel will appear where you have to enter temperature. Here temperature range is between 50 to 60 degree K.  
+- After submitting the temperature, calculate value of Rx. Once the value of Rx is submitted successfully, another panel will appear where you have to calculate output voltage Vout (mV). 
+- After click on "Submit", click on "Next Reading" and repeat the procedure. This part shows standard calculated values.
+- After 5 iterations click on "Next Level" button.
 
 ### Actual Calculation:-
-- Enter Pressure Range between 0.001 to 0.1 torr.  
-- After submitting pressure another pannel will appear where you have to enter temperature. Here temperature range is between 50 to 60 degree K, Here the actual values of Rx will be displayed.
-- Click on Submit, Here the actual values of Output voltage can be observed. 
-- Click on Next Reading. Observe the same for other values.
+- Enter pressure range between 0.001 to 0.1 torr.  
+- After submitting pressure another panel will appear where you have to enter temperature. Here temperature range is between 50 to 60 degree K, Here the actual values of Rx will be displayed.
+- Click on "Submit", Here the actual values of output voltage can be observed. 
+- Click on "Next Reading". Observe the same for other values.
 
 ### Observation:-
 - Observe the difference between standard value and actual value and on "Next Level" button on the top.

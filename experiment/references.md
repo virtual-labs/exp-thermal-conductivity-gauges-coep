@@ -1,6 +1,6 @@
 
 ### References
-- A Journal of From Practical and Useful Vacuum Technology By Phil Danielson
+- A Journal of Practical and Useful Vacuum Technology by Phil Danielson
 - https://sens4.com/pirani-working-principle.html
 - Measurement and Instrumentation Theory and Application by Alan S. Morris, Reza Langari (Chapter 15)
 - https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6612640

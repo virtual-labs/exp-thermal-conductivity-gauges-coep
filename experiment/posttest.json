@@ -27,7 +27,7 @@
     },
 	
 	{
-      "question": "A pressure gauge used to measure vacuum indicates a gauge pressure of 5 kPa. If the atmospheric is 100 kPa, the absolute pressure is",
+      "question": "A pressure gauge used to measure vacuum indicates a gauge pressure of 5 kPa. If the atmospheric pressure is 100 kPa, the absolute pressure is",
       "answers": {
         "a": "0.05 kPa",
         "b": "105 kPa",
