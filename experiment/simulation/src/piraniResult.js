@@ -167,8 +167,8 @@ var htm = ''
 
 	+ '<div class="col-md-12">'
 	+ ' <div class="panel remarkBground" >'
-	+ ' <div class="panel-body remark" ><center>Congratulations!!! <br> <b>Pirani Meter gauge experiment is completed successfully!!</b>'
-	+ '<br> <b>Satisfactory performance</b></center></div>'
+	+ ' <div class="panel-body remark" ><center>Congratulations!!! <br> <b>Pirani meter gauge experiment is completed successfully!!</b>'
+//	+ '<br> <b>Satisfactory performance</b></center></div>'
 	+ '</div>'
 	+ '</div>'
 
@@ -180,13 +180,13 @@ var htm = ''
 		 +'<br><table class="table table-bordered ">'
 		   +'  <thead class="thead-dark">'
 		   +'    <tr class="">'
-		   +'      <th><center class="">COMPETENCY(PIRANI METER GAUGE)</center></th>'
+		   +'      <th><center class="">COMPETENCY (PIRANI METER GAUGE)</center></th>'
 		   +'     <th><center class="">STATUS</center></th>'
 		   +'    </tr>'
 		   +' </thead>'
 		   +'  <tbody>'
 		   +'   <tr>'
-		   +'     <td class=""><center>Basic knowledge</center></td>'
+		   +'     <td class=""><center>Basic Knowledge</center></td>'
 		   if(quesPercent>=60){ 
 		   
 		   htm +='     <td class=""><center class="attained"> Attained</center></td>'
@@ -195,7 +195,7 @@ var htm = ''
 		}
 		  htm +='  </tr>'
 		   +'  <tr>'
-		   +'     <td class=""><center>Construct wheat stone bridge circuit</center></td>'
+		   +'     <td class=""><center>Construct wheatstone bridge circuit</center></td>'
 		   if(wheatStone>=60){
 		   htm +='     <td class=""><center class="attained"> Attained</center></td>'
 		   }else{
