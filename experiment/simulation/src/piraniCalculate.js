@@ -24,13 +24,13 @@ function calculate(){
       $("#centerText1").html('DIAGRAM');
       $("#centerText2").html('STANDARD CALCULATIONS');
        var paper = new Raphael(document.getElementById('main-div-conf'),800,500);
-       var x = 55;
+       var x = 57;
        var y = 100;
 	 wheatStone_img = paper.image("images/wheatstone.png",(x-50), (y+30),900, 600);
 	 var r1 = paper.circle(x+110,y+170,30).attr({'stroke' : '#000' , 'stroke-width' : 3 ,'fill':"#fff"}).toFront();
 	 var rect1 = paper.rect(x+480,y+110,60,40).attr({'stroke' : '#000' , 'stroke-width' : 3 });
 	 var txt = paper.text(x+510,y+90,"Vacuum").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
-	 var rx_txt= paper.text(x+282,y+100,"Rx : ").attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});
+	 var rx_txt= paper.text(x+282,y+100,"R4+Rx : ").attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});
 	 var volt_text = paper.text(x-45,y+190,vin+"V").attr({'stroke' : '#000' , "font-size":"20px","font-weight": "bold"});
 	var r1txt = paper.text(x + 25, y + 110, "R2 :" + r +  " \u03A9").attr({'stroke' : '#000' , "font-size":"14px", "font-weight": "bold"});
 
@@ -92,7 +92,7 @@ function calculate(){
 //				   +'</div>'
 				  
 				   + '<div class="row" id="temp1" hidden>'
-	               +'<center><label class="labelstyle" style="margin-left:10px;"> Relevant Temperature (&#176; K): </label><label id = "relTemp" class="labelstyle" style="margin-left:10px;">'+tempVal+' </label></center>'
+	               +'<center><label class="labelstyle" style="margin-left:10px;">  Relevant Temperature (&#176; K): </label><label id = "relTemp" class="labelstyle" style="margin-left:10px;">'+tempVal+' </label><label class="labelstyle" style="margin-left:10px;"> and  R<sub>1</sub>=R<sub>2</sub>=R<sub>3</sub>=R<sub>3</sub>=140 &Omega;</label></center>'
 	               +'</div>'
 				   
 //				   +'<div class="row" id="temp" hidden>'
@@ -333,7 +333,7 @@ function calculate(){
                     $("#submit_Press2").prop("disabled",true);
                     $("#text3").prop("disabled",true);
                     $("#outputVoltage").prop("hidden",false);
-                rx_txt1= paper.text(x+335,y+100," "+rx).attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});     
+                rx_txt1= paper.text(x+345,y+100," "+rx).attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});     
 					
 	
 				} else if (calTemp != rx1) {
@@ -371,7 +371,7 @@ function calculate(){
 					 $("#submit_Press2").prop("disabled",true);
                     $("#text3").prop("disabled",true);
                     $("#outputVoltage").prop("hidden",false);
-                rx_txt1= paper.text(x+335,y+100," "+rx).attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});     
+                rx_txt1= paper.text(x+345,y+100," "+rx).attr({'stroke' : '#000' , "font-size":"16px","font-weight": "bold"});     
 
 					
 	
