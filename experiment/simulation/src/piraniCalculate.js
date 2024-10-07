@@ -92,7 +92,7 @@ function calculate(){
 //				   +'</div>'
 				  
 				   + '<div class="row" id="temp1" hidden>'
-	               +'<center><label class="labelstyle" style="margin-left:10px;">  Relevant Temperature (&#176; K): </label><label id = "relTemp" class="labelstyle" style="margin-left:10px;">'+tempVal+' </label><label class="labelstyle" style="margin-left:10px;"> and  R<sub>1</sub>=R<sub>2</sub>=R<sub>3</sub>=R<sub>3</sub>=140 &Omega;</label></center>'
+	               +'<center><label class="labelstyle" style="margin-left:10px;">  Relevant Temperature (&#176; K): </label><label id = "relTemp" class="labelstyle" style="margin-left:10px;">'+tempVal+' </label><label class="labelstyle" style="margin-left:10px;"> and  R<sub>1</sub>=R<sub>2</sub>=R<sub>3</sub>=R<sub>4</sub>=140 &Omega;</label></center>'
 	               +'</div>'
 				   
 //				   +'<div class="row" id="temp" hidden>'
