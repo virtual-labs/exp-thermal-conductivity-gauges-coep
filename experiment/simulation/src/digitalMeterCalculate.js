@@ -103,7 +103,7 @@ function digitalMeter(){
 			}else{
 			 
 			 temperatureValues1();
-			 console.log("digiPressure"+digiPressure);
+//			 console.log("digiPressure"+digiPressure);
 			 $("#temp12").prop("hidden",false);
 			 $("#text5").prop("disabled",true);
 			 $("#submit_Press4").prop("disabled",true);
@@ -331,16 +331,16 @@ function calout1(){
 	       random();
 			a1 = r+ranAdd;
 			a = (ranAdd/a1);
-			console.log("value of first term "+a);
+//			console.log("value of first term "+a);
 			b1 = r+r;
 			b = r/b1;
-			console.log("value of second term "+b);
+//			console.log("value of second term "+b);
 			vout1 = a-b;
-			console.log("value of substraction "+vout1);
+//			console.log("value of substraction "+vout1);
 			vout2 = (vin * vout1);
 			vout3 = (vout2*1000).toFixed(2);
 			voutSecond =  parseFloat(vout3);
-			console.log("value of output "+voutSecond);
+//			console.log("value of output "+voutSecond);
 		txt1Second = paper.text(x+101,y+170,voutSecond).attr({"font-size":24,"font-family":"digital-clock-font","fill":"#dceb44","font-weight":"bold"});
 			
 		}
@@ -363,7 +363,7 @@ function addFun1(){
 							 tempJson.pressure1Sort = digiPressure;
 							  arrayJson1.push(tempJson);
 							  
-							   console.log(arrayJson1);
+//							   console.log(arrayJson1);
 							   masterJson.demo1=arrayJson1;
 							  masterJson.demo1.sort(function(a, b){
 						  return a.pressure1Sort - b.pressure1Sort;
@@ -371,7 +371,7 @@ function addFun1(){
 							  digiTable();
 
 
-							   console.log(masterJson);
+//							   console.log(masterJson);
 }
 
 function temperatureValues1(){

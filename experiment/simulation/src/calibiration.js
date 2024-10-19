@@ -20,8 +20,8 @@ function calibrate(){
 function calibrateObservedValues(){
    
   
-		console.log(" calibration page");
-		console.log(masterJson);
+//		console.log(" calibration page");
+//		console.log(masterJson);
 	    var zero_wrong = 0;
 	    var span_wrong = 0;
 	    var zeroCalibrationWrongMinus = 0;
@@ -167,7 +167,7 @@ function calibrateObservedValues(){
 			countTempJson.spanWrong = span_wrong;
 			
 			counterMasterJson.calibration = countTempJson;
-			console.log(counterMasterJson);
+//			console.log(counterMasterJson);
 				result();
 				
 			});
@@ -179,7 +179,7 @@ function calibrateObservedValues(){
 				
 				
 				
-				console.log("in zero submit");
+//				console.log("in zero submit");
 				
 //				var flowAns12 = $("#zeroText").val().trim();
 				flowAns = $("#zeroText").val().trim();
@@ -187,10 +187,10 @@ function calibrateObservedValues(){
 				var min=masterJson.demo1[0].calResis;
 				var ans=min-max;
 				ans3 = parseFloat(ans);
-				console.log("zero ans    "+ans);
+//				console.log("zero ans    "+ans);
 				var ans1=ans.toFixed(4);
 				
-				console.log("zero Answer   "+ans1);
+//				console.log("zero Answer   "+ans1);
 				zeroAns = parseFloat(ans1);
 				
 				if(flowAns=="")
@@ -256,18 +256,18 @@ function calibrateObservedValues(){
 			var id1=1;
 			$("#spanSubmit").click(function() {
 				
-				console.log("in span submit");
+//				console.log("in span submit");
 				
 
 				
 				var max=masterJson.demo1[length].resistance1;
 				var min=masterJson.demo1[length].calResis;
 				var ans=min-max;
-				console.log("span ans    "+ans);
+//				console.log("span ans    "+ans);
 				ans2 = parseFloat(ans);
 				var ans11=ans2.toFixed(4);
 				var ans1 = parseFloat(ans11);
-				console.log("span Answer   "+ans1);
+//				console.log("span Answer   "+ans1);
 				
 				spanAns = ans1;
 				flowAns = $("#spanText").val().trim();
@@ -344,9 +344,9 @@ function calibrateObservedValues(){
 //				var min=masterJson.demo1[0].calResis;
 				
 				zeroCalibrationWrongPlus++;
-				console.log("zeroCalibrationWrongPlus "+zeroCalibrationWrongPlus);
+//				console.log("zeroCalibrationWrongPlus "+zeroCalibrationWrongPlus);
 				var ydataPulse=[];
-			    console.log(counterMasterJson);
+//			    console.log(counterMasterJson);
 				$("#knobZero").css({ transform: 'rotate('+rotate+'deg)' });
 				var temp1=(masterJson.demo1[0].resistance1).toFixed(4);
 				var temp2=(masterJson.demo1[0].calResis).toFixed(4);
@@ -374,7 +374,7 @@ function calibrateObservedValues(){
 								
 							 }
 						}	
-				console.log(ydataPulse);	
+//				console.log(ydataPulse);	
 				var chart = $('#graph2').highcharts();
 				
 				chart.series[1].setData(ydataPulse, false);
@@ -386,7 +386,7 @@ function calibrateObservedValues(){
 			$("#minusZero").click(function() {
 				zeroCalibrationWrongMinus++;
 				
-	   console.log("zeroCalibrationWrongMinus "+zeroCalibrationWrongMinus);
+//	   console.log("zeroCalibrationWrongMinus "+zeroCalibrationWrongMinus);
 				var ydataPulse=[];
 			
 				$("#knobZero").css({ transform: 'rotate('+rotate+'deg)' });
@@ -439,7 +439,7 @@ function calibrateObservedValues(){
 			
 			$("#minusMax").click(function() {
 				spanCalibrationWrongMinus++;
-	  			console.log("spanCalibrationWrongMinus "+spanCalibrationWrongMinus);
+//	  			console.log("spanCalibrationWrongMinus "+spanCalibrationWrongMinus);
 				var ydataPulse=[];
 			
 				$("#knobSpan").css({ transform: 'rotate('+rotate+'deg)' });
@@ -505,7 +505,7 @@ function calibrateObservedValues(){
 				 $("#plus2").click(function() {
 					  
 	  					 zeroCalibrationAgainPlus++;
-	  					 console.log("zeroCalibrationAgainPlus "+zeroCalibrationAgainPlus);
+//	  					 console.log("zeroCalibrationAgainPlus "+zeroCalibrationAgainPlus);
 						var ydataPulse=[];
 						var length= masterJson.demo1.length-1;
 						$("#knob2").css({ transform: 'rotate('+rotate+'deg)' });
@@ -561,7 +561,7 @@ function calibrateObservedValues(){
 					});
 				 $("#minus2").click(function() {
 					 zeroCalibrationAgainMinus++;
-						console.log("zeroCalibrationAgainMinus "+zeroCalibrationAgainMinus);
+//						console.log("zeroCalibrationAgainMinus "+zeroCalibrationAgainMinus);
 						var ydataPulse=[];
 						var length= masterJson.demo1.length-1;
 						$("#knob2").css({ transform: 'rotate('+rotate+'deg)' });
@@ -620,7 +620,7 @@ function calibrateObservedValues(){
 				var ydataPulse=[];
 				
 	 spanCalibrationWrongPlus++;
-	 console.log("spanCalibrationWrongPlus "+spanCalibrationWrongPlus);
+//	 console.log("spanCalibrationWrongPlus "+spanCalibrationWrongPlus);
 				$("#knobSpan").css({ transform: 'rotate('+rotate+'deg)' });
 //				var actualSpan =parseInt(masterJson.weight[length].meterPressureWithError);
 //				var stdSpan=parseInt(masterJson.weight[length].totalWeight);
