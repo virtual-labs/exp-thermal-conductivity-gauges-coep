@@ -48,7 +48,7 @@ function result(){
 		
 		ansZero = -(counterMasterJson.calibration.zeroAnswer*10000);
 	}
-	 console.log(ansZero);
+//	 console.log(ansZero);
 	 
 	var ansSpan = 0;
 	
@@ -64,8 +64,8 @@ function result(){
 		ansSpan1 = counterMasterJson.calibration.spanAnswer*10000;
 	
 	
-	console.log(ansZero);
-	console.log(ansSpan);
+//	console.log(ansZero);
+//	console.log(ansSpan);
 	var totSpanNew = 0;
 	
 	if(ansZero1<0 && ansSpan1<0 || ansZero1>0 && ansSpan1>0){
@@ -101,42 +101,42 @@ function result(){
 	var spanCalib1 = ansSpan/((parseInt(counterMasterJson.calibration.spanCalibrationForMinusWrong)+parseInt(counterMasterJson.calibration.spanCalibrationForWrongPlus))+ansSpan);
 	var spanCalibPer =   (spanCalib1*100).toFixed(1);
 	    spanCalibPer = parseFloat(spanCalibPer);  
-	console.log(spanCalibPer);
-	console.log(zeroCalibPer);
+//	console.log(spanCalibPer);
+//	console.log(zeroCalibPer);
 	
 	
 var correctVal = (counterMasterJson.questionary.correctAnswer/6).toFixed(2);
 var quesPercent = (correctVal*100).toFixed(1);
 quesPercent = parseFloat(quesPercent);
 
-console.log("quesPercent : "+quesPercent);
+//console.log("quesPercent : "+quesPercent);
 
     var wheatStone = ((1/(counterMasterJson.constLib.invalidCnt+1))*100).toFixed(1);
 	wheatStone = parseFloat(wheatStone);
-	console.log(wheatStone);
+//	console.log(wheatStone);
 	
 	var piCal1 = parseInt(counterMasterJson.standardCalculations.calResistance)+parseInt(counterMasterJson.standardCalculations.calOutput);
 	var piCal = ((10/(piCal1+10))*100).toFixed(1);
 	piCal = parseFloat(piCal);
-	console.log(piCal);
+//	console.log(piCal);
 	
 	var zeroCal = (1/(counterMasterJson.calibration.zeroWrong+1)*100).toFixed(1);
 	zeroCal = parseFloat(zeroCal);
-	console.log(zeroCal);
+//	console.log(zeroCal);
 	
 	var spanCal = (1/(counterMasterJson.calibration.spanWrong+1)*100).toFixed(1);
 	spanCal = parseFloat(spanCal);
-	console.log(spanCal);
+//	console.log(spanCal);
 	
 	var zeroPercentCal = parseFloat(zeroCalibPer)+parseFloat(zeroCal);
 	zeroPercentCal = zeroPercentCal.toFixed(1);
 	zeroPercentCal = parseFloat(zeroPercentCal);
-	console.log(zeroPercentCal);
+//	console.log(zeroPercentCal);
 	
 	var spanPercentCal = parseFloat(spanCalibPer)+parseFloat(spanCal);
 	spanPercentCal = spanPercentCal.toFixed(1);
 	spanPercentCal = parseFloat(spanPercentCal);
-	console.log("spanPercentCal :b "+spanPercentCal);
+//	console.log("spanPercentCal :b "+spanPercentCal);
 	
 	if(spanPercentCal>100){
 		spanPercentCal=100;
@@ -144,7 +144,7 @@ console.log("quesPercent : "+quesPercent);
 		spanPercentCal = spanPercentCal;
 	}
 	
-	console.log("spanPercentCal :a "+spanPercentCal);
+//	console.log("spanPercentCal :a "+spanPercentCal);
 	
 	
 	
@@ -477,8 +477,8 @@ var htm = ''
 
 $("#main-div").html(htm);
 
-console.log(spanCalibPer);
-	console.log(zeroCalibPer);
+//console.log(spanCalibPer);
+//	console.log(zeroCalibPer);
 
 let initialData = [
     { name: 'Questionaries', y: quesPercent },

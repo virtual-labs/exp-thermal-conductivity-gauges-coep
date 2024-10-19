@@ -176,7 +176,7 @@ function calculate(){
 //			 $("#pressVal1 option[id="+pressureValue+"]").css("background-color","#dacecf");
 					   
 //			 $("#pressVal1 option[id="+pressureValue+"]").attr("disabled",true);
-			 console.log("pressureValue "+pressureValue);
+//			 console.log("pressureValue "+pressureValue);
 			
 				temperatureValues();
 			
@@ -185,7 +185,7 @@ function calculate(){
 		      $("#submit_Press").prop("disabled",true); 
 		      $("#pressVal1").prop("disabled",true);
 		       $("#calRx").prop("hidden",false);   
-             console.log("temperatureValues"+tempVal);
+//             console.log("temperatureValues"+tempVal);
               tzt = paper.text(x+510,y+127,selectVal).attr({'stroke' : '#000' , "font-size":"18px","font-weight": "bold"});
 			  rect1.attr({"fill":"#deb1c0"});
 		      
@@ -578,17 +578,17 @@ function calculate(){
 //			a1 = parseFloat(a1);
 			a = (rx/a1);
 			a = parseFloat(a);
-			console.log("value of first term "+a);
+//			console.log("value of first term "+a);
 			b1 = r+r;
 			b = r/b1;
-			console.log("value of second term "+b);
+//			console.log("value of second term "+b);
 			vout1 = (a-b);
-			console.log("value of substraction "+vout1);
+//			console.log("value of substraction "+vout1);
 			vout2 = (vin * vout1);
 			vout3 = (vout2*1000).toFixed(2);
 			vout =  parseFloat(vout3);
 			
-			console.log("value of output "+vout);
+//			console.log("value of output "+vout);
 			
 			
 		}
@@ -622,7 +622,7 @@ function calculate(){
 							 tempJson.outputVoltage = vout;
 							 tempJson.pressureSort = selectVal; 
 							  arrayJson.push(tempJson);
-							   console.log(arrayJson);
+//							   console.log(arrayJson);
 							   masterJson.demo=arrayJson;	
 //							   masterJson.demo.sort(function(a, b){
 //						  return a.pressureSort - b.pressureSort;
@@ -632,14 +632,14 @@ function calculate(){
 						  });					   
 							  tableReading();
 //							   tableReadingAdded();
-							   console.log(masterJson);
+//							   console.log(masterJson);
 							   
 							   if(iteration==5){
 				         var tempCountJson ={};
 						tempCountJson.calResistance = incorrectRes; 
 						tempCountJson.calOutput = incorrectOutputCnt; 
 						counterMasterJson.standardCalculations = tempCountJson;
-						 console.log(counterMasterJson);
+//						 console.log(counterMasterJson);
 			              }
 							   
 	}		   

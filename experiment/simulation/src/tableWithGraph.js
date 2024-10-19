@@ -40,17 +40,17 @@ function graph1(){
 			graphData1.push(tempArr);
 
 	}
-		console.log("xdata "+xdata);
-		console.log("ydata "+ydata);
-		console.log("graphData1 "+graphData1);
+//		console.log("xdata "+xdata);
+//		console.log("ydata "+ydata);
+//		console.log("graphData1 "+graphData1);
 		ydata.sort(function(a, b) { return a - b });
 		xdata.sort(function(a, b) { return a - b });
-		console.log("After xdata "+xdata);
-		console.log("After ydata "+ydata);
+//		console.log("After xdata "+xdata);
+//		console.log("After ydata "+ydata);
 		Xmax = parseFloat(xdata[xdata.length - 1]);
 		Ymax = parseFloat(ydata[ydata.length - 1]);
-		console.log("Xmax "+Xmax);
-		console.log("Ymax "+Ymax);
+//		console.log("Xmax "+Xmax);
+//		console.log("Ymax "+Ymax);
 		
 		Xmin = parseFloat(xdata[0]);
 		Ymin = parseFloat(ydata[0]);
@@ -253,27 +253,27 @@ Highcharts.chart('table-design', {
 
 	}
 	
-		console.log("xdata "+xdata);
-		console.log("ydata "+ydata);
-		console.log("observation graph values"+graphData2);
+//		console.log("xdata "+xdata);
+//		console.log("ydata "+ydata);
+//		console.log("observation graph values"+graphData2);
 		x1data.sort(function(a, b) { return a - b });
 		y1data.sort(function(a, b) { return a - b });
 		
 		ydata.sort(function(a, b) { return a - b });
 		xdata.sort(function(a, b) { return a - b });
 		
-		console.log("After xdata "+xdata);
-		console.log("After ydata "+ydata);
+//		console.log("After xdata "+xdata);
+//		console.log("After ydata "+ydata);
 		Xmax = parseFloat(xdata[xdata.length - 1]);
 		Ymax = parseFloat(ydata[ydata.length - 1]);
 		
 		X1max = parseFloat(x1data[x1data.length - 1]);
 		X1min = parseFloat(x1data[0]);
 		
-		console.log("X1max "+X1max);
-		
-		console.log("Xmax "+Xmax);
-		console.log("Ymax "+Ymax);
+//		console.log("X1max "+X1max);
+//		
+//		console.log("Xmax "+Xmax);
+//		console.log("Ymax "+Ymax);
 		
 		Xmin = parseFloat(xdata[0]);
 		Ymin = parseFloat(ydata[0]);
@@ -292,8 +292,8 @@ if(yMaxDta1<yMaxDta2){
 }else{
 	Ymax = yMaxDta1;
 }
-console.log("graphData1 "+graphData1);
-console.log("graphData2 "+graphData2);
+//console.log("graphData1 "+graphData1);
+//console.log("graphData2 "+graphData2);
 
 
 			Highcharts.chart('graph2', {
