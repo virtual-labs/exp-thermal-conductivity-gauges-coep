@@ -36,6 +36,15 @@
 	margin-left:5px;
 	margin-right:5px;
 }
+
+.modal-header1{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+     background-color: #001f3f; /* Navy blue background */
+    color: white; /* White text color */
+   
+    }
 </style>
 <body>
 
@@ -70,38 +79,38 @@
 		
 		
 	
-	<div  class="row container" style="margin-top:20px;">
+	<div  class="row container" style="">
 	
 <div  class="col-sm-3" > 
-      <button type="button" id="delete-btn" class="btn btnMarin" data-dismiss="modal" style="margin-top:-1px;margin-bottom:15px;" hidden>Delete Selected</button>
+      <button type="button" id="delete-btn" class="btn btnMarin" data-dismiss="modal" style="margin-top:5px;margin-bottom:5px;" hidden>Delete Selected</button>
      </div>
      
      <div  class="col-sm-3"> 
-      <button type="button" id="validateCon" class="btn-primary btnMarin" data-dismiss="modal" data-toggle="modal" data-target="#myModal" style="margin-top:-1px;margin-bottom:15px;padding: 7px; border-radius: 5px;" hidden>Validate Connection</button>
+      <button type="button" id="validateCon" class="btn-primary btnMarin" data-dismiss="modal" data-toggle="modal" data-target="#myModal" style="margin-top:5px;margin-bottom:5px;padding: 7px; border-radius: 5px;" hidden>Validate Connection</button>
      </div>	
 	
 	<div  class="col-sm-2"> 
-	     <button type="button" class="btn btn-primary btnMarin" data-toggle="modal" style="margin-bottom:15px;" data-target="#exampleModal" id = "btnForModal">
+	      <button type="button" class="btn btn-primary btnMarin" data-toggle="modal" style="margin-top:7px;margin-bottom:5px;" data-target="#exampleModal1" id = "btnForModal">
 	  Procedure
 	</button>
 	</div>
 	
 	<div class="col-lg-3">
-	 <button type="button" id="calibrateLevel" class="btn btn-danger btnMarin" data-dismiss="modal" style = "margin-bottom:15px;" hidden>Next Level</button>
+	 <button type="button" id="calibrateLevel" class="btn btn-danger btnMarin" data-dismiss="modal" style = "margin-bottom:15px;margin-top:7px;" hidden>Next Level</button>
 	</div>
-
+ </div>
 <!-- <div  class="col-sm-4"> </div> -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Procedure</h5>
+      <div class="modal-header1" >
+        <h3 class="modal-title1" id="exampleModalLabel">Procedure</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body1" style="    overflow-y: scroll;height:600px;margin-left:10px; ">
+      <div class="modal-body11" style="    overflow-y: scroll;height:600px;margin-left:10px; ">
         ...
       </div>
       <div class="modal-footer">
@@ -111,8 +120,30 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<!--   <div class="modal-dialog modal-lg" role="document"> -->
+<!--     <div class="modal-content"> -->
+<!--       <div class="modal-header"> -->
+<!--         <h5 class="modal-title" id="exampleModalLabel">Procedure</h5> -->
+<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+<!--           <span aria-hidden="true">&times;</span> -->
+<!--         </button> -->
+<!--       </div> -->
+<!--       <div class="modal-body1" style="    overflow-y: scroll;height:600px;margin-left:10px; "> -->
+<!--         ... -->
+<!--       </div> -->
+<!--       <div class="modal-footer"> -->
+<!--         <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button> -->
+<!-- <!--         <button type="button" class="btn btn-primary">OK</button> --> 
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </div> -->
  
- </div>
+
 <div  class="row container-fluid" id="main-div" >
 
 
@@ -231,9 +262,7 @@ function resetDivSize() {
 </script>
 <script>
  var htm = '';
- htm += '<h1>Procedure</h1>'
-
- +'<h3>Basic Knowledge -</h3>'
+ htm += '<h3>Basic Knowledge -</h3>'
  +'<ol>'
  +'<li>Answer all the questions and click on "Submit Test" button.</li>'
  +' <li>Click on "Next level".</li>'
@@ -278,7 +307,9 @@ function resetDivSize() {
    +' <li>When span error is calibrated, it disturbs zero. Again zero is adjusted.</li>'
    +'</ol>'
 
- $(".modal-body1").html(htm);
+//  $(".modal-body1").html(htm);
+   $(".modal-body11").html(htm);
+   $(".modal-title1").html("Procedure");
 
 </script>
 </html>
