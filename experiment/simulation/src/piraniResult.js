@@ -92,7 +92,7 @@ function generatePDF() {
 
 
 $("#pdfDownload").on("click", function(){
-	console.log("click event generated");
+//	console.log("click event generated");
 	generatePDF();
 })	
 
@@ -872,6 +872,8 @@ let initialData = [
 //
 //// Create the pie chart
 let chart = Highcharts.chart('graph-div', {
+	exporting: { enabled: false },
+				credits: { enabled: false},
     chart: {
         type: 'pie'
     },
