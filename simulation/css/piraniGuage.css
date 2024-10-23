@@ -1,0 +1,133 @@
+.selectConf{
+	
+     height: auto;
+/*     background-color: #3e5064; */
+/*     color: #fff; */
+    font-size: 18px;
+}
+.panelHeadingBold{
+	font-size:21px;
+}
+.labelstyle
+{
+	font-size:17px;
+}
+#msgBox{
+/* 	background-color:red; */
+	margin:20px;
+	font-size:20px;
+}
+.validMaterialMsgStyle{
+	color: #fff;
+    font-size: 19px;
+    padding: 10px;
+}
+hr.new3 {
+  border-top: 10px dotted red;
+}
+
+#temp,#outputVoltage,#pressVal,#calRx,#temp1,#temp12,#pressVal1,#pressVal12
+{
+			background-color: #c5c5e2;
+			color:black;
+			padding:5px 5px 5px 5px;
+			margin: 5px;
+}
+
+#calVoltage{
+	background-color: #072647;
+			color:#fff;
+			padding:5px 20px 5px 5px;
+			margin: 5px;
+}
+
+#labelSelected{
+	background-color: #2c3c4c;
+    color: #fff;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+}	
+#testSubmit
+{
+	padding: 10px;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 10px;
+	background-color: #212529;
+	margin: 20px 10px;;
+	letter-spacing: 1px;
+	font-weight: bold;
+/* 	box-shadow: 0 5px #999; */
+}
+#questionDiv .queno
+{ background-color: #1d2b37;
+    padding: 8px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+    font-family: Cambria, Georgia, serif;
+ }
+ 
+ #testSubmit,#nextLevelConfig
+{
+	padding: 10px;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 10px;
+	background-color: #212529;
+	margin: 20px 10px;;
+	letter-spacing: 1px;
+	font-weight: bold;
+/* 	box-shadow: 0 5px #999; */
+}
+.nextLevelBtn {
+	padding: 10px;
+    border-radius: 10px;
+    background-color: #212529;
+    color: #fff;
+    margin: 20px 10px;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+.panel-primary>.panel-heading,.card-header,.modal-header {
+background-color:#072647;
+	color:#fff;
+	border-color:blue;	
+}	
+.boldTextBlue{
+	color:Blue;
+	letter-spacing: 0px;
+	font-size: 18px;
+}
+.boldTextRed{
+	color:Red;
+	letter-spacing: 0px;
+	font-size: 18px;
+}
+.boldTextGreen{
+	color:green;
+	letter-spacing: 0px;
+	font-size: 18px;
+}
+.model
+{
+	padding:0px;
+}  
+
+#alertMsgBox{
+	margin-top:25px;
+}
+
+#temp
+{
+			background-color: #2c3c4c;
+    color: #fff;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.highcharts-point 
+{
+/* 	fill:#b8177e; */
+}

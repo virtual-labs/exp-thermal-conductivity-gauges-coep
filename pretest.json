@@ -1,0 +1,68 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "The working principle of pirani gauge is: ",
+      "answers": {
+        "a": "change in thermal conductivity",
+        "b": "change in ionization potential",
+        "c": "deformation of elastic body",
+        "d": "change in self - inductance"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+
+	
+    {
+      "question": "In a Pirani gauge, the pressure is related to the ________.",
+      "answers": {
+        "a": "volume of the gas",
+        "b": "thermal conductivity of the gas",
+        "c": "mass transfer of the gas",
+        "d": "composition of the gas"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },	
+ 
+    {
+      "question": "A Pirani gauge sensor is used to measure pressure of the order of",
+      "answers": {
+        "a": "10 MPa",
+        "b": "1 Pa",
+        "c": "100 Pa",
+        "d": "1 MPa"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+  
+	
+	{
+      "question": "The correct relationship between gauge pressure, atmospheric pressure and absolute pressure is",
+      "answers": {
+        "a": "Gauge pressure = Atmospheric pressure - Absolute pressure",
+        "b": "Gauge pressure = Atmospheric pressure + Absolute pressure",
+        "c": "Absolute pressure = Atmospheric pressure + Gauge pressure",
+        "d": "None of these"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "The history of Pirani Gauge is?",
+      "answers": {
+        "a": "1998-Eugene Bourdon",
+        "b": "1856-J.R. Brown and Sharpe",
+        "c": "1830-Sir Joseph Whitworth ",
+        "d": "1906-Marcello Stefano Pirani"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    }
+	
+ 
+  ]
+}
