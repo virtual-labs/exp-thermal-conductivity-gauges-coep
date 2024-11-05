@@ -54,12 +54,12 @@
     },
 
 	{
-      "question": "Semiconductors used for temperature measurement are called _______.",
+      "question": "Thermal conductivity measurement is used for the determination of ______?",
       "answers": {
-        "a": "thermistors",
-        "b": "thermopiles",
-        "c": "resistance temperature detectors",
-        "d": "pyrometers"
+        "a": "Carbon-dioxide percentage in the flue gas ",
+        "b": "Oxygen percentage in the flue gas ",
+        "c": "Specific gravity of petrofuels",
+        "d": "Composition of an alloy"
       },
      
       "correctAnswer": "a",

@@ -51,6 +51,48 @@
     #canvas-div{
     width:100%;
     }
+	
+	.button1 {
+  background-color: #004A7F;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 15px;
+ padding: 5px 10px; 
+  text-align: center;
+  text-decoration: none;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+@-webkit-keyframes glowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 20px #FF0000; }
+  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+@keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
 </style>
 <body>
 
@@ -105,7 +147,7 @@
      </div>	
 	
 	<div  class="col-sm-2"> 
-	      <button type="button" class="btn btn-danger btnMarin" data-toggle="modal" style="margin-top:7px;margin-bottom:5px;" data-target="#exampleModal1" id = "btnForModal">
+	      <button type="button" class="btn btn-danger btnMarin button1" data-toggle="modal" style="margin-top:7px;margin-bottom:5px;" data-target="#exampleModal1" id = "btnForModal">
 	  Procedure
 	</button>
 	
@@ -344,6 +386,7 @@ function resetDivSize() {
 
  +'<h3>Calibration:-</h3>'
  +'<ol>'
+ +'<li>Calibrate pirani gauge as per standard by below steps</li>'
  +'<li>Calculate zero error (zero error = actual reading - observed reading)</li>'
    +'<li>Calculate span error (span error = actual reading - observed reading)</li>'
    +'<li>Observe the graph and then adjust zero point on the graph by clicking on "plus" and "minus" buttons</li>'
