@@ -28,6 +28,7 @@
 - Observe the difference between standard value and actual value and on "Next Level" button on the top
 
 ### Calibration:-
+- Calibrate pirani gauge as per standard by below steps
 - Calculate zero error (zero error = actual reading - observed reading)
 - Calculate span error (span error = actual reading - observed reading)
 - Observe the graph and then adjust zero point on the graph by click on "plus" and "minus" buttons 
