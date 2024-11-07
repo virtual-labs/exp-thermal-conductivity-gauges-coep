@@ -32,11 +32,6 @@
  src: url('font/digital-7.ttf');
 }
 
-.btnMarin {
-	margin-left:5px;
-	margin-right:5px;
-}
-
 .modal-header1{
     text-align: center;
     font-size: 22px;
@@ -51,18 +46,19 @@
     #canvas-div{
     width:100%;
     }
-	
-	.button1 {
+    
+    
+    .button1 {
   background-color: #004A7F;
   -webkit-border-radius: 10px;
-  border-radius: 10px;
+  border-radius: 4px;
   border: none;
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
   font-family: Arial;
-  font-size: 15px;
- padding: 5px 10px; 
+/*   font-size: 15px; */
+/*  padding: 5px 10px;  */
   text-align: center;
   text-decoration: none;
   -webkit-animation: glowing 1500ms infinite;
@@ -92,7 +88,9 @@
   0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
   50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
   100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-}
+}   
+    
+    
 </style>
 <body>
 
@@ -103,27 +101,6 @@
 	</header>	
 
 
-<!--   <div  class="row container" style="margin-top:20px;"> -->
-<!-- 	<div  class="col-sm-1"> -->
-
-<!-- 	 </div> -->
-<!-- 	<div  class="col-sm-3"> -->
-	
-<!-- 	 </div> -->
-	
-<!--      <div  class="col-sm-4">  -->
-      
-<!--       </div> -->
-   
-<!--    <div  class="col-sm-2">  -->
-<!--       <button type="button" id="delete-btn" class="btn" data-dismiss="modal" style="margin-top:-1px;margin-bottom:15px;" hidden>Delete Selected</button> -->
-<!--      </div> -->
-     
-<!--      <div  class="col-sm-2">  -->
-<!--       <button type="button" id="validateCon" class="btn-info" data-dismiss="modal" data-toggle="modal" data-target="#myModal" style="margin-top:-1px;margin-bottom:15px;" hidden>Validate Connection</button> -->
-<!--      </div> -->
-
-<!--       </div> -->
 		
 	<div  class="row container" style="">	
 	  <div  class="col-sm-10" >
@@ -136,30 +113,43 @@
 	</div>
 	</div>
 	
-	<div  class="row container" style="">
-	
-<div  class="col-sm-3" > 
-      <button type="button" id="delete-btn" class="btn btnMarin" data-dismiss="modal" style="margin-top:5px;margin-bottom:5px;" hidden>Delete Selected</button>
-     </div>
-     
-     <div  class="col-sm-3"> 
-      <button type="button" id="validateCon" class="btn-primary btnMarin" data-dismiss="modal" data-toggle="modal" data-target="#myModal" style="margin-top:5px;margin-bottom:5px;padding: 7px; border-radius: 5px;" hidden>Validate Connection</button>
-     </div>	
-	
-	<div  class="col-sm-2"> 
-	      <button type="button" class="btn btn-danger btnMarin button1" data-toggle="modal" style="margin-top:7px;margin-bottom:5px;" data-target="#exampleModal1" id = "btnForModal">
-	  Procedure
-	</button>
-	
-	
-	
-	</div>
-	
-	<div class="col-lg-3">
-	 <button type="button" id="calibrateLevel" class="btn btn-danger btnMarin" data-dismiss="modal" style = "margin-bottom:15px;margin-top:7px;" hidden>Next Level</button>
+<div  class="row container-fluid">	
+	<div  class="col-sm-12" >      
+      <button type="button" id="calibrateLevel" class="btn btn-danger btn1" data-dismiss="modal" hidden><b>Next Level</b></button>
+	  <button type="button" id="simDemo" class="btn btn-danger btn1" data-toggle="modal" data-target="#readProcedureModal1"><b>Simulation Demo</b> </button>
+	  <button type="button" id="btnForModal" class="btn btn-danger btn1 button1" data-toggle="modal" data-target="#exampleModal1"><b> Procedure </b></button>
+      <button type="button" id="validateCon" class="btn btn-primary btn1" data-dismiss="modal" data-toggle="modal" data-target="#myModal" hidden><b>Validate Connection</b></button>
+	  <button type="button" id="delete-btn" class="btn btn1" data-dismiss="modal" hidden><b>Delete Selected</b></button>	
 	</div>
  </div>
-<!-- <div  class="col-sm-4"> </div> -->
+
+
+<div id="readProcedureModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog  modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header1">
+        <h3 class="modal-title12">DEMO</h3>
+<!--         <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+      </div>
+      <div class="modal-body12">
+ 
+
+<center><video id="simVideo" width="90%" controls>
+    <source src="images/simulation.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video></center>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -170,8 +160,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body11" style="    overflow-y: scroll;height:600px;margin-left:10px; ">
-        ...
+      <div class="modal-body11" style="overflow-y: scroll;height:600px;margin-left:10px; ">
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -181,28 +171,6 @@
   </div>
 </div>
 
-
-
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
-<!--   <div class="modal-dialog modal-lg" role="document"> -->
-<!--     <div class="modal-content"> -->
-<!--       <div class="modal-header"> -->
-<!--         <h5 class="modal-title" id="exampleModalLabel">Procedure</h5> -->
-<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
-<!--           <span aria-hidden="true">&times;</span> -->
-<!--         </button> -->
-<!--       </div> -->
-<!--       <div class="modal-body1" style="    overflow-y: scroll;height:600px;margin-left:10px; "> -->
-<!--         ... -->
-<!--       </div> -->
-<!--       <div class="modal-footer"> -->
-<!--         <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button> -->
-<!-- <!--         <button type="button" class="btn btn-primary">OK</button> --> 
-<!--       </div> -->
-<!--     </div> -->
-<!--   </div> -->
-<!-- </div> -->
- 
 
 <div  class="row container-fluid" id="main-div" >
 
@@ -273,27 +241,17 @@ Copyrights &copy; COEP - Virtual Lab
 </footer>
 </body>
 
-<!-- https://code.jquery.com/jquery-3.5.1.js -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="lib/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
 <script type="text/javascript" src="lib/raphael.js"></script>
 <script type="text/javascript" src="lib/raphael.min.js"></script>
-
-
-
-<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  
-<!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
-  
-<!--   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   
   <script type="text/javascript" src="src/bootstrap.min.js"></script>
@@ -307,19 +265,6 @@ Copyrights &copy; COEP - Virtual Lab
 
 <script type="text/javascript" src="src/wheatStoneBuild.js"></script>
 
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script> -->
-<!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
-  
-<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
-<!--     Include jsPDF library -->
-<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
-  
-  
-<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-
- 
 
 <script type="text/javascript" src="src/piraniCalculate.js"></script>
 <script type="text/javascript" src="src/table.js"></script>
@@ -347,6 +292,52 @@ function resetDivSize() {
 }  
 </script>
 <script>
+$('#readProcedureModal1').click(function(){
+	 $('video').each(function(){
+		    $(this).get(0).pause();
+		  })
+	})
+
+$("#simDemo").on("click", function(){
+	
+	var video = document.getElementById("simVideo");
+
+	// Define the start and end skip times (in seconds)
+	var skipStart = 0;  // Skip the first 5 seconds
+	var skipEnd = 7;    // Skip the last 5 seconds
+
+// 	video.onloadedmetadata = function() { 
+	    // Get the duration of the video
+	    var videoDuration = video.duration;
+
+	    // Ensure the video plays between skipStart and (duration - skipEnd)
+	    video.currentTime = skipStart;
+
+	    // Event listener to pause the video when it reaches the end limit (video duration - skipEnd)
+	    video.ontimeupdate = function() {
+	        if (video.currentTime >= videoDuration - skipEnd) {
+	            video.pause();
+	        }
+	    };
+
+	    // Prevent seeking outside the allowed time range
+	    video.addEventListener('seeking', function(event) {
+	        // If seeking before the start time or after the allowed end time, reset the current time
+	        if (video.currentTime < skipStart) {
+	            video.currentTime = skipStart;
+	        } else if (video.currentTime > videoDuration - skipEnd) {
+	            video.currentTime = videoDuration - skipEnd;
+	        }
+	    });
+// 	};
+	
+	video.play();
+})
+
+</script>
+<script>
+
+$("#btnForModal").on("click", function(){
  var htm = '';
  htm += '<h3>Basic Knowledge -</h3>'
  +'<ol>'
@@ -386,7 +377,6 @@ function resetDivSize() {
 
  +'<h3>Calibration:-</h3>'
  +'<ol>'
- +'<li>Calibrate pirani gauge as per standard by below steps</li>'
  +'<li>Calculate zero error (zero error = actual reading - observed reading)</li>'
    +'<li>Calculate span error (span error = actual reading - observed reading)</li>'
    +'<li>Observe the graph and then adjust zero point on the graph by clicking on "plus" and "minus" buttons</li>'
@@ -397,6 +387,6 @@ function resetDivSize() {
 //  $(".modal-body1").html(htm);
    $(".modal-body11").html(htm);
    $(".modal-title1").html("Procedure");
-
+});
 </script>
 </html>

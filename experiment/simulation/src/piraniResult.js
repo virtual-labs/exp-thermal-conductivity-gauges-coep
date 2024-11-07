@@ -1,6 +1,7 @@
 function result(){
 	
 	$("#btnForModal").prop("hidden",true);
+	$("#simDemo").prop("hidden",true);
 	$("#pdfDownload").prop("hidden",false);
 	
 	$("#main-div-conf").html("");
