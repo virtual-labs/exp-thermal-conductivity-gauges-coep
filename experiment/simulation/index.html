@@ -306,7 +306,7 @@ $("#simDemo").on("click", function(){
 	var skipStart = 0;  // Skip the first 5 seconds
 	var skipEnd = 7;    // Skip the last 5 seconds
 
-// 	video.onloadedmetadata = function() { 
+//	video.onloadedmetadata = function() { 
 	    // Get the duration of the video
 	    var videoDuration = video.duration;
 
@@ -317,6 +317,7 @@ $("#simDemo").on("click", function(){
 	    video.ontimeupdate = function() {
 	        if (video.currentTime >= videoDuration - skipEnd) {
 	            video.pause();
+				video.currentTime = skipStart;
 	        }
 	    };
 
@@ -326,13 +327,15 @@ $("#simDemo").on("click", function(){
 	        if (video.currentTime < skipStart) {
 	            video.currentTime = skipStart;
 	        } else if (video.currentTime > videoDuration - skipEnd) {
-	            video.currentTime = videoDuration - skipEnd;
+	            //video.currentTime = videoDuration - skipEnd;
+				video.currentTime = skipStart;
 	        }
 	    });
-// 	};
+//	};
 	
 	video.play();
 })
+
 
 </script>
 <script>
