@@ -10,10 +10,20 @@
             stroke: red !important;
             stroke-width: 4 !important;
         }
-        #delete-btn {
-            display: block;
-            margin: 10px auto;
-            padding: 10px;
+        
+        .btn1 {
+        margin-left:10px;
+        margin-right: 10px;
+        margin-top:7px;
+        float:right;
+        margin-bottom:10px;
+        padding: 7px; 
+        border:none; 
+        border-radius: 5px;
+        }
+        
+        #delete-btn {            
+            padding: 7px;
             background-color: red;
             color: white;
             border: none;
