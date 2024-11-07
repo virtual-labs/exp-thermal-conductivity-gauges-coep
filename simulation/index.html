@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title> Pirani guage </title>
+<meta charset="ISO-8859-1">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" > -->
+    <link rel="stylesheet" href=" https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--     <link href="https://fonts.cdnfonts.com/css/digital-numbers" rel="stylesheet"> -->
+
+   <link rel="stylesheet" href="css/header.css">
+<!--     <link rel="stylesheet" href="css/main.css"> -->
+	<link rel="stylesheet" href="css/mainPage.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/piraniGuage.css">
+	<link rel="stylesheet" href="css/analysis.css">
+
+
+
+
+</head>
+
+<style>
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('font/digital-7.ttf');
+}
+
+.modal-header1{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+     background-color: #001f3f; /* Navy blue background */
+    color: white; /* White text color */
+   
+    }
+    #main-div-conf{
+    width:100%;
+    }
+    #canvas-div{
+    width:100%;
+    }
+    
+    
+    .button1 {
+  background-color: #004A7F;
+  -webkit-border-radius: 10px;
+  border-radius: 4px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+/*   font-size: 15px; */
+/*  padding: 5px 10px;  */
+  text-align: center;
+  text-decoration: none;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+@-webkit-keyframes glowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 20px #FF0000; }
+  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+@keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}   
+    
+    
+</style>
+<body>
+
+<header>
+		<img class="COEPLogo" src='images/COEPlogo.png' />
+		<img class="VlabLogo" src='images/vlablogo.jpg' />
+		<span id="colgName">COEP TECHNOLOGICAL UNIVERSITY PUNE</span>		
+	</header>	
+
+
+		
+	<div  class="row container" style="">	
+	  <div  class="col-sm-10" >
+	  </div>
+	   <div  class="col-sm-2" >
+		<button type="button" class="btn btn-danger" style="margin-top:7px;margin-bottom:5px;"  id = "pdfDownload" hidden>
+	  Download Report
+	 
+	</button>
+	</div>
+	</div>
+	
+<div  class="row container-fluid">	
+	<div  class="col-sm-12" >      
+      <button type="button" id="calibrateLevel" class="btn btn-danger btn1" data-dismiss="modal" hidden><b>Next Level</b></button>
+	  <button type="button" id="simDemo" class="btn btn-danger btn1" data-toggle="modal" data-target="#readProcedureModal1"><b>Simulation Demo</b> </button>
+	  <button type="button" id="btnForModal" class="btn btn-danger btn1 button1" data-toggle="modal" data-target="#exampleModal1"><b> Procedure </b></button>
+      <button type="button" id="validateCon" class="btn btn-primary btn1" data-dismiss="modal" data-toggle="modal" data-target="#myModal" hidden><b>Validate Connection</b></button>
+	  <button type="button" id="delete-btn" class="btn btn1" data-dismiss="modal" hidden><b>Delete Selected</b></button>	
+	</div>
+ </div>
+
+
+<div id="readProcedureModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog  modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header1">
+        <h3 class="modal-title12">DEMO</h3>
+<!--         <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+      </div>
+      <div class="modal-body12">
+ 
+
+<center><video id="simVideo" width="90%" controls>
+    <source src="images/simulation.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video></center>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header1" >
+        <h3 class="modal-title1" id="exampleModalLabel">Procedure</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body11" style="overflow-y: scroll;height:600px;margin-left:10px; ">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+<!--         <button type="button" class="btn btn-primary">OK</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div  class="row container-fluid" id="main-div" >
+
+
+<div class="col-lg-6" id="canvas" style="width:100%;">
+	             <div class="panel panel-primary" >
+	      			<div class="panel-heading " id="panelHeading2" ><center id="centerText2"> DIAGRAM</center>
+	      			</div>
+<!-- 	      			<label  id="counter"></label> -->
+	      			<div class="panel-body" id="canvas-div" >
+	      			
+	      			<img src="images/piraniDiag1.jpg"  class="img-fluid" >
+	      			
+<!-- 	      			<img src="images/digital-pirani-gauge.png "  class="img-fluid" > -->
+	      			
+	      			</div>
+					<div class="panel-body" id="table-design" >
+<!-- 	      			<img src="images/digital-pirani-gauge.png "  class="img-fluid" > -->
+	      			</div>
+	      			
+	   			</div>
+	       </div>
+	<div class="col-lg-6" id="canvas2"  style="width:100%;">
+	        
+				<div class="panel panel-primary">
+	      			<div class="panel-heading " id="panelHeading1"><center id="centerText1">BASIC KNOWLEDGE </center>
+	      			</div>
+	     			<div class="panel-body" id="main-div-conf" >
+	     			          
+
+	     			</div>
+	     		<div class="panel-body" id="graph2" >
+
+	      			</div>
+	     		</div>
+	   	</div>
+	   
+
+			
+	</div>
+	
+	<!-- 	Model Start -->
+	<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+		<h4 class="modal-title" style="font-weight: 600;"></h4>
+          <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
+          
+        </div>
+        <div class="modal-body">
+          <p id="MsgModal"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btnModal" class="btn" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!--   Model end -->
+	
+	
+	<footer>
+Copyrights &copy; COEP - Virtual Lab
+</footer>
+<script src="../assets/js/iframeResize.js"></script></body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+<script type="text/javascript" src="lib/raphael.js"></script>
+<script type="text/javascript" src="lib/raphael.min.js"></script>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+  <script type="text/javascript" src="src/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript" src="src/questionJson.js"></script>
+<script type="text/javascript" src="src/questions.js"></script>
+<script type="text/javascript" src="src/piraniConfig.js"></script>
+
+<script type="text/javascript" src="src/wheatStoneBuild.js"></script>
+
+
+<script type="text/javascript" src="src/piraniCalculate.js"></script>
+<script type="text/javascript" src="src/table.js"></script>
+<script type="text/javascript" src="src/digitalMeterCalculate.js"></script>
+<script type="text/javascript" src="src/digitalTable.js"></script>
+<script type="text/javascript" src="src/tableWithGraph.js"></script>
+<script type="text/javascript" src="src/calibiration.js"></script>
+<script type="text/javascript" src="src/piraniResult.js"></script>
+
+
+<script>
+function resetDivSize() {  
+    const div = document.getElementById('canvas-div');  
+    
+    // Resetting width and height to auto  
+    div.style.width = 'auto';  
+    div.style.height = 'auto'; 
+    
+ const div1 = document.getElementById('main-div-conf');  
+    
+    // Resetting width and height to auto  
+    div1.style.width = 'auto';  
+    div1.style.height = 'auto';  
+    
+}  
+</script>
+<script>
+$('#readProcedureModal1').click(function(){
+	 $('video').each(function(){
+		    $(this).get(0).pause();
+		  })
+	})
+
+$("#simDemo").on("click", function(){
+	
+	var video = document.getElementById("simVideo");
+
+	// Define the start and end skip times (in seconds)
+	var skipStart = 0;  // Skip the first 5 seconds
+	var skipEnd = 7;    // Skip the last 5 seconds
+
+//	video.onloadedmetadata = function() { 
+	    // Get the duration of the video
+	    var videoDuration = video.duration;
+
+	    // Ensure the video plays between skipStart and (duration - skipEnd)
+	    video.currentTime = skipStart;
+
+	    // Event listener to pause the video when it reaches the end limit (video duration - skipEnd)
+	    video.ontimeupdate = function() {
+	        if (video.currentTime >= videoDuration - skipEnd) {
+	            video.pause();
+				video.currentTime = skipStart;
+	        }
+	    };
+
+	    // Prevent seeking outside the allowed time range
+	    video.addEventListener('seeking', function(event) {
+	        // If seeking before the start time or after the allowed end time, reset the current time
+	        if (video.currentTime < skipStart) {
+	            video.currentTime = skipStart;
+	        } else if (video.currentTime > videoDuration - skipEnd) {
+	            //video.currentTime = videoDuration - skipEnd;
+				video.currentTime = skipStart;
+	        }
+	    });
+//	};
+	
+	video.play();
+})
+
+
+</script>
+<script>
+
+$("#btnForModal").on("click", function(){
+ var htm = '';
+ htm += '<h3>Basic Knowledge -</h3>'
+ +'<ol>'
+ +'<li>Answer all the questions and click on "Submit Test" button</li>'
+ +' <li>Click on "Next level"</li>'
+ +' </ol>'
+
+ +'<h3>Construction of Wheatstone bridge:-</h3>'
+ +'<ol>'
+ +' <li>Click on a component from the left panel to select it. The selected component will appear on the right, where you can drag and drop the component to adjust its position</li>'
+ +' <li>You can select any image or connection and click the delete button to modify it, if needed</li>'
+ +' <li>Use drag-and-drop to connect the ports and construct the Wheatstone bridge</li>'
+ +' <li>After making the connections, click the "Validate Connection" button to verify them. If the connections are incorrect three times, a popup message will appear, and on the fourth attempt, a hint will be provided. If the connections are correct, you will be redirected to the next page</li>'
+ +'</ol>'
+
+ +'<h3>Standard Calculation:-</h3>'
+ +'<ol>'
+ +'<li>Select pressure range between 0.001 to 0.1 torr</li>'
+   +'<li>After submitting pressure, another panel will appear where you have to enter temperature. Here temperature range is between 50 to 60 degrees K</li>'
+   +'<li>After submitting the temperature, calculate the value of Rx. Once the value of Rx is submitted successfully, another panel will appear where you have to calculate output voltage Vout (mV)</li>'
+   +'<li>After clicking on submit, click on "Next Reading" and repeat the procedure. This part shows standard calculated values</li>'
+   +'<li>After 5 iterations, click on the "Next Level" button</li>'
+   +'</ol>'
+
+ +'<h3>Actual Calculation:-</h3>'
+ +'<ol>'
+ +'<li>Enter pressure range between 0.001 to 0.1 torr</li>'
+   +'<li>After submitting pressure, another panel will appear where you have to enter temperature. Here temperature range is between 50 to 60 degrees K. Here the actual values of Rx will be displayed</li>'
+   +'<li>Click on "Submit". Here the actual values of output voltage can be observed</li>'
+   +'<li>Click on "Next Reading". Observe the same for other values</li>'
+   +'</ol>'
+
+ +'<h3>Observation:-</h3>'
+ +'<ol>'
+ +'<li>Observe the difference between the standard value and actual value and click on "Next Level" button on the top</li>'
+   +'</ol>'
+
+ +'<h3>Calibration:-</h3>'
+ +'<ol>'
+ +'<li>Calculate zero error (zero error = actual reading - observed reading)</li>'
+   +'<li>Calculate span error (span error = actual reading - observed reading)</li>'
+   +'<li>Observe the graph and then adjust zero point on the graph by clicking on "plus" and "minus" buttons</li>'
+   +'<li>Once zero error is calibrated, then calibrate span error with the same process</li>'
+   +' <li>When span error is calibrated, it disturbs zero. Again zero is adjusted</li>'
+   +'</ol>'
+
+//  $(".modal-body1").html(htm);
+   $(".modal-body11").html(htm);
+   $(".modal-title1").html("Procedure");
+});
+</script>
+</html>

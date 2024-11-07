@@ -1,0 +1,69 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What material is used in Pirani gauge?",
+      "answers": {
+        "a": "gold plated tungsten or platinum",
+        "b": "Copper and Platinum",
+        "c": "Tungsten or Aluminium",
+        "d": "Inconel"
+      },
+  
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Pirani Gauge is used for which type of transducer?",
+      "answers": {
+        "a": "Pressure transducer",
+        "b": "Temperature transducer",
+        "c": "Light transducer",
+        "d": "Mechanical transducer"
+      },
+     
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "A pressure gauge used to measure vacuum indicates a gauge pressure of 5 kPa. If the atmospheric pressure is 100 kPa, the absolute pressure is",
+      "answers": {
+        "a": "0.05 kPa",
+        "b": "105 kPa",
+        "c": "95 kPa",
+        "d": "20 kPa"
+      },
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },	
+
+	
+	{
+      "question": "What are the different types of Pirani gauges?",
+      "answers": {
+        "a": "Pulsed Pirani Gauge",
+        "b": "Wire Gauge",
+        "c": "Bourdon gauge",
+        "d": "Feeler gauge"
+      },
+     
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+
+	{
+      "question": "Thermal conductivity measurement is used for the determination of ______?",
+      "answers": {
+        "a": "Carbon-dioxide percentage in the flue gas ",
+        "b": "Oxygen percentage in the flue gas ",
+        "c": "Specific gravity of petrofuels",
+        "d": "Composition of an alloy"
+      },
+     
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+  ]
+}
